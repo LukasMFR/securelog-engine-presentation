@@ -77,3 +77,15 @@ au plein écran 1920×1080. La surface libérée en haut, les marges latérales
 réduites et les blocs techniques agrandis donnent davantage de place au texte,
 aux graphiques et au code. La navigation au clavier, l’aide, les notes et les
 huit étapes du rejeu ont été vérifiées.
+
+### Composition plein écran
+
+Les groupes de contenu sont centrés verticalement dans l’espace de projection.
+Les marges latérales restent symétriques. À 2560×1440, la diapositive 14 passe
+de 1600 à 2384 px de largeur utile. L’espace entre les panneaux et les
+commandes passe de 491 à 62 px. Les chiffres, le graphique et le terminal
+grandissent avec la fenêtre.
+
+Chrome a parcouru les 20 diapositives sur neuf formats. Le contenu tient
+sans défilement et reste dégagé des commandes à 2560×1440, 1920×1080,
+1440×900, 1280×720 et 1024×768.

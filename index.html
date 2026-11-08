@@ -6,7 +6,7 @@
 <title>SecureLog Engine · Présentation ING3</title>
 <script>document.documentElement.classList.add('m-enter');</script>
 <style>
-:root{--paper:#f3f4ef;--ink:#142622;--muted:#52665c;--line:#cbd5cc;--surface:#e5ece4;--night:#10231f;--panel:#142c26;--lime:#c5f77c;--lime-deep:#497230;--danger:#dc674c;--blue:#5488a0;--gold:#d5a34b;--orange:#e18c68;--dock-clearance:84px;--gutter:clamp(30px,4.45vw,72px);--curve:cubic-bezier(.2,.8,.2,1)}
+:root{--paper:#f3f4ef;--ink:#142622;--muted:#52665c;--line:#cbd5cc;--surface:#e5ece4;--night:#10231f;--panel:#142c26;--lime:#c5f77c;--lime-deep:#497230;--danger:#dc674c;--blue:#5488a0;--gold:#d5a34b;--orange:#e18c68;--dock-clearance:84px;--gutter:clamp(30px,4.45vw,88px);--curve:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box} html,body{height:100%;margin:0} html{scroll-behavior:auto} body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);overflow:hidden; -webkit-font-smoothing:antialiased}button,a{font:inherit} button{cursor:pointer} a{color:inherit} code,pre,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace} .app{height:100vh;height:100dvh;position:relative;overflow:hidden}
 .progress {
   position: fixed;
@@ -206,21 +206,29 @@
 .demo-count,.demo-alert-block p,.demo-head{font-size:clamp(13px,1vw,15px)}
 .demo-alert-block>span{font-size:12px}
 .closing-lower p{font-size:15px}
+/* Center the slide group in the projection area, above the controls. */
+@media screen and (min-width: 1000px) {
+  .slide-inner {
+    max-width: none;
+    justify-content: safe center;
+  }
+}
+
 /* Use the height recovered from the header for the diagrams and examples. */
 @media (min-width: 1000px) {
   .two-mode, .pipeline, .arch-layout, .func-columns, .rules-stage,
   .brute-panel, .result-layout, .output-grid, .memory-layout,
   .challenge-grid, .roadmap-layout {
     flex: 1 0 auto;
-    max-height: min(56vh, 540px);
+    max-height: min(56vh, 820px);
   }
-  .pipeline { max-height: min(46vh, 420px); }
+  .pipeline { max-height: min(46vh, 650px); }
   .mode-icon { height: 88px; }
   .mode-card { padding: clamp(24px, 2.65vw, 38px); }
   .mode-card p, .func-card p { font-size: clamp(17px, 1.4vw, 21px); }
   .func-code { min-height: 158px; margin: 22px 0 15px; }
   .identity-row { padding: 16px 0; }
-  .brute-panel { max-height: min(48vh, 430px); }
+  .brute-panel { max-height: min(48vh, 680px); }
   .output-card p { min-height: 72px; }
   .limitations > div:not(:first-child), .improvements > div:not(:first-child) {
     flex: 1;
@@ -313,6 +321,65 @@
   #slide-17 .mem-columns small { font-size: 14px; }
   #slide-17 .mem-caption { font-size: 14px; }
 }
+@media screen and (min-width: 1000px) {
+  .result-chart, .result-terminal {
+    display: flex;
+    flex-direction: column;
+  }
+  .result-bars {
+    flex: 1;
+    display: grid;
+    align-content: center;
+    gap: clamp(16px, 3vh, 48px);
+  }
+  .result-bars .result-bar { margin: 0; }
+  .result-terminal pre { flex: 1; align-content: center; }
+}
+
+@media screen and (min-width: 1600px) and (min-height: 900px) {
+  .slide-inner {
+    --projected-text: clamp(19px, min(1.16vw, 2.2vh), 32px);
+    --projected-code: clamp(18px, min(1.13vw, 2.12vh), 31px);
+    --panel-pad: clamp(30px, 2.25vw, 60px);
+  }
+  .slide .eyebrow, .slide .minor-heading { font-size: clamp(15px, 1vw, 24px); }
+  .slide .headline { font-size: clamp(76px, min(5vw, 8.2vh), 120px); max-width: 21ch; }
+  .slide .headline.compact {
+    font-size: clamp(65px, min(4.15vw, 7vh), 103px);
+    max-width: none;
+  }
+  .slide .cover-title { font-size: clamp(138px, min(8.6vw, 15vh), 214px); }
+  .slide .lead, .slide .intro, .closing-lead { font-size: calc(var(--projected-text) * 1.12); }
+  .slide .lead { max-width: 34ch; }
+  .slide .intro { max-width: 68ch; }
+  .slide :is(.filetree, .syntax, .format-box pre, .func-code, .output-card pre,
+    .result-terminal pre, .demo-terminal, .term-content, .dictionary, .command) {
+    font-size: var(--projected-code);
+  }
+  .slide :is(.mode-card p, .pipe-step p, .module-list p, .func-card p, .rules-grid p,
+    .result-note, .output-card p, .test-matrix small, .mem-caption, .challenge p,
+    .challenge .solution, .roadmap-layout span, .closing-lower p) {
+    font-size: var(--projected-text);
+  }
+  .mode-card p { max-width: 38ch; }
+  .slide :is(.mode-card, .pipe-step, .result-chart, .output-card, .mem-graph, .mem-aside) {
+    padding: var(--panel-pad);
+  }
+  .slide :is(.result-terminal pre, .term-content) { padding: var(--panel-pad); }
+  .result-strip strong { font-size: clamp(62px, min(4.25vw, 7vh), 108px); }
+  .result-strip span, .result-terminal .code-title { font-size: var(--projected-text); }
+  .result-strip > div { padding: clamp(24px, 2.1vh, 38px) var(--panel-pad); }
+  .result-bars .result-bar {
+    grid-template-columns: 9em minmax(0, 1fr) 2ch;
+    gap: 1em;
+    font-size: var(--projected-text);
+  }
+  .result-bars .result-bar label { font-size: inherit; }
+  .result-bars .result-bar > div { height: .9em; }
+  .venn-container svg { max-height: min(46vh, 640px); }
+  .mem-columns { min-height: min(30vh, 450px); }
+  .closing-title { font-size: clamp(120px, min(7.7vw, 14vh), 190px); }
+}
 /* At a 1024px classroom projector, the test slide's title had four lines
    and went under the fixed footer. Give the heading an appropriate measure. */
 @media (min-width: 1000px) and (max-width: 1170px) {
@@ -367,7 +434,6 @@
 .navbar { background: var(--paper); }
 .dark-context .navbar { background: var(--night); }
 .dark-context .navbar { border-color: #466458; }
-.slide-inner { max-width: 1600px; }
 :where(.cover-grid, .split, .arch-layout, .stats-layout, .demo-body, .rules-stage) > * { min-width: 0; }
 :where(pre, .dictionary) { overflow-wrap: anywhere; }
 @media (hover: hover) and (pointer: fine) {
@@ -441,7 +507,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 }
 
 @media (min-width: 1000px) {
-  .demo-stage { flex: 1 0 auto; max-height: min(58vh, 545px); }
+  .demo-stage { flex: 1 0 auto; max-height: min(58vh, 850px); }
   .demo-stage .demo-terminal { max-height: none; }
 }
 
@@ -751,7 +817,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 <section class="slide" id="slide-14" data-title="Les résultats" data-chapter="Démonstration" aria-label="Diapositive 14: Les résultats"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">14 / RÉSULTATS DE LA DÉMONSTRATION RÉELLE</p><h2 class="headline compact">Le bilan de l’analyse complète</h2></div>
 <div class="result-strip"><div><span>ÉVÉNEMENTS VALIDES</span><strong>22</strong></div><div><span>LIGNES REJETÉES</span><strong>3</strong></div><div><span>ALERTES PRODUITES</span><strong>15</strong></div></div>
-<div class="result-layout"><div class="result-chart"><div class="minor-heading">RÉPARTITION DES DÉTECTIONS</div><div class="result-bar"><label>BLACKLIST</label><div><i style="width:80%;background:var(--ink)"></i></div><b>12</b></div><div class="result-bar"><label>BRUTE_FORCE</label><div><i style="width:13.33%;background:var(--danger)"></i></div><b>2</b></div><div class="result-bar"><label>CRITICAL</label><div><i style="width:6.67%;background:var(--gold)"></i></div><b>1</b></div><div class="result-note">Une ligne peut générer plus d’une alerte.</div></div><div class="result-terminal"><div class="code-title">python main.py · extrait de la sortie</div><pre>SECURELOG ENGINE
+<div class="result-layout"><div class="result-chart"><div class="minor-heading">RÉPARTITION DES DÉTECTIONS</div><div class="result-bars"><div class="result-bar"><label>BLACKLIST</label><div><i style="width:80%;background:var(--ink)"></i></div><b>12</b></div><div class="result-bar"><label>BRUTE_FORCE</label><div><i style="width:13.33%;background:var(--danger)"></i></div><b>2</b></div><div class="result-bar"><label>CRITICAL</label><div><i style="width:6.67%;background:var(--gold)"></i></div><b>1</b></div></div><div class="result-note">Une ligne peut générer plus d’une alerte.</div></div><div class="result-terminal"><div class="code-title">python main.py · extrait de la sortie</div><pre>SECURELOG ENGINE
 Logs analysés : 22
 Lignes rejetées : 3
 Par niveau : ERROR 11 · WARNING 5
