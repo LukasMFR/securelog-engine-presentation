@@ -34,6 +34,104 @@
 @media(max-width:500px){.slide{padding-top:83px;padding-bottom:75px}.bar-right{gap:8px}.bar-action{font-size:11px;padding:7px}.headline{font-size:43px}.headline.compact{font-size:38px}.cover-title{font-size:55px;letter-spacing:-.075em}.cover-meta span{font-size:9px;padding:7px}.team-line{font-size:11px}.cover-visual .app-window{transform:none}.term-content{font-size:10px;padding:12px;min-height:200px}.noise-lines{font-size:10px}.micro-facts{grid-template-columns:1fr}.micro-facts div{padding-top:9px}.statement{font-size:53px}.statement-sub{font-size:17px}.four-numbers{gap:12px}.four-numbers b{font-size:18px}.mode-card{min-height:360px}.module-list>div{grid-template-columns:1fr}.module-list p{grid-column:1}.tree-frame .filetree{font-size:12px}.format-foot{line-height:1.5}.format-box pre{font-size:10px}.structure-box{flex-direction:column;align-items:start}.st-tag{width:100%}.dictionary{font-size:12px}.bar-row{grid-template-columns:73px 1fr 24px;gap:8px}.venn-legend{font-size:11px}.set-operators>div{padding:11px;min-height:132px}.set-operators b{font-size:17px}.set-operators span{font-size:32px}.attempts>span{width:38px;height:38px}.loop-footer{gap:8px}.loop-footer span{font-size:11px}.demo-head{flex-wrap:wrap}.demo-controls{width:100%}.mini-action{flex:1}.demo-terminal{padding:14px;font-size:10px}.result-strip>div{padding:12px;display:block}.result-strip span{font-size:9px}.result-strip strong{display:block;font-size:34px}.result-chart{padding:15px}.result-bar{grid-template-columns:88px 1fr 21px;gap:8px}.result-bar label{font-size:10px}.test-matrix{grid-template-columns:1fr}.memory-layout{gap:16px}.mem-aside{padding:21px}.challenge-grid{gap:11px}.roadmap-layout{gap:10px}.closing-title{font-size:52px}.closing-lower{grid-template-columns:1fr}.closing-bottom>span:first-child{font-size:26px}.overview-grid{grid-template-columns:1fr}.overview{padding:30px 20px}.speaker-notes{width:calc(100vw - 44px);bottom:73px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.slide .enter{opacity:1;transform:none}}
 @media print{@page{size:landscape;margin:0}html,body,.app{height:auto!important;overflow:visible!important}.slide{position:relative!important;inset:auto!important;display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;height:100vh!important;page-break-after:always;overflow:hidden!important;padding-bottom:68px!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.slide .enter{opacity:1!important;transform:none!important}.slide-inner{height:100%!important}.topbar,.navbar,.progress,.overview,.help,.speaker-notes{display:none!important}}
+
+/* ================================================================
+   Revision 2 — presenter-first navigation & legibility refinements
+   Taste approach: one restrained visual system, balanced card heights,
+   useful micro-motion, meaningful type hierarchy; no new dependencies.
+   ================================================================ */
+:root{--muted:#52665c}
+/* Better readability on a projected 16:9 screen. */
+.eyebrow{font-size:clamp(12px,.95vw,14px)}
+.lead{font-size:clamp(18px,1.52vw,23px)}
+.intro{font-size:clamp(18px,1.5vw,21px)}
+.nav-hint{font-size:12px;letter-spacing:.045em}
+.thin-note,.result-note,.mem-caption{font-size:14px;line-height:1.5}
+.micro-facts small,.four-numbers small,.module-list p,.pipe-step p,.set-operators p,.mem-warning span{font-size:clamp(14px,1.05vw,16px)}
+.frame-head,.pipe-file,.command,.chart-h,.mode-bottom,.minor-heading,.loop-footer span,.format-foot,.validation-band span,.test-matrix small,.result-bar label,.mem-columns small{font-size:clamp(13px,1vw,15px)}
+.filetree{font-size:clamp(14px,1.15vw,17px)}
+.syntax{font-size:clamp(12.5px,1.03vw,15px);line-height:1.66}
+.format-box pre,.func-code{font-size:clamp(12px,1.05vw,15px)}
+.func-card p,.output-card p,.challenge p{font-size:clamp(16px,1.2vw,18px)}
+.challenge .solution,.roadmap-layout span,.output-card pre,.result-terminal pre{font-size:clamp(13px,1.04vw,16px)}
+.demo-terminal{font-size:clamp(12px,1.05vw,15px);line-height:1.72}
+.demo-count,.demo-alert-block p,.demo-real-note,.demo-head{font-size:clamp(13px,1vw,15px)}
+.demo-alert-block>span,.status-title,.demo-keyboard>span{font-size:12px}
+.closing-lower p{font-size:15px}
+/* Panels follow their content instead of stretching to occupy the whole slide. */
+@media(min-width:1000px){
+ .two-mode,.pipeline,.arch-layout,.func-columns,.rules-stage,.brute-panel,.result-layout,.output-grid,.memory-layout,.challenge-grid,.roadmap-layout{flex:0 1 auto}
+ .pipeline{min-height:340px;padding-top:18px;max-height:445px}
+ .pipe-glyph{height:79px}
+ .pipe-step{padding:23px 17px}
+ .pipe-step p{min-height:55px}
+ .arch-layout{max-height:460px}
+ .two-mode{max-height:465px}
+ .mode-icon{height:88px}
+ .mode-card{padding:clamp(24px,2.65vw,38px)}
+ .func-columns{max-height:425px}
+ .func-code{min-height:158px;margin:22px 0 15px}
+ .rules-stage{max-height:450px}
+ .brute-panel{max-height:340px;min-height:315px}
+ .identity-row{padding:16px 0}
+ .result-layout{max-height:365px}
+ .output-grid{max-height:445px}
+ .output-card p{min-height:72px}
+ .memory-layout{max-height:465px}
+ .challenge-grid{max-height:445px}
+ .roadmap-layout{max-height:440px}
+ .limitations>div:not(:first-child),.improvements>div:not(:first-child){flex:none;padding:12px 0}
+}
+/* The terminal is a slide build, not an embedded click-based widget. */
+.demo-stage{flex:0 1 auto;height:clamp(355px,47vh,448px)}
+.demo-head{padding:14px 23px;min-height:56px}
+.demo-keyboard{display:flex;align-items:center;gap:9px;color:#d8ead6;white-space:nowrap;letter-spacing:0}
+.demo-keyboard kbd{display:inline-grid;place-items:center;min-width:34px;height:29px;border:1px solid #658a70;background:#1f4534;color:var(--lime);font:800 18px/1 ui-monospace,monospace;border-radius:3px}
+.demo-keyboard-note{color:#b1c9b6;margin-left:5px}
+.demo-terminal{max-height:none;overflow:auto;scrollbar-width:thin;scrollbar-color:#4b7860 #0a1d17;padding:21px 21px;white-space:nowrap}
+.demo-status{padding:21px 20px;gap:15px}
+.demo-alert-block{min-height:105px;padding:14px}
+.demo-alert-block p{margin:8px 0 0;line-height:1.45}
+.demo-count{padding-bottom:10px}
+.demo-real-note{line-height:1.4}
+.demo-terminal .evt.step-new{animation:log-reveal .38s cubic-bezier(.2,.8,.2,1) both}
+.demo-alert-block.alert-flash{animation:alert-flash .65s ease-out}
+@keyframes log-reveal{from{opacity:0;transform:translateX(-8px);background:rgba(197,247,124,.08)}to{opacity:1;transform:none;background:transparent}}
+@keyframes alert-flash{0%{background:rgba(197,247,124,.18)}100%{background:transparent}}
+.nav-current small{font:700 11px ui-monospace,monospace;color:var(--lime-deep);white-space:nowrap;display:block;margin-top:2px}
+.dark-context .nav-current small{color:var(--lime)}
+/* Preserve the original responsive stack, with more comfortable small text. */
+@media(max-width:999px){
+ .two-mode,.pipeline,.arch-layout,.func-columns,.rules-stage,.brute-panel,.result-layout,.output-grid,.memory-layout,.challenge-grid,.roadmap-layout{max-height:none}
+ .demo-stage{height:auto;min-height:370px;max-height:none;flex:0 1 auto}
+ .demo-terminal{max-height:420px}
+ .demo-status{min-height:255px}
+}
+@media(max-width:800px){
+ .demo-keyboard>span:first-child{display:none}
+ .demo-head{flex-wrap:wrap}
+ .demo-keyboard{flex-wrap:wrap}
+ .demo-keyboard-note{font-size:12px}
+ .demo-terminal{font-size:12px;white-space:normal;overflow-wrap:anywhere;line-height:1.7}
+ .module-list p,.pipe-step p{font-size:14px}
+}
+@media(max-width:500px){
+ .demo-head{padding:13px 14px}
+ .demo-keyboard{gap:5px}
+ .demo-keyboard kbd{min-width:29px;height:28px}
+ .demo-keyboard-note{margin-left:4px}
+ .demo-terminal{font-size:11.5px;padding:14px 12px;max-height:390px}
+ .demo-count,.demo-alert-block p,.demo-real-note{font-size:13px}
+ .slide .filetree{font-size:13px}
+ .slide .syntax,.slide .func-code,.slide .output-card pre{font-size:12px}
+ .slide .noise-lines{font-size:11px}
+ .slide .format-box pre{font-size:12px}
+ .slide .thin-note{font-size:13px}
+ .demo-status{min-height:275px}
+ .nav-current small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.demo-terminal .evt.step-new,.demo-alert-block.alert-flash{animation:none!important}}
+@media print{.demo-stage{height:auto;min-height:340px}.demo-keyboard{display:none!important}}
 </style></head>
 <body><div class="app" id="top"><div class="progress" id="progress"></div><header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true"></span> SECURELOG / ECE ING3</div><div class="bar-right"><span class="bar-chapter" id="head-chapter">OUVERTURE</span><span class="top-counter" id="head-number">01 / 20</span><button id="help-trigger" type="button" class="bar-action" aria-label="Afficher les raccourcis">?</button></div></header><main id="deck"><section class="slide dark " id="slide-1" data-title="SecureLog Engine" data-chapter="Ouverture" aria-label="Diapositive 1: SecureLog Engine"><div class="slide-inner">
 <div class="cover-grid">
@@ -181,8 +279,8 @@
 <div class="notes-text" hidden>Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annule immédiatement la série du couple. Le code utilise délibérément while, for, break, continue et else pour respecter le cahier des charges.</div></div></section>
 <section class="slide dark " id="slide-13" data-title="La démonstration" data-chapter="Démo" aria-label="Diapositive 13: La démonstration"><div class="slide-inner">
 <div class="slide-head"><p class="eyebrow enter">13 / DÉMONSTRATION · ÉVÉNEMENTS DU DÉPÔT</p><h2 class="headline compact enter d1">Voir le signal apparaître.</h2><p class="intro enter d2">Animation pédagogique rejouant huit lignes de <code>auth.log</code> ; le moteur Python réel s’exécute séparément via <code>python main.py</code>.</p></div>
-<div class="demo-stage enter d3"><div class="demo-head"><div><span class="live-indicator"></span> RELECTURE DE LOGS</div><div class="demo-controls"><button class="mini-action" id="demo-reset" type="button">↺ Réinitialiser</button><button class="mini-action primary" id="demo-step" type="button">▶ Ligne suivante</button></div></div><div class="demo-body"><div class="demo-terminal" id="demo-terminal"><div class="term-caption">$ securelog --demo-auth</div><div class="dimline">En attente · cliquez « Ligne suivante » pour rejouer les événements.</div></div><div class="demo-status"><div class="status-title">ANALYSE EN COURS</div><div class="demo-count"><span>Événements rejoués</span><b id="demo-count">0 / 8</b></div><div class="demo-count"><span>Alertes simulées</span><b id="demo-alerts">0</b></div><div class="demo-alert-block" id="demo-alert-box"><span>Dernier signal</span><b>—</b><p>Les alertes apparaissent au seuil ou quand une IP est blacklistée.</p></div><div class="demo-real-note">Mise en scène HTML des données du projet, pas une exécution Python dans le navigateur.</div></div></div></div>
-<div class="notes-text" hidden>Cette diapositive est interactive. Cliquez plusieurs fois sur « Ligne suivante » pour rejouer huit événements réels sélectionnés dans auth.log : une connexion réussie puis cinq échecs admin et une connexion réussie. Le moteur émet des alertes blacklist et brute force ; l’animation HTML est illustrative, elle ne réexécute pas Python.</div></div></section>
+<div class="demo-stage enter d3"><div class="demo-head"><div><span class="live-indicator"></span> RELECTURE DE LOGS</div><div class="demo-keyboard" aria-label="Contrôle par les flèches du clavier"><span>FAITES DÉFILER</span><kbd>←</kbd><kbd>→</kbd><span class="demo-keyboard-note">8 ÉTAPES</span></div></div><div class="demo-body"><div class="demo-terminal" id="demo-terminal"><div class="term-caption">$ securelog --demo-auth</div><div class="dimline">En attente · appuyez sur → pour faire apparaître les événements.</div></div><div class="demo-status"><div class="status-title" id="demo-status-title">EN ATTENTE</div><div class="demo-count"><span>Événements rejoués</span><b id="demo-count">0 / 8</b></div><div class="demo-count"><span>Alertes simulées</span><b id="demo-alerts">0</b></div><div class="demo-alert-block" id="demo-alert-box"><span>Dernier signal</span><b>—</b><p>Les alertes apparaissent au seuil ou quand une IP est blacklistée.</p></div><div class="demo-real-note">Mise en scène HTML des données du projet, pas une exécution Python dans le navigateur.</div></div></div></div>
+<div class="notes-text" hidden>Cette diapositive se présente uniquement avec les flèches : → révèle une ligne, ← revient d’une ligne, et → après la huitième ligne avance à la slide 14. Espace fonctionne aussi. Rejouez huit événements sélectionnés dans auth.log ; l’animation HTML est illustrative et ne réexécute pas Python.</div></div></section>
 <section class="slide " id="slide-14" data-title="Les résultats" data-chapter="Démonstration" aria-label="Diapositive 14: Les résultats"><div class="slide-inner">
 <div class="slide-head"><p class="eyebrow enter">14 / RÉSULTATS DE LA DÉMONSTRATION RÉELLE</p><h2 class="headline compact enter d1">22 logs. 15 alertes.</h2></div>
 <div class="result-strip enter d2"><div><span>ÉVÉNEMENTS VALIDES</span><strong>22</strong></div><div><span>LIGNES REJETÉES</span><strong>03</strong></div><div><span>ALERTES PRODUITES</span><strong>15</strong></div></div>
@@ -240,43 +338,30 @@ Alertes : BLACKLIST 12
 <div class="closing-lower enter d3"><div><b>Livrables</b><p>Dépôt Git · <code>main.py</code> · <code>requirements.txt</code> · rapport Jupyter</p></div><div><b>Validation</b><p>45 tests · données de démonstration · mesures mémoire documentées</p></div><div><b>Trinôme</b><p>Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA</p></div></div>
 <div class="closing-bottom enter d4"><span>MERCI.</span><a href="https://github.com/Sacha-BD/secure_log_engine" target="_blank" rel="noopener">Voir le dépôt GitHub ↗</a><span>QUESTIONS / ÉCHANGES</span></div></div>
 <div class="notes-text" hidden>Terminez sur les compétences Python démontrées et la différence entre ce moteur pédagogique et une plateforme de surveillance complète. Les livrables demandés sont bien ceux de l’énoncé. Invitez aux questions.</div></div></section></main>
-<nav class="navbar" aria-label="Navigation des diapositives"><div class="nav-hint">← → NAVIGUER &nbsp;·&nbsp; O SOMMAIRE &nbsp;·&nbsp; F PLEIN ÉCRAN</div><div class="nav-actions"><button class="nav-btn" id="notes-trigger" type="button" title="Notes du présentateur (N)" aria-label="Notes du présentateur">N</button><button class="nav-btn" id="fullscreen-trigger" type="button" title="Plein écran (F)" aria-label="Basculer en plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button><button class="nav-btn" id="overview-trigger" type="button" title="Sommaire (O)" aria-label="Sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button><button class="nav-btn" id="prev" type="button" title="Diapositive précédente" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><span class="nav-current" id="nav-current">01 <span>/ 20</span></span><button class="nav-btn" id="next" type="button" title="Diapositive suivante" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div></nav>
+<nav class="navbar" aria-label="Navigation des diapositives"><div class="nav-hint">← → NAVIGUER / DÉROULER &nbsp;·&nbsp; O SOMMAIRE &nbsp;·&nbsp; F PLEIN ÉCRAN</div><div class="nav-actions"><button class="nav-btn" id="notes-trigger" type="button" title="Notes du présentateur (N)" aria-label="Notes du présentateur">N</button><button class="nav-btn" id="fullscreen-trigger" type="button" title="Plein écran (F)" aria-label="Basculer en plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button><button class="nav-btn" id="overview-trigger" type="button" title="Sommaire (O)" aria-label="Sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button><button class="nav-btn" id="prev" type="button" title="Diapositive précédente" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><span class="nav-current" id="nav-current">01 <span>/ 20</span></span><button class="nav-btn" id="next" type="button" title="Diapositive suivante" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div></nav>
 <div class="overview" id="overview" role="dialog" aria-label="Sommaire des 20 slides"><div class="overlay-header"><h2>Les 20 slides.</h2><button type="button" class="overlay-close" id="overview-close">Fermer ×</button></div><div class="overview-grid" id="overview-grid"></div></div>
-<div class="help" id="help" role="dialog" aria-label="Aide"><div class="help-card"><h2>Commandes de présentation</h2><div class="shortcut-row"><span>Diapositive suivante</span><span><kbd>→</kbd> <kbd>Espace</kbd></span></div><div class="shortcut-row"><span>Diapositive précédente</span><span><kbd>←</kbd></span></div><div class="shortcut-row"><span>Ouvrir les 20 slides</span><kbd>O</kbd></div><div class="shortcut-row"><span>Notes orateur</span><kbd>N</kbd></div><div class="shortcut-row"><span>Plein écran</span><kbd>F</kbd></div><div class="shortcut-row"><span>Fermer les fenêtres</span><kbd>Esc</kbd></div><button type="button" class="help-close" id="help-close">Retour à la présentation</button></div></div>
+<div class="help" id="help" role="dialog" aria-label="Aide"><div class="help-card"><h2>Commandes de présentation</h2><div class="shortcut-row"><span>Étape suivante ou diapositive suivante</span><span><kbd>→</kbd> <kbd>↓</kbd> <kbd>Espace</kbd></span></div><div class="shortcut-row"><span>Étape précédente ou diapositive précédente</span><span><kbd>←</kbd> <kbd>↑</kbd></span></div><div class="shortcut-row"><span>Recommencer la démo (slide 13)</span><kbd>R</kbd></div><div class="shortcut-row"><span>Ouvrir les 20 slides</span><kbd>O</kbd></div><div class="shortcut-row"><span>Notes orateur</span><kbd>N</kbd></div><div class="shortcut-row"><span>Plein écran</span><kbd>F</kbd></div><div class="shortcut-row"><span>Fermer les fenêtres</span><kbd>Esc</kbd></div><button type="button" class="help-close" id="help-close">Retour à la présentation</button></div></div>
 <div class="speaker-notes" id="speaker-notes" role="complementary"><small>NOTES DE PRÉSENTATION · APPUYEZ SUR N</small><p></p></div></div>
 <script>
-(()=>{
-'use strict';
-const slides=[...document.querySelectorAll('.slide')],n=slides.length;
-const current=document.getElementById('nav-current'),headNum=document.getElementById('head-number'),headChapter=document.getElementById('head-chapter');
-const prev=document.getElementById('prev'),next=document.getElementById('next'),progress=document.getElementById('progress');
-const overview=document.getElementById('overview'),overviewGrid=document.getElementById('overview-grid'),help=document.getElementById('help'),notes=document.getElementById('speaker-notes');
-let idx=0,transitioning=false;const titles=slides.map(s=>s.dataset.title);
-slides.forEach((s,i)=>{const b=document.createElement('button');b.className='overview-item';b.innerHTML='<small>'+String(i+1).padStart(2,'0')+' / 20</small><b></b><span></span>';b.querySelector('b').textContent=s.dataset.title;b.querySelector('span').textContent=s.dataset.chapter;b.type='button';b.onclick=()=>{overview.classList.remove('open');go(i)};overviewGrid.appendChild(b)});
-function go(i){const j=Math.max(0,Math.min(n-1,i));if(j===idx && slides[idx].classList.contains('is-active'))return;idx=j;
- slides.forEach((s,k)=>{s.classList.toggle('is-active',k===idx);s.classList.toggle('was-before',k<idx);s.setAttribute('aria-hidden',k!==idx?'true':'false');if(k===idx)s.scrollTop=0});
- current.innerHTML=String(idx+1).padStart(2,'0')+' <span>/ '+n+'</span>';headNum.textContent=String(idx+1).padStart(2,'0')+' / '+n;headChapter.textContent=slides[idx].dataset.chapter;progress.style.width=((idx+1)/n*100)+'%';
- prev.disabled=idx===0;next.disabled=idx===n-1;document.body.classList.toggle('dark-context',slides[idx].classList.contains('dark'));
- document.querySelectorAll('.overview-item').forEach((e,k)=>e.classList.toggle('active',idx===k)); notes.querySelector('p').textContent=slides[idx].querySelector('.notes-text').textContent; history.replaceState(null,'','#slide-'+(idx+1));document.title=titles[idx]+' · SecureLog Engine — 20 slides';}
-prev.onclick=()=>go(idx-1);next.onclick=()=>go(idx+1);
-function closePopups(){overview.classList.remove('open');help.classList.remove('open');notes.classList.remove('open')}
-const overviewToggle=()=>{help.classList.remove('open');notes.classList.remove('open');overview.classList.toggle('open')};
-document.getElementById('overview-trigger').onclick=overviewToggle;
-document.getElementById('overview-close').onclick=()=>overview.classList.remove('open');
-document.getElementById('help-trigger').onclick=()=>help.classList.add('open');document.getElementById('help-close').onclick=()=>help.classList.remove('open');
-document.getElementById('notes-trigger').onclick=()=>notes.classList.toggle('open');
-document.getElementById('fullscreen-trigger').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
-window.addEventListener('keydown',e=>{const target=e.target;if(['INPUT','TEXTAREA','SELECT'].includes(target.tagName))return;
- if(e.key==='Escape'){closePopups();return}if(overview.classList.contains('open')||help.classList.contains('open'))return;
- if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){if(e.key===' '||e.key.startsWith('Page')||e.key==='ArrowRight')e.preventDefault();go(idx+1)}
- else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(idx-1)}
- else if(e.key.toLowerCase()==='o'){overviewToggle()} else if(e.key.toLowerCase()==='n'){notes.classList.toggle('open')}
- else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}
- else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(n-1)}else if(e.key==='?'){help.classList.add('open')}
-});
-let tx=null;window.addEventListener('touchstart',e=>{if(e.target.closest('button,a'))return;tx={x:e.touches[0].screenX,y:e.touches[0].screenY}}, {passive:true});window.addEventListener('touchend',e=>{if(!tx)return;const dx=e.changedTouches[0].screenX-tx.x,dy=e.changedTouches[0].screenY-tx.y;if(Math.abs(dx)>80&&Math.abs(dy)<65)go(idx+(dx<0?1:-1));tx=null},{passive:true});
-const hash=location.hash.match(/slide-(\d+)/);go(hash?parseInt(hash[1],10)-1:0);
-// Educational replay: source lines copied from the supplied fictitious auth.log.
+(() => {
+  'use strict';
+  const slides = [...document.querySelectorAll('.slide')];
+  const n = slides.length;
+  const demoIndex = slides.findIndex(s => s.id === 'slide-13');
+  const current = document.getElementById('nav-current');
+  const headNum = document.getElementById('head-number');
+  const headChapter = document.getElementById('head-chapter');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const progress = document.getElementById('progress');
+  const overview = document.getElementById('overview');
+  const overviewGrid = document.getElementById('overview-grid');
+  const help = document.getElementById('help');
+  const notes = document.getElementById('speaker-notes');
+  let idx = 0;
+  const titles = slides.map(s => s.dataset.title);
+
+  // Source fixture: selected fictitious auth.log lines from the supplied project.
 const stream=[
  {s:'08:00:00  INFO   192.0.2.10    alice  LOGIN_SUCCESS',ip:'192.0.2.10',lvl:'ok',a:[]},
  {s:'08:00:01  ERROR  203.0.113.66 admin  LOGIN_FAILED',ip:'203.0.113.66',lvl:'warn',a:['BLACKLIST']},
@@ -287,9 +372,173 @@ const stream=[
  {s:'08:00:06  INFO   203.0.113.66 admin  LOGIN_SUCCESS',ip:'203.0.113.66',lvl:'ok',a:['BLACKLIST']},
  {s:'08:00:07  WARNING 192.0.2.20    bob    LOGIN_FAILED',ip:'192.0.2.20',lvl:'ok',a:[]}
 ];
-const terminal=document.getElementById('demo-terminal'),demoCount=document.getElementById('demo-count'),demoAlerts=document.getElementById('demo-alerts'),alertBox=document.getElementById('demo-alert-box'),stepBtn=document.getElementById('demo-step');let count=0,al=0;
-const reset=()=>{count=0;al=0;terminal.innerHTML='<div class="term-caption">$ securelog --demo-auth</div><div class="dimline">En attente · cliquez « Ligne suivante » pour rejouer les événements.</div>';demoCount.textContent='0 / 8';demoAlerts.textContent='0';alertBox.querySelector('b').textContent='—';alertBox.querySelector('p').textContent='Les alertes apparaissent au seuil ou quand une IP est blacklistée.';stepBtn.disabled=false};
-stepBtn.onclick=()=>{if(count>=stream.length)return;const s=stream[count++];const line=document.createElement('div');line.className='evt '+s.lvl;line.textContent=s.s;terminal.appendChild(line);demoCount.textContent=count+' / 8';for(const name of s.a){al++;const p=document.createElement('div');p.className='evt fire';p.textContent='↳ ALERTE '+name+' · '+s.ip;terminal.appendChild(p);alertBox.querySelector('b').textContent=name;alertBox.querySelector('p').textContent=name==='BRUTE_FORCE'?'Le 5ᵉ échec consécutif déclenche cette règle.':'Cette IP figure dans la blacklist fictive.'}demoAlerts.textContent=al;terminal.scrollTop=terminal.scrollHeight;if(count===stream.length)stepBtn.disabled=true};
-document.getElementById('demo-reset').onclick=reset;
+  const terminal = document.getElementById('demo-terminal');
+  const demoCount = document.getElementById('demo-count');
+  const demoAlerts = document.getElementById('demo-alerts');
+  const demoStatusTitle = document.getElementById('demo-status-title');
+  const alertBox = document.getElementById('demo-alert-box');
+  let demoStep = 0;
+  const demoTotal = stream.length;
+
+  function renderDemo(targetStep, animateLast = false) {
+    demoStep = Math.max(0, Math.min(demoTotal, targetStep));
+    terminal.replaceChildren();
+    const caption = document.createElement('div');
+    caption.className = 'term-caption';
+    caption.textContent = '$ securelog --demo-auth';
+    terminal.append(caption);
+    if (demoStep === 0) {
+      const hint = document.createElement('div');
+      hint.className = 'dimline';
+      hint.textContent = 'En attente · appuyez sur → pour faire apparaître les événements.';
+      terminal.append(hint);
+    }
+    let countAlerts = 0;
+    let lastAlert = '';
+    for (let i = 0; i < demoStep; i++) {
+      const row = stream[i];
+      const entry = document.createElement('div');
+      entry.className = 'evt ' + row.lvl + (animateLast && i === demoStep - 1 ? ' step-new' : '');
+      entry.textContent = row.s;
+      terminal.append(entry);
+      for (const name of row.a) {
+        countAlerts++;
+        lastAlert = row.a.includes('BRUTE_FORCE') ? 'BRUTE_FORCE' : name;
+        const alert = document.createElement('div');
+        alert.className = 'evt fire' + (animateLast && i === demoStep - 1 ? ' step-new' : '');
+        alert.textContent = '↳ ALERTE ' + name + ' · ' + row.ip;
+        terminal.append(alert);
+      }
+    }
+    demoCount.textContent = demoStep + ' / ' + demoTotal;
+    demoAlerts.textContent = String(countAlerts);
+    demoStatusTitle.textContent = demoStep === 0 ? 'EN ATTENTE' : (demoStep === demoTotal ? 'LECTURE TERMINÉE' : 'ANALYSE EN COURS');
+    alertBox.querySelector('b').textContent = lastAlert || '—';
+    alertBox.querySelector('p').textContent = !lastAlert
+      ? 'Les alertes apparaissent au seuil ou quand une IP est blacklistée.'
+      : lastAlert === 'BRUTE_FORCE'
+        ? 'Le cinquième échec consécutif déclenche cette règle.'
+        : 'Cette IP figure dans la blacklist fictive.';
+    if (animateLast && stream[demoStep - 1]?.a.length) {
+      alertBox.classList.remove('alert-flash');
+      void alertBox.offsetWidth; // retrigger the CSS flash only when the presenter advances.
+      alertBox.classList.add('alert-flash');
+    } else {
+      alertBox.classList.remove('alert-flash');
+    }
+    terminal.scrollTop = terminal.scrollHeight;
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const fraction = idx === demoIndex ? demoStep / demoTotal : 0;
+    progress.style.width = ((idx + 1 + fraction * .9) / n * 100) + '%';
+    current.innerHTML = String(idx + 1).padStart(2,'0') + ' <span>/ ' + n + '</span>' +
+      (idx === demoIndex ? '<small>ÉTAPE ' + demoStep + '/' + demoTotal + '</small>' : '');
+  }
+
+  function go(i, opts = {}) {
+    const j = Math.max(0, Math.min(n-1, i));
+    const was = idx;
+    const visible = slides[idx].classList.contains('is-active');
+    if (j === idx && visible && !opts.resetDemo) return;
+    idx = j;
+    if (idx === demoIndex && (!visible || was !== idx || opts.resetDemo)) {
+      // Reverse navigation restores the completed slide; forward starts at step zero.
+      renderDemo(opts.resetDemo ? 0 : (was > idx ? demoTotal : 0));
+    }
+    slides.forEach((s,k) => {
+      s.classList.toggle('is-active', k === idx);
+      s.classList.toggle('was-before', k < idx);
+      s.setAttribute('aria-hidden', k !== idx ? 'true' : 'false');
+      if (k === idx) s.scrollTop = 0;
+    });
+    headNum.textContent = String(idx+1).padStart(2,'0') + ' / ' + n;
+    headChapter.textContent = slides[idx].dataset.chapter;
+    prev.disabled = idx === 0;
+    next.disabled = idx === n-1;
+    document.body.classList.toggle('dark-context', slides[idx].classList.contains('dark'));
+    document.querySelectorAll('.overview-item').forEach((e,k) => e.classList.toggle('active', idx === k));
+    notes.querySelector('p').textContent = slides[idx].querySelector('.notes-text').textContent;
+    history.replaceState(null, '', '#slide-' + (idx+1));
+    document.title = titles[idx] + ' · SecureLog Engine — 20 slides';
+    updateProgress();
+  }
+
+  function navigate(dir) {
+    if (idx === demoIndex) {
+      if (dir > 0 && demoStep < demoTotal) { renderDemo(demoStep + 1, true); return; }
+      if (dir < 0 && demoStep > 0) { renderDemo(demoStep - 1); return; }
+    }
+    go(idx + dir);
+  }
+
+  slides.forEach((slide, i) => {
+    const b = document.createElement('button');
+    b.className = 'overview-item';
+    b.innerHTML = '<small>' + String(i+1).padStart(2,'0') + ' / 20</small><b></b><span></span>';
+    b.querySelector('b').textContent = slide.dataset.title;
+    b.querySelector('span').textContent = slide.dataset.chapter;
+    b.type = 'button';
+    b.onclick = () => { overview.classList.remove('open'); go(i, {resetDemo:i===demoIndex}); };
+    overviewGrid.appendChild(b);
+  });
+
+  prev.onclick = () => navigate(-1);
+  next.onclick = () => navigate(1);
+  function closePopups() {
+    overview.classList.remove('open');
+    help.classList.remove('open');
+    notes.classList.remove('open');
+  }
+  const overviewToggle = () => {
+    help.classList.remove('open');
+    notes.classList.remove('open');
+    overview.classList.toggle('open');
+  };
+  document.getElementById('overview-trigger').onclick = overviewToggle;
+  document.getElementById('overview-close').onclick = () => overview.classList.remove('open');
+  document.getElementById('help-trigger').onclick = () => help.classList.add('open');
+  document.getElementById('help-close').onclick = () => help.classList.remove('open');
+  document.getElementById('notes-trigger').onclick = () => notes.classList.toggle('open');
+  document.getElementById('fullscreen-trigger').onclick = () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  };
+
+  window.addEventListener('keydown', e => {
+    if (['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) return;
+    if (e.key === 'Escape') { closePopups(); return; }
+    if (overview.classList.contains('open') || help.classList.contains('open')) return;
+    if ((e.key === ' ' || e.key === 'Enter') && e.target.closest('button,a')) return;
+    if (['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)) { e.preventDefault(); navigate(1); }
+    else if (['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)) { e.preventDefault(); navigate(-1); }
+    else if (e.key.toLowerCase() === 'r' && idx === demoIndex) { e.preventDefault(); renderDemo(0); }
+    else if (e.key.toLowerCase() === 'o') overviewToggle();
+    else if (e.key.toLowerCase() === 'n') notes.classList.toggle('open');
+    else if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(n-1);
+    else if (e.key === '?') help.classList.add('open');
+  });
+
+  let touch = null;
+  window.addEventListener('touchstart', e => {
+    if (e.target.closest('button,a')) return;
+    touch = {x:e.touches[0].screenX, y:e.touches[0].screenY};
+  }, {passive:true});
+  window.addEventListener('touchend', e => {
+    if (!touch) return;
+    const dx = e.changedTouches[0].screenX - touch.x;
+    const dy = e.changedTouches[0].screenY - touch.y;
+    if (Math.abs(dx) > 80 && Math.abs(dy) < 65) navigate(dx < 0 ? 1 : -1);
+    touch = null;
+  }, {passive:true});
+  const hash = location.hash.match(/slide-(\d+)/);
+  renderDemo(0);
+  go(hash ? parseInt(hash[1],10)-1 : 0);
 })();
 </script></body></html>

@@ -52,7 +52,7 @@ Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annul
 
 ## 13 — Voir le signal apparaître.
 
-Cette diapositive est interactive. Cliquez plusieurs fois sur « Ligne suivante » pour rejouer huit événements réels sélectionnés dans auth.log : une connexion réussie puis cinq échecs admin et une connexion réussie. Le moteur émet des alertes blacklist et brute force ; l’animation HTML est illustrative, elle ne réexécute pas Python.
+Sur cette slide, n’utilisez pas la souris : → / ↓ (ou Espace) révèle une ligne de log à chaque pression ; ← / ↑ revient en arrière. Après huit lignes, → passe à la slide 14. Depuis la slide 14, ← revient sur la démonstration entièrement révélée. La touche R la réinitialise. Les huit lignes proviennent des données fictives du dépôt. Les alertes BLACKLIST et BRUTE_FORCE sont illustrées en HTML ; aucun Python ne s’exécute dans le navigateur.
 
 ## 14 — 22 logs. 15 alertes.
 
