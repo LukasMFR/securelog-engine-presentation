@@ -1,4 +1,4 @@
-SECURELOG ENGINE — PRÉSENTATION HTML
+SECURELOG ENGINE · PRÉSENTATION HTML
 
 Présentation de soutenance du projet Python ING3 à l’ECE Paris.
 Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA

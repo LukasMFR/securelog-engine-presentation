@@ -17,16 +17,16 @@ réduit désactive les animations.
 
 Les dérogations du contrôle officiel tiennent au format de la soutenance.
 
-- `copy-headline` — Le titre reprend le nom officiel du projet. Le texte
+- `copy-headline`. Le titre reprend le nom officiel du projet. Le texte
   immédiatement dessous décrit le moteur Python d’analyse de logs.
-- `moment-none` — Les deux animations du diaporama sont intégrées au fichier et
+- `moment-none`. Les deux animations du diaporama sont intégrées au fichier et
   se déclenchent à la navigation ou pendant le rejeu. Le contrôle détecte les
   modules d’animation du kit.
-- `container-edges` — La piste de progression de 4 px traverse le bas de
+- `container-edges`. La piste de progression de 4 px traverse le bas de
   l’écran. Le contenu de chaque diapositive suit sa grille.
-- `container-edges` — La barre de navigation flottante suit le bord droit
+- `container-edges`. La barre de navigation flottante suit le bord droit
   de la fenêtre, avec 6 px de retrait en plus de la zone de sécurité éventuelle.
-- `one-section` — Le lien d’accès clavier précède les diapositives dans le
+- `one-section`. Le lien d’accès clavier précède les diapositives dans le
   conteneur principal et reste disponible à chaque étape.
 
 ## Vérifications

@@ -1,4 +1,4 @@
-SECURELOG ENGINE — SOUTENANCE ING3
+SECURELOG ENGINE · SOUTENANCE ING3
 
 1. Ouvrez index.html dans votre navigateur.
 2. Utilisez ← et → pour naviguer. F active le plein écran, O ouvre le

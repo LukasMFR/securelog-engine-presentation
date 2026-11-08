@@ -87,18 +87,6 @@
 .cover-meta { margin: 22px 0; color: #c0d2c6; }
 .cover-meta span + span::before { content: "·"; margin-right: 14px; color: var(--lime); }
 .team-line { margin-top: 24px; padding-top: 14px; border-top: 1px solid #466458; color: #c0d2c6; }
-.primary-action {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 0 16px;
-  background: var(--lime);
-  color: var(--ink);
-  font-weight: 700;
-  text-decoration: none;
-}
 .app-frame { border: 1px solid #547065; background: var(--panel); }
 .winbar {
   display: flex;
@@ -184,7 +172,7 @@
 .memory-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:35px;flex:1;min-height:0}.mem-graph{padding:29px;background:#e3e9df;border:1px solid #c6d3c4;display:flex;flex-direction:column;min-height:0}.mem-columns{display:grid;grid-template-columns:repeat(3,1fr);align-items:end;gap:15px;flex:1;margin-top:25px;min-height:200px}.mem-columns>div{display:flex;align-items:center;justify-content:end;flex-direction:column;height:100%;gap:10px}.mem-columns i{display:block;background:#254538;width:68%;min-height:20px;max-height:70%;margin-top:auto;transition:height .8s}.mem-columns>div:nth-child(2) i{background:#64896d}.mem-columns>div:nth-child(3) i{background:#97c66e}.mem-columns b{font-size:24px}.mem-columns small{color:var(--muted);font-size:12px}.mem-value{font-size:14px;font-weight:850;white-space:nowrap}.mem-caption{padding-top:22px;color:var(--muted);font-size:12px}.mem-aside{background:#16332a;color:#f4f9eb;padding:33px 37px;display:flex;flex-direction:column}.circle-overline{font-size:12px;letter-spacing:.1em;color:#bdd2b5;font-weight:750}.mem-aside>strong{font-size:clamp(65px,7cqw,120px);letter-spacing:-.07em;margin-top:24px;color:var(--lime)}.mem-aside>p{font-size:17px;line-height:1.55;color:#c2d4c5;margin:0 0 25px}.mem-warning{border-top:1px solid #4b6d59;padding-top:23px;margin-top:auto}.mem-warning b{font-size:15px;display:block}.mem-warning span{font-size:13px;line-height:1.52;display:block;margin-top:10px;color:#aecab4}.mem-warning strong{color:var(--lime)}
 .challenge-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:18px;flex:1;min-height:0}.challenge{padding:21px 27px;background:#e5eadf;border-left:3px solid #7aa05d;display:flex;flex-direction:column}.challenge-index{font:12px ui-monospace,monospace;color:#618052}.challenge h3{font-size:clamp(20px,2.1cqw,30px);letter-spacing:-.035em;margin:12px 0}.challenge p{font-size:15px;color:var(--muted);margin:0}.solution{font-size:13px;border-top:1px solid #c3d1c0;padding-top:14px;margin-top:auto;line-height:1.5;font-weight:650}.challenge code{font-size:12px}
 .roadmap-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0}.limitations,.improvements{padding:25px 28px;background:#e5e8df;display:flex;flex-direction:column;gap:6px}.improvements{background:#dce9d5}.roadmap-title{font-size:12px;font-weight:900;letter-spacing:.1em;margin-bottom:7px}.limitations>div:not(:first-child),.improvements>div:not(:first-child){display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;border-bottom:1px solid #bdcdbb;padding:13px 0;flex:1}.limitations b,.improvements b{font:14px ui-monospace,monospace;color:#6e9261}.limitations span,.improvements span{font-size:clamp(13px,1.1cqw,17px);line-height:1.42}
-.closing-content{display:flex;flex-direction:column;justify-content:center;flex:1}.closing-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.small-counter{font:11px ui-monospace,monospace;color:#b5c7af}.closing-title{font-size:clamp(65px,8.2cqw,134px);line-height:.93;letter-spacing:-.07em;margin:34px 0}.closing-lead{color:#b7ccb9;font-size:clamp(17px,1.6cqw,25px);max-width:1050px;line-height:1.5;margin:0}.closing-lower{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid #5e7865;margin-top:49px;padding-top:25px}.closing-lower b{font-size:15px}.closing-lower p{font-size:13px;line-height:1.6;color:#bdd1bd;margin:10px 0 0}.closing-lower code{font-size:12px}.closing-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:54px}.closing-bottom>span:first-child{font-size:38px;font-weight:750;letter-spacing:-.055em}.closing-bottom>span:last-child{font-size:11px;letter-spacing:.09em;color:#c0d1bc}
+.closing-content{display:flex;flex-direction:column;justify-content:center;flex:1}.closing-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.small-counter{font:11px ui-monospace,monospace;color:#b5c7af}.closing-title{font-size:clamp(65px,8.2cqw,134px);line-height:.93;letter-spacing:-.07em;margin:34px 0}.closing-lead{color:#b7ccb9;font-size:clamp(17px,1.6cqw,25px);max-width:1050px;line-height:1.5;margin:0}.closing-lower{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-top:1px solid #5e7865;margin-top:49px;padding-top:25px}.closing-lower b{font-size:15px}.closing-lower p{font-size:13px;line-height:1.6;color:#bdd1bd;margin:10px 0 0}.closing-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:54px}.closing-bottom>span:first-child{font-size:38px;font-weight:750;letter-spacing:-.055em}.closing-bottom>span:last-child{font-size:11px;letter-spacing:.09em;color:#c0d1bc}
 .overview{position:fixed;z-index:100;inset:0;background:rgba(6,20,15,.97);color:#edf7e9;padding:54px clamp(28px,6vw,110px);overflow:auto;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s var(--curve)}.overview[open]{visibility:visible;opacity:1;pointer-events:auto;transform:none}.overlay-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}.overlay-header h2{font-size:44px;letter-spacing:-.05em;margin:0}.overlay-close{border:1px solid #6d8574;background:transparent;color:white;padding:12px 15px}.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.overview-item{min-height:152px;padding:19px 20px;background:#18362b;border:1px solid #4d6c58;color:#f3f6ee;text-align:left;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}.overview-item:hover{border-color:var(--lime)}.overview-item[aria-current="step"]{border-color:var(--lime);background:#254a38}.overview-item small{font:12px ui-monospace,monospace;color:var(--lime)}.overview-item b{font-size:19px;letter-spacing:-.025em}.overview-item span{font-size:11px;color:#a6c2ac;margin-top:auto}.help{position:fixed;inset:0;z-index:110;background:rgba(7,20,17,.65);display:none;align-items:center;justify-content:center;padding:20px}.help[open]{display:flex}.help-card{background:#f4f5ec;color:var(--ink);padding:36px;max-width:620px;width:100%;box-shadow:0 25px 100px #06130f}.help-card h2{font-size:34px;letter-spacing:-.045em;margin:0 0 18px}.shortcut-row{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #ccd5cb;padding:10px 0;font-size:15px}.shortcut-row kbd{background:#dee8d7;border:1px solid #a9bca7;padding:6px 9px;font:12px ui-monospace,monospace}.help-close{margin-top:25px;background:var(--ink);color:white;padding:12px 19px;border:0}.speaker-notes{position:fixed;z-index:90;bottom:calc(var(--dock-clearance) + env(safe-area-inset-bottom));left:var(--gutter);width:min(520px,80vw);background:#f5f6ee;color:var(--ink);border:1px solid #8fa48f;padding:22px 24px;box-shadow:0 8px 50px #0002;display:none}.speaker-notes.open{display:block}.speaker-notes small{display:block;margin-bottom:12px;font-size:12px;font-weight:800;letter-spacing:.08em}.speaker-notes p{font-size:15px;line-height:1.5;margin:0}
 @media (max-width:800px) {
   :root {--gutter:clamp(22px,5vw,38px)}
@@ -200,7 +188,7 @@
 @media print{@page{size:landscape;margin:0}html,body,.app{height:auto!important;overflow:visible!important}.slide{position:relative!important;inset:auto!important;display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;height:100vh!important;page-break-after:always;overflow:hidden!important;padding-bottom:68px!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.slide-inner{height:100%!important;animation:none!important}.navbar,.progress,.overview,.help,.speaker-notes{display:none!important}}
 
 /* ================================================================
-   Revision 2 — presenter-first navigation & legibility refinements
+   Revision 2 · presenter-first navigation & legibility refinements
    Taste approach: one restrained visual system, balanced card heights,
    useful micro-motion, meaningful type hierarchy; no new dependencies.
    ================================================================ */
@@ -264,7 +252,7 @@
 }
 
 /* =====================================================================
-   REVISION 3 — editorial balance, without content inflation
+   REVISION 3 · editorial balance, without content inflation
    Design guidance: Leonxlnx/taste-skill 2.5.1, layout-v4/system/motion.
    One slide per viewport; equal content edges; balanced negative space;
    cards follow content; avoid motion that distracts from demonstration.
@@ -385,15 +373,14 @@
 :where(.cover-grid, .split, .arch-layout, .stats-layout, .demo-body, .rules-stage) > * { min-width: 0; }
 :where(pre, .dictionary) { overflow-wrap: anywhere; }
 @media (hover: hover) and (pointer: fine) {
-  html[data-motion] :is(.primary-action, button:not(:disabled)):hover { transform: translateY(-2px); }
-  .primary-action:hover { background: #b5e66c; }
+  html[data-motion] button:not(:disabled):hover { transform: translateY(-2px); }
 }
-html[data-motion] :is(.primary-action, button:not(:disabled)) {
+html[data-motion] button:not(:disabled) {
   transition: transform .15s var(--curve), background .15s, color .15s, border-color .15s;
 }
-html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform: translateY(1px) scale(.985); }
+html[data-motion] button:not(:disabled):active { transform: translateY(1px) scale(.985); }
 @media (prefers-reduced-motion: reduce) {
-  html[data-motion] :is(.primary-action, button):is(:hover, :active) { transform: none; }
+  html[data-motion] button:is(:hover, :active) { transform: none; }
 }
 @media (max-width: 560px) {
   :root {--dock-clearance: 120px;}
@@ -415,7 +402,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
   .nav-current small {font-size: 9px; letter-spacing: -.02em;}
 }
 @media print {
-  .skip-link, .primary-action { display: none; }
+  .skip-link { display: none; }
 }
 
 /* Presenter-led replay, with a readable static summary for print. */
@@ -612,7 +599,6 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
     <div class="cover-body">
       <p class="lead hero__lead">Un moteur Python qui détecte les événements suspects dans les logs système et réseau.</p>
       <div class="cover-meta"><span>Python 3.10+</span><span>Fichiers et entrée standard</span></div>
-      <a class="cover-start primary-action btn btn--primary" href="#slide-2">Lancer la présentation <span aria-hidden="true">→</span></a>
       <div class="team-line"><span>Lukas MAUFFRÉ</span><span>Sacha BEHLOULI-DROLLÉE</span><span>Jeanne TONDA</span></div>
     </div>
   </div>
@@ -654,7 +640,6 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
   <div class="mode-card light-mode-card"><div class="mode-number">A / PONCTUEL</div><div class="mode-icon"><span class="icon-file"></span></div><h3>Analyser des fichiers</h3><p>La commande lit les logs fournis, écrit ses résultats, puis se termine.</p><code class="command">python main.py</code><div class="mode-bottom"><span class="status-dot"></span> SE TERMINE APRÈS L’ANALYSE</div></div>
   <div class="mode-card dark-mode-card"><div class="mode-number">B / FLUX</div><div class="mode-icon"><span class="icon-stream">≋</span></div><h3>Suivre une entrée standard</h3><p>Avec <code>--stream-alerts</code>, chaque alerte sort dès sa détection. La lecture continue tant que le flux reste ouvert.</p><code class="command">cat data/*.log | python main.py --stream-alerts -</code><div class="mode-bottom"><span class="status-dot live"></span> ACTIF TANT QUE LE FLUX RESTE OUVERT</div></div>
 </div>
-<div class="thin-note">Le projet ne collecte pas automatiquement les journaux d’un réseau et n’installe aucun service permanent.</div>
 <div class="notes-text" hidden>Précision essentielle : la commande par défaut fait une analyse finie ; en entrée standard, le programme peut rester actif et émettre les alertes au fil de l’eau. Il n’y a pas de démon ni de serveur H24. Ne pas confondre traitement d’un flux et collecte automatique.</div></div></section>
 <section class="slide dark" id="slide-4" data-title="La chaîne de traitement" data-chapter="Architecture" aria-label="Diapositive 4: La chaîne de traitement"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">04 / PIPELINE</p><h2 class="headline compact">Le trajet d’une ligne de log</h2></div>
@@ -709,9 +694,8 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
    <div><span>SECURITY</span><b>rules · audit</b><p>Détecte les événements suspects et inspecte l’exécution.</p></div>
  </div>
 </div>
-<div class="thin-note">Environnement <code>venv</code> isolé · <code>requirements.txt</code> vide après <code>pip freeze</code> : le moteur utilise uniquement la bibliothèque standard.</div>
 <div class="notes-text" hidden>Le code est organisé en package src/ avec un point d’entrée main.py. Le notebook n’est pas le moteur : il documente et illustre les résultats. Cet isolement facilite tests et maintenance.</div></div></section>
-<section class="slide" id="slide-6" data-title="Module 1 — ingestion" data-chapter="Module 1" aria-label="Diapositive 6: Module 1 — ingestion"><div class="slide-inner wrap">
+<section class="slide" id="slide-6" data-title="Module 1 · ingestion" data-chapter="Module 1" aria-label="Diapositive 6: Module 1 · ingestion"><div class="slide-inner wrap">
 <div class="split ingestion-grid"><div><p class="eyebrow">06 / MODULE 1 · GÉNÉRATEURS</p><h2 class="headline">Une lecture ligne par ligne</h2><p class="lead"><code>yield</code> produit un enregistrement à la demande. <code>yield from</code> permet d’enchaîner plusieurs sources sans tout charger en RAM.</p><div class="primitive-list"><div><b>yield</b><span>Production paresseuse d’une ligne</span></div><div><b>yield from</b><span>Lecture successive de plusieurs flux</span></div><div><b>stdin</b><span>Prise en charge d’une entrée textuelle ouverte</span></div></div></div>
 <div class="code-stage"><div class="code-title">src/ingestion.py <span>CODE ABRÉGÉ</span></div><pre class="syntax"><span class="kw">def</span> <span class="fn">read_logs</span>(path):
     <span class="kw">with</span> path.open(...) <span class="kw">as</span> stream:
@@ -722,7 +706,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
         ...
         <span class="kw">yield from</span> read_logs(path)</pre><div class="flow-art"><div class="flow-file"><span>FICHIER</span><i></i><i></i><i></i><i></i><i></i></div><div class="flow-narrow">→</div><div class="flow-one"><span>UNE LIGNE</span><b>yield</b></div><div class="flow-narrow">→</div><div class="flow-file"><span>PIPELINE</span><i></i></div></div></div></div>
 <div class="notes-text" hidden>Ce n’est pas un chargement massif en mémoire. Les générateurs suspendent leur exécution entre deux lignes. Le code affiché est un extrait volontairement abrégé du fichier ingestion.py ; il faut le présenter comme tel.</div></div></section>
-<section class="slide" id="slide-7" data-title="Module 1 — parsing" data-chapter="Module 1" aria-label="Diapositive 7: Module 1 — parsing"><div class="slide-inner wrap">
+<section class="slide" id="slide-7" data-title="Module 1 · parsing" data-chapter="Module 1" aria-label="Diapositive 7: Module 1 · parsing"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">07 / MODULE 1 · MODÉLISATION</p><h2 class="headline compact">Un dictionnaire par événement</h2></div>
 <div class="parsing-layout">
   <div class="format-box"><span class="format-tag">FORMAT A · DÉLIMITÉ</span><pre>2026-09-29 08:00:00|INFO|192.0.2.10|alice|LOGIN_SUCCESS|Session ouverte</pre><span class="format-tag spacer-tag">FORMAT B · JSON</span><pre>{"timestamp":"2026-09-29 08:00:21", "level":"WARNING", ...}</pre><div class="format-foot">Champs requis : <b>timestamp</b> · <b>level</b> · <b>ip</b> · <b>user</b> · <b>event</b></div></div>
@@ -731,7 +715,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 </div>
 <div class="validation-band"><b>Validation stricte des champs</b><span>IP invalide</span><span>JSON tronqué</span><span>Doublons de clés</span><span>UTF-8 incorrect</span></div>
 <div class="notes-text" hidden>Le parseur accepte une ligne séparée par | ou un objet JSON, vérifie les types et crée un dictionnaire Python. Les métadonnées de connexion (IP, port, protocole) deviennent un tuple immuable. Les données de test contiennent trois erreurs intentionnelles.</div></div></section>
-<section class="slide" id="slide-8" data-title="Module 2 — transformations" data-chapter="Module 2" aria-label="Diapositive 8: Module 2 — transformations"><div class="slide-inner wrap">
+<section class="slide" id="slide-8" data-title="Module 2 · transformations" data-chapter="Module 2" aria-label="Diapositive 8: Module 2 · transformations"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">08 / MODULE 2 · PROGRAMMATION FONCTIONNELLE</p><h2 class="headline compact">Filtrage et normalisation des événements</h2></div>
 <div class="func-columns">
   <div class="func-card"><div class="func-title"><span>01</span> FILTRER</div><div class="func-code"><span class="kw">filter</span>(<span class="fn">lambda</span> line: <br>&nbsp;&nbsp;bool(line[2].strip()) <br>&nbsp;&nbsp;..., lines)</div><p>Écarte commentaires et lignes vides avant le parsing.</p></div>
@@ -740,18 +724,18 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 </div>
 <div class="bottom-quote">Même logique de traitement, quels que soient les formats de logs reconnus.</div>
 <div class="notes-text" hidden>C’est une consigne explicite du cours. Le pipeline emploie filter(), lambda, map() et match-case. Distinguez les lignes nettoyées de celles qui sont rejetées pour erreur de validation.</div></div></section>
-<section class="slide" id="slide-9" data-title="Module 3 — statistiques" data-chapter="Module 3" aria-label="Diapositive 9: Module 3 — statistiques"><div class="slide-inner wrap">
+<section class="slide" id="slide-9" data-title="Module 3 · statistiques" data-chapter="Module 3" aria-label="Diapositive 9: Module 3 · statistiques"><div class="slide-inner wrap">
 <div class="stats-layout"><div><p class="eyebrow">09 / MODULE 3 · AGRÉGATION</p><h2 class="headline">Compteurs par niveau et utilisateur</h2><p class="lead"><code>defaultdict(int)</code> compte sans provoquer de <code>KeyError</code>. Le moteur agrège les logs valides par niveau et par utilisateur.</p>
 <div class="tiny-terminal"><span>Analyzer.update(log)</span><code>by_level[log["level"]] += 1</code><code>by_user[log["user"]] += 1</code></div></div>
 <div class="chart-panel"><div class="chart-h"><b>RÉPARTITION PAR SÉVÉRITÉ</b><span>22 LOGS VALIDES</span></div><div class="bar-row"><label>ERROR</label><div><i style="--pct:100%;--c:var(--danger)"></i></div><strong>11</strong></div><div class="bar-row"><label>WARNING</label><div><i style="--pct:45.45%;--c:var(--gold)"></i></div><strong>5</strong></div><div class="bar-row"><label>INFO</label><div><i style="--pct:45.45%;--c:var(--blue)"></i></div><strong>5</strong></div><div class="bar-row"><label>CRITICAL</label><div><i style="--pct:9.09%;--c:var(--orange)"></i></div><strong>1</strong></div><div class="stat-divider"></div><div class="chart-bottom"><div><b>6</b><span>IP actives</span></div><div><b>3</b><span>IP avec ERROR / CRITICAL</span></div></div></div></div>
 <div class="notes-text" hidden>Ces chiffres proviennent de l’exécution réelle des données fournies, pas d’un exemple inventé. Le niveau ERROR n’est pas nécessairement une attaque ; les règles de détection sont distinctes du comptage par niveau.</div></div></section>
-<section class="slide" id="slide-10" data-title="Module 3 — ensembles" data-chapter="Module 3" aria-label="Diapositive 10: Module 3 — ensembles"><div class="slide-inner wrap">
+<section class="slide" id="slide-10" data-title="Module 3 · ensembles" data-chapter="Module 3" aria-label="Diapositive 10: Module 3 · ensembles"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">10 / MODULE 3 · SET &amp; FROZENSET</p><h2 class="headline compact">Les IP actives et la blacklist</h2></div>
 <div class="venn-layout"><div class="venn-container"><svg viewBox="0 0 620 340" role="img" aria-label="Diagramme des IP actives et blacklistées : quatre IP seulement actives, deux dans les deux ensembles et une seulement blacklistée"><circle cx="235" cy="170" r="148" fill="#d9eaf1" fill-opacity=".9" stroke="#39687b" stroke-width="2"/><circle cx="389" cy="170" r="148" fill="#d6f7a9" fill-opacity=".68" stroke="#4a7328" stroke-width="2"/><text x="165" y="152" class="venn-big">4</text><text x="163" y="175" class="venn-small">actives</text><text x="314" y="153" class="venn-big">2</text><text x="303" y="176" class="venn-small">communes</text><text x="448" y="152" class="venn-big">1</text><text x="431" y="175" class="venn-small">blacklist</text></svg><div class="venn-legend"><span><i class="a"></i> IP actives (6)</span><span><i class="b"></i> Blacklist (3)</span></div></div>
 <div class="set-operators"><div><b>A ∩ B</b><span>2</span><p>IP actives ET blacklistées</p></div><div><b>A ∪ B</b><span>7</span><p>Union des adresses</p></div><div><b>A − B</b><span>4</span><p>IP actives non blacklistées</p></div><div><b>A △ B</b><span>5</span><p>Différence symétrique</p></div></div></div>
 <div class="thin-note">IP communes observées : 203.0.113.66 et 198.51.100.24 · blacklist stockée en <code>frozenset</code> immuable.</div>
 <div class="notes-text" hidden>La blacklist comporte trois IP dont deux apparaissent dans les logs valides. On obtient donc 4 IP actives non blacklistées, 2 présentes dans les deux ensembles et 1 blacklistée non observée. Le moteur calcule les quatre opérations demandées.</div></div></section>
-<section class="slide dark" id="slide-11" data-title="Module 4 — règles" data-chapter="Module 4" aria-label="Diapositive 11: Module 4 — règles"><div class="slide-inner wrap">
+<section class="slide dark" id="slide-11" data-title="Module 4 · règles" data-chapter="Module 4" aria-label="Diapositive 11: Module 4 · règles"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">11 / MODULE 4 · MOTEUR EXTENSIBLE</p><h2 class="headline compact">Trois règles dans un même moteur</h2><p class="intro">Les fonctions de sécurité sont passées comme objets à <code>apply_security_rules(*args, **kwargs)</code>.</p></div>
 <div class="rules-stage"><div class="rules-code"><div class="code-title">main.py / invocation réelle abrégée</div><pre class="syntax">apply_security_rules(
   <span class="fn">detect_bruteforce</span>,
@@ -764,7 +748,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 )</pre></div><div class="rules-grid"><div><span class="rule-count">01</span><b>BRUTE_FORCE</b><p>Cinq échecs de connexion consécutifs par IP et utilisateur.</p></div><div><span class="rule-count">02</span><b>BLACKLIST</b><p>Événement émis par une adresse IP présente dans la liste noire.</p></div><div><span class="rule-count">03</span><b>CRITICAL</b><p>Journal dont le niveau de sévérité est critique.</p></div></div></div>
 <div class="bottom-quote">Une même ligne peut déclencher plusieurs règles : les alertes ne sont pas exclusives.</div>
 <div class="notes-text" hidden>Expliquez args : les fonctions de règles ; kwargs : log et configuration. Le moteur teste chaque fonction, émet une alerte si elle retourne un résultat. Un log critique issu d’une IP blacklistée peut produire deux alertes.</div></div></section>
-<section class="slide" id="slide-12" data-title="Zoom — force brute" data-chapter="Sécurité" aria-label="Diapositive 12: Zoom — force brute"><div class="slide-inner wrap">
+<section class="slide" id="slide-12" data-title="Zoom · force brute" data-chapter="Sécurité" aria-label="Diapositive 12: Zoom · force brute"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">12 / DÉTECTION D’ATTAQUE</p><h2 class="headline compact">Le cinquième échec déclenche l’alerte</h2><p class="intro">Par défaut, la règle suit cinq échecs consécutifs pour un même couple <code>(IP, utilisateur)</code>.</p></div>
 <div class="brute-panel"><div class="identity-row"><span class="ident-user">admin <small>203.0.113.66</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span><span class="success">✓</span></div><strong class="result-alert">1 ALERTE</strong></div>
 <div class="identity-row"><span class="ident-user">root <small>198.51.100.24</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span></div><strong class="result-alert">1 ALERTE</strong></div>
@@ -796,7 +780,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
       </div>
       <div class="demo-alert-block" id="demo-alert-box">
         <span>Alerte à examiner</span>
-        <b>—</b><p>La détection commence au prochain événement.</p>
+        <b>Aucune alerte</b><p>La détection commence au prochain événement.</p>
       </div>
       <p class="sr-only" id="demo-announcement" role="status"></p>
     </div>
@@ -844,7 +828,7 @@ Alertes : BLACKLIST 12
 <div class="notes-text" hidden>Ne confondez pas les 45 tests avec les 48 scénarios d’échec inclus dans l’un de ces tests. Les versions Python listées sont celles déclarées par le rapport. La suite couvre notamment les sorties lors d’erreurs et la CLI.</div></div></section>
 <section class="slide" id="slide-17" data-title="La mémoire au centre" data-chapter="Validation" aria-label="Diapositive 17: La mémoire au centre"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">17 / BENCHMARK · PYTHON 3.12.16 · TRACEMALLOC</p><h2 class="headline compact">Le pic mémoire reste proche de 68 Ko</h2></div>
-<div class="memory-layout"><div class="mem-graph"><div class="minor-heading">PIC DES ALLOCATIONS PYTHON — UNE IDENTITÉ FIXE</div><div class="mem-columns"><div><span class="mem-value">68,1 Ko</span><i style="height:79%"></i><b>10k</b><small>0,495 s</small></div><div><span class="mem-value">67,7 Ko</span><i style="height:78.4%"></i><b>100k</b><small>4,685 s</small></div><div><span class="mem-value">67,9 Ko</span><i style="height:78.7%"></i><b>1M</b><small>48,873 s</small></div></div><div class="mem-caption">59 Mo de fichier à 1 million de lignes · 200 000 alertes émises</div></div>
+<div class="memory-layout"><div class="mem-graph"><div class="minor-heading">PIC DES ALLOCATIONS PYTHON · UNE IDENTITÉ FIXE</div><div class="mem-columns"><div><span class="mem-value">68,1 Ko</span><i style="height:79%"></i><b>10k</b><small>0,495 s</small></div><div><span class="mem-value">67,7 Ko</span><i style="height:78.4%"></i><b>100k</b><small>4,685 s</small></div><div><span class="mem-value">67,9 Ko</span><i style="height:78.7%"></i><b>1M</b><small>48,873 s</small></div></div><div class="mem-caption">59 Mo de fichier à 1 million de lignes · 200 000 alertes émises</div></div>
 <div class="mem-aside"><span class="circle-overline">LE POINT À RETENIR</span><strong>≈ 68 Ko</strong><p>de pic mesuré sur trois volumes de 10 000 à 1 000 000 lignes avec le même couple IP/utilisateur.</p><div class="mem-warning"><b>Limite importante</b><span>Avec 10 000 couples distincts, l’essai mesure environ <strong>17,3 Mo</strong>. La mémoire dépend aussi du nombre d’identités et d’IP uniques.</span></div></div></div>
 <div class="notes-text" hidden>Ces chiffres viennent du tableau de benchmark sauvegardé dans le notebook. Ils mesurent les allocations Python via tracemalloc, pas toute la RAM du processus. La stabilité concerne un scénario avec une seule identité : ne pas la généraliser à toutes les charges.</div></div></section>
 <section class="slide" id="slide-18" data-title="Les défis techniques" data-chapter="Retour d’expérience" aria-label="Diapositive 18: Les défis techniques"><div class="slide-inner wrap">
@@ -860,9 +844,9 @@ Alertes : BLACKLIST 12
 <div class="closing-content"><div class="closing-top"><span class="eyebrow">20 / BILAN DU PROJET</span><span class="small-counter">ECE · ING3 · PYTHON</span></div>
 <h2 class="closing-title">Ce que révèle<br><span class="accent">un fichier de logs.</span></h2>
 <p class="closing-lead">SecureLog lit les journaux ligne par ligne, détecte les événements suspects et exporte les éléments utiles à l’enquête.</p>
-<div class="closing-lower"><div><b>Livrables</b><p>Dépôt Git · <code>main.py</code> · <code>requirements.txt</code> · rapport Jupyter</p></div><div><b>Validation</b><p>45 tests · données de démonstration · mesures mémoire documentées</p></div><div><b>Trinôme</b><p>Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA</p></div></div>
-<div class="closing-bottom"><span>MERCI.</span><a class="primary-action btn btn--primary" href="https://github.com/Sacha-BD/secure_log_engine" target="_blank" rel="noopener">Voir le dépôt GitHub ↗</a><span>QUESTIONS / ÉCHANGES</span></div></div>
-<div class="notes-text" hidden>Terminez sur les compétences Python démontrées et la différence entre ce moteur pédagogique et une plateforme de surveillance complète. Les livrables demandés sont bien ceux de l’énoncé. Invitez aux questions.</div></div></section></main>
+<div class="closing-lower"><div><b>Validation</b><p>45 tests · données de démonstration · mesures mémoire documentées</p></div><div><b>Trinôme</b><p>Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA</p></div></div>
+<div class="closing-bottom"><span>MERCI.</span><span>QUESTIONS / ÉCHANGES</span></div></div>
+<div class="notes-text" hidden>Terminez sur les compétences Python démontrées et la différence entre ce moteur pédagogique et une plateforme de surveillance complète. Invitez aux questions.</div></div></section></main>
 <nav class="navbar actionbar" aria-label="Navigation des diapositives">
   <span class="nav-chapter" id="nav-chapter">Ouverture</span>
   <div class="progress" id="progress" aria-hidden="true"></div>
@@ -958,7 +942,7 @@ Alertes : BLACKLIST 12
     for (const [i, attempt] of attempts.entries()) {
       attempt.classList.toggle('filled', i < streak);
     }
-    alertBox.querySelector('b').textContent = lastAlert || '—';
+    alertBox.querySelector('b').textContent = lastAlert || 'Aucune alerte';
     alertBox.querySelector('p').textContent = streakReset
       ? 'La connexion réussie remet la série d’échecs à zéro.'
       : lastAlert === 'BRUTE_FORCE'
@@ -1131,12 +1115,6 @@ Alertes : BLACKLIST 12
 
   document.querySelector('.skip-link').addEventListener('click', event => {
     event.preventDefault();
-    deck.focus({ preventScroll: true });
-  });
-  document.querySelector('.cover-start').addEventListener('click', event => {
-    if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
-    event.preventDefault();
-    go(1);
     deck.focus({ preventScroll: true });
   });
 
