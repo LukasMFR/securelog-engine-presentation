@@ -132,6 +132,85 @@
 }
 @media(prefers-reduced-motion:reduce){.demo-terminal .evt.step-new,.demo-alert-block.alert-flash{animation:none!important}}
 @media print{.demo-stage{height:auto;min-height:340px}.demo-keyboard{display:none!important}}
+
+/* =====================================================================
+   REVISION 3 — editorial balance, without content inflation
+   Design guidance: Leonxlnx/taste-skill 2.5.1, layout-v4/system/motion.
+   One slide per viewport; equal content edges; balanced negative space;
+   cards follow content; avoid motion that distracts from demonstration.
+   ===================================================================== */
+/* Unlike overflow:hidden, clip cannot create a horizontal scroll position
+   when the browser targets a slide hash on a narrow display. Each slide
+   itself remains vertically scrollable. */
+.app { overflow: clip; }
+/* Keep the original single palette and grid, but allow a second optical
+   rhythm for slides with short content. Auto margins distribute only truly
+   available space. When a screen is short, they collapse to zero so nothing
+   is cut off from the top. */
+@media (min-width: 1000px) {
+  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
+    .slide-inner > :first-child:not(.notes-text) { margin-top: auto; }
+  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
+    .slide-inner > :nth-last-child(2) { margin-bottom: auto; }
+}
+/* The code / process sequence gains enough substance to sit comfortably,
+   without filling the full height of a slide. Code stays readable at rest. */
+@media (min-width: 1200px) and (min-height: 780px) {
+  #slide-8 .func-columns { min-height: 352px; max-height: 365px; }
+  #slide-8 .func-card { padding: 25px 25px 23px; }
+  #slide-8 .func-code { margin: 20px 0 14px; padding: 18px 17px; }
+  #slide-8 .func-card p { font-size: 17px; line-height: 1.52; }
+  #slide-11 .rules-stage { min-height: 352px; max-height: 385px; }
+  #slide-14 .result-layout { min-height: 346px; max-height: 376px; }
+  #slide-19 .limitations > div:not(:first-child),
+  #slide-19 .improvements > div:not(:first-child) { padding: 15px 0; }
+  #slide-19 .roadmap-layout span { font-size: 16px; line-height: 1.45; }
+}
+/* Projection legibility: keep the smaller *content* type clear; do not grow
+   the main headlines so much they overwhelm the evidence on the slide. */
+@media (min-width: 1200px) {
+  #slide-11 .rules-stage p,
+  #slide-18 .challenge-grid p { line-height: 1.52; }
+  #slide-18 .challenge .solution { font-size: 15px; line-height: 1.48; }
+  #slide-17 .mem-columns small { font-size: 14px; }
+  #slide-17 .mem-caption { font-size: 14px; }
+}
+/* At a 1024px classroom projector, the test slide's title had four lines
+   and went under the fixed footer. Give the heading an appropriate measure. */
+@media (min-width: 1000px) and (max-width: 1170px) {
+  #slide-16 .validation-layout { grid-template-columns: .98fr 1.02fr; gap: 38px; }
+  #slide-16 .validation-layout .headline { font-size: clamp(39px, 4vw, 49px); line-height: 1.02; }
+}
+/* Under low projector heights, conserve footer clearance on dense pages. */
+@media (min-width: 1000px) and (max-height: 750px) {
+  #slide-8 .func-card { padding: 15px 18px; }
+  #slide-8 .func-code { margin: 15px 0; padding: 12px; min-height: 125px; }
+  #slide-17 .mem-columns { min-height: 155px; }
+  #slide-19 .limitations > div:not(:first-child),
+  #slide-19 .improvements > div:not(:first-child) { padding: 10px 0; }
+}
+/* Keep the closing and brute-force slide clear of the fixed navigation at
+   1280×720 projector resolution. Shrink margins before shrinking type. */
+@media (min-width: 1000px) and (max-height: 750px) {
+  #slide-3 .mode-card { padding: 19px 24px; }
+  #slide-3 .mode-icon { height: 62px; }
+  #slide-12 .brute-panel { min-height: 260px; max-height: 272px; padding: 8px 20px; }
+  #slide-12 .identity-row { padding: 10px 0; }
+  #slide-12 .loop-footer { margin-top: 13px; }
+  #slide-12 .loop-footer div { padding-top: 9px; }
+  #slide-20 .closing-title { font-size: clamp(64px, 6.6vw, 91px); margin: 20px 0 18px; }
+  #slide-20 .closing-lead { font-size: clamp(17px, 1.35vw, 21px); }
+  #slide-20 .closing-lower { margin-top: 25px; padding-top: 16px; }
+  #slide-20 .closing-bottom { margin-top: 21px; }
+}
+@media print {
+  /* Print renders full slides even though in the live experience the overall
+     group is optically centered. Disable auto margins for deterministic PDF. */
+  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
+    .slide-inner > :first-child:not(.notes-text) { margin-top: 0; }
+  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
+    .slide-inner > :nth-last-child(2) { margin-bottom: 0; }
+}
 </style></head>
 <body><div class="app" id="top"><div class="progress" id="progress"></div><header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true"></span> SECURELOG / ECE ING3</div><div class="bar-right"><span class="bar-chapter" id="head-chapter">OUVERTURE</span><span class="top-counter" id="head-number">01 / 20</span><button id="help-trigger" type="button" class="bar-action" aria-label="Afficher les raccourcis">?</button></div></header><main id="deck"><section class="slide dark " id="slide-1" data-title="SecureLog Engine" data-chapter="Ouverture" aria-label="Diapositive 1: SecureLog Engine"><div class="slide-inner">
 <div class="cover-grid">
@@ -461,6 +540,7 @@ const stream=[
     document.querySelectorAll('.overview-item').forEach((e,k) => e.classList.toggle('active', idx === k));
     notes.querySelector('p').textContent = slides[idx].querySelector('.notes-text').textContent;
     history.replaceState(null, '', '#slide-' + (idx+1));
+    document.getElementById('top').scrollLeft = 0;
     document.title = titles[idx] + ' · SecureLog Engine — 20 slides';
     updateProgress();
   }
