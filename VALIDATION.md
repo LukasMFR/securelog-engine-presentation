@@ -1,6 +1,6 @@
 # Validation de la présentation SecureLog Engine
 
-`GATE: OPEN 1 (rounds used up)`
+`GATE: PASS`
 
 ## Application de design-taste-frontend 2.5.1
 
@@ -14,16 +14,15 @@ révélation de la règle au cinquième échec SSH rythment les diapositives 4 e
 Le présentateur garde le contrôle des transitions. La préférence de mouvement
 réduit désactive les animations.
 
-Le contrôle officiel a accepté deux dérogations liées au format de la soutenance.
+Les dérogations du contrôle officiel tiennent au format de la soutenance.
 
 - `copy-headline` — Le titre reprend le nom officiel du projet. Le texte
   immédiatement dessous décrit le moteur Python d’analyse de logs.
 - `moment-none` — Les deux animations du diaporama sont intégrées au fichier et
   se déclenchent à la navigation ou pendant le rejeu. Le contrôle détecte les
   modules d’animation du kit.
-Le seul écart resté ouvert est `container-edges` sur la barre de progression.
-Cette ligne de 3 px part du bord de l’écran et traverse sa largeur à la fin
-du diaporama. Le logo et les commandes suivent la grille.
+- `container-edges` — Le trait de progression de 3 px traverse la largeur de
+  l’écran à la fin du diaporama. Le logo et les commandes suivent la grille.
 
 ## Vérifications
 
@@ -51,3 +50,13 @@ du diaporama. Le logo et les commandes suivent la grille.
 - Une exécution du moteur avec sortie temporaire a confirmé 22 logs
   valides, 3 rejets et 15 alertes. Les 45 tests Python passent sur une
   copie temporaire du dépôt du moteur.
+
+## Retouches de la soutenance
+
+Le marqueur du cinquième échec est centré dans sa rangée. Le total de la
+diapositive 16 est espacé et aligné sur la ligne de base. Les cartes d’export
+gardent un dégagement au-dessus de la navigation compacte en bas à droite.
+
+Chrome a vérifié les diapositives 3, 12, 13, 15 et 16 aux sept formats de
+projection, tablette et mobile indiqués ci-dessus. Les boutons conservent
+une cible de 44 px et le bouton Suivante déroule le rejeu.
