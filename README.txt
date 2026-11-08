@@ -4,7 +4,8 @@ Présentation de soutenance du projet Python ING3 à l’ECE Paris.
 Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA
 
 Ouvrez index.html dans un navigateur récent. Le diaporama et le rejeu
-fonctionnent hors ligne depuis ce fichier.
+fonctionnent hors ligne depuis ce fichier. Les diapositives gardent un
+format 16:9 fixe et se mettent à l’échelle au-dessus des commandes.
 
 Navigation
 - Flèches, Espace ou boutons du bas pour avancer et reculer.

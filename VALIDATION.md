@@ -1,6 +1,7 @@
 # Validation de la présentation SecureLog Engine
 
-`GATE: PASS`
+`GATE: PASS` pour la version à mise en page fluide. Le canevas fixe est
+validé par les vérifications ci-dessous.
 
 ## Application de design-taste-frontend 2.5.1
 
@@ -89,3 +90,18 @@ grandissent avec la fenêtre.
 Chrome a parcouru les 20 diapositives sur neuf formats. Le contenu tient
 sans défilement et reste dégagé des commandes à 2560×1440, 1920×1080,
 1440×900, 1280×720 et 1024×768.
+
+### Canevas 16:9 fixe
+
+Chaque diapositive utilise les mêmes dimensions logiques de 1920×1080.
+Le navigateur met le canevas entier à l’échelle dans la zone disponible
+au-dessus des commandes. Les marges autour du canevas absorbent les
+différences de ratio entre fenêtres. Le sommaire, l’aide, la navigation
+et la progression conservent leur propre mise en page.
+
+Dans Chrome, les 20 diapositives ont été vérifiées sur neuf tailles de
+fenêtre de 320×640 à 2560×1440. Le ratio, les dimensions de composition
+et la typographie des titres restent identiques. La navigation au clavier,
+l’aide, les notes et les huit étapes du rejeu ont été vérifiées.
+Le contrôle de page web sur la hauteur du premier écran est remplacé ici
+par le contrôle du canevas et du dégagement au-dessus des commandes.
