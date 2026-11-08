@@ -172,3 +172,15 @@ Le bandeau de validation de la diapositive 7 a été mesuré dans WebKit
 à 1920×1080, 2560×1440 et 2560×1473. À 2560×1440, il s’arrête à
 198 px au-dessus du menu après correction, contre 109 px sous le haut
 du menu auparavant. Le contrôle Chrome passe sur treize tailles.
+
+### Animations de projection
+
+Les nouvelles animations se déclenchent à l’entrée sur la diapositive.
+Elles suivent l’ordre de lecture des journaux, des panneaux et des étapes.
+Les trois barres du benchmark mémoire montent ensemble pour préserver
+leur comparaison. La couverture, le pipeline et les effets du rejeu
+conservent leurs animations.
+
+Chrome et WebKit ont vérifié les entrées et le retour à la disposition
+finale. Le parcours Chrome avec mouvement réduit vérifie que les
+diapositives restent statiques sur les treize tailles.

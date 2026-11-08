@@ -610,6 +610,89 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   }
 }
 </style>
+<style>
+/* Motion starts when navigation activates a slide. The projected layout stays fixed. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .slide.is-active :is(
+    .micro-facts > div, .mode-card, .module-list > div, .primitive-list > div,
+    .func-card, .rules-grid > div, .result-strip > div, .output-card,
+    .test-matrix > div, .challenge, .roadmap-layout > div > div:not(.roadmap-title),
+    .noise-lines > div, .flow-art > *, .attempts > span, .set-operators > div,
+    .mem-columns > div, .chart-bottom > div
+  ) {
+    --cue-delay: calc(70ms + var(--cue-step, 0) * 55ms);
+  }
+  .slide.is-active :is(
+    .micro-facts, .two-mode, .module-list, .primitive-list, .func-columns,
+    .rules-grid, .result-strip, .output-grid, .test-matrix, .challenge-grid,
+    .noise-lines, .flow-art, .attempts, .set-operators, .mem-columns, .chart-bottom
+  ) > :nth-child(2),
+  .slide.is-active .roadmap-layout > div > :nth-child(3) { --cue-step: 1; }
+  .slide.is-active :is(
+    .micro-facts, .module-list, .primitive-list, .func-columns, .rules-grid,
+    .result-strip, .output-grid, .test-matrix, .challenge-grid, .noise-lines,
+    .flow-art, .attempts, .set-operators, .mem-columns
+  ) > :nth-child(3),
+  .slide.is-active .roadmap-layout > div > :nth-child(4) { --cue-step: 2; }
+  .slide.is-active :is(
+    .module-list, .test-matrix, .challenge-grid, .noise-lines, .flow-art, .attempts, .set-operators
+  ) > :nth-child(4),
+  .slide.is-active .roadmap-layout > div > :nth-child(5) { --cue-step: 3; }
+  .slide.is-active :is(.test-matrix, .noise-lines, .flow-art, .attempts) > :nth-child(5),
+  .slide.is-active .roadmap-layout > div > :nth-child(6) { --cue-step: 4; }
+  .slide.is-active :is(.test-matrix, .noise-lines, .attempts) > :nth-child(n+6) { --cue-step: 5; }
+  .slide.is-active .noise-lines > :nth-child(n+7) { --cue-step: 6; }
+
+  .slide.is-active :is(
+    .micro-facts > div, .mode-card, .module-list > div, .primitive-list > div,
+    .func-card, .rules-grid > div, .result-strip > div, .output-card,
+    .test-matrix > div, .challenge, .roadmap-layout > div > div:not(.roadmap-title),
+    .set-operators > div, .chart-bottom > div,
+    .tree-frame, .code-stage, .format-box, .parsing-arrow, .structure-box,
+    .validation-band, .tiny-terminal, .demo-stage, .result-layout,
+    .mem-aside, .mega-test, .closing-title, .closing-lead, .closing-lower, .closing-bottom
+  ) {
+    animation: cue-enter 410ms var(--curve) var(--cue-delay, 75ms) backwards;
+  }
+  .slide.is-active :is(.parsing-arrow, .result-layout, .closing-lead) { --cue-delay: 140ms; }
+  .slide.is-active :is(.structure-box, .closing-lower) { --cue-delay: 205ms; }
+  .slide.is-active :is(.validation-band, .closing-bottom) { --cue-delay: 270ms; }
+  .slide.is-active :is(.noise-lines > div, .flow-art > *) {
+    animation: cue-trace 360ms var(--curve) var(--cue-delay) backwards;
+  }
+  .slide.is-active .attempts > span {
+    animation: cue-scale 350ms var(--curve) var(--cue-delay) backwards;
+  }
+  .slide.is-active .attempts > .final-fail { animation-duration: 510ms; }
+  .slide.is-active .venn-container circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cue-scale 520ms var(--curve) 65ms backwards;
+  }
+  .slide.is-active .venn-container circle + circle { animation-delay: 145ms; }
+  .slide.is-active .venn-container :is(text, .venn-legend) {
+    animation: cue-fade 350ms var(--curve) 240ms backwards;
+  }
+  .slide.is-active .mem-columns i {
+    transform-origin: bottom;
+    animation: cue-column 560ms var(--curve) 100ms backwards;
+  }
+  .slide.is-active .mem-columns .mem-value {
+    animation: cue-fade 340ms var(--curve) calc(var(--cue-delay) + 170ms) backwards;
+  }
+  .slide.is-active .bar-row:nth-child(3) i,
+  .slide.is-active .result-bar:nth-child(2) i { animation-delay: 60ms; animation-fill-mode: backwards; }
+  .slide.is-active .bar-row:nth-child(4) i,
+  .slide.is-active .result-bar:nth-child(3) i { animation-delay: 120ms; animation-fill-mode: backwards; }
+  .slide.is-active .bar-row:nth-child(5) i { animation-delay: 180ms; animation-fill-mode: backwards; }
+
+  @keyframes cue-enter { from { opacity: .25; transform: translateY(9px); } }
+  @keyframes cue-trace { from { opacity: .18; transform: translateX(-7px); } }
+  @keyframes cue-scale { from { opacity: .25; transform: scale(.76); } }
+  @keyframes cue-fade { from { opacity: .15; } }
+  @keyframes cue-column { from { transform: scaleY(.06); } }
+}
+</style>
 <noscript><style>
   html, body, .app { height: auto; overflow: visible; }
   .slide, .slide:not(.is-active) { display: block; position: relative; min-height: 100vh; }
