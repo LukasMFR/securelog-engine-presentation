@@ -6,7 +6,7 @@
 <title>SecureLog Engine · Présentation ING3</title>
 <script>document.documentElement.classList.add('m-enter');</script>
 <style>
-:root{--paper:#f3f4ef;--ink:#142622;--muted:#52665c;--line:#cbd5cc;--surface:#e5ece4;--night:#10231f;--panel:#142c26;--lime:#c5f77c;--lime-deep:#497230;--danger:#dc674c;--blue:#5488a0;--gold:#d5a34b;--orange:#e18c68;--dock-clearance:84px;--gutter:clamp(30px,6.1vw,104px);--curve:cubic-bezier(.2,.8,.2,1)}
+:root{--paper:#f3f4ef;--ink:#142622;--muted:#52665c;--line:#cbd5cc;--surface:#e5ece4;--night:#10231f;--panel:#142c26;--lime:#c5f77c;--lime-deep:#497230;--danger:#dc674c;--blue:#5488a0;--gold:#d5a34b;--orange:#e18c68;--dock-clearance:84px;--gutter:clamp(30px,4.45vw,72px);--curve:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box} html,body{height:100%;margin:0} html{scroll-behavior:auto} body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);overflow:hidden; -webkit-font-smoothing:antialiased}button,a{font:inherit} button{cursor:pointer} a{color:inherit} code,pre,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace} .app{height:100vh;height:100dvh;position:relative;overflow:hidden}
 .progress {
   position: fixed;
@@ -204,27 +204,28 @@
 .challenge .solution,.roadmap-layout span,.output-card pre,.result-terminal pre{font-size:clamp(13px,1.04vw,16px)}
 .demo-terminal{font-size:clamp(12px,1.05vw,15px);line-height:1.72}
 .demo-count,.demo-alert-block p,.demo-head{font-size:clamp(13px,1vw,15px)}
-.demo-alert-block>span ,
+.demo-alert-block>span{font-size:12px}
 .closing-lower p{font-size:15px}
-/* Panels follow their content instead of stretching to occupy the whole slide. */
-@media(min-width:1000px){
- .two-mode,.pipeline,.arch-layout,.func-columns,.rules-stage,.brute-panel,.result-layout,.output-grid,.memory-layout,.challenge-grid,.roadmap-layout{flex:0 1 auto}
- .arch-layout{max-height:460px}
- .two-mode{max-height:465px}
- .mode-icon{height:88px}
- .mode-card{padding:clamp(24px,2.65vw,38px)}
- .func-columns{max-height:425px}
- .func-code{min-height:158px;margin:22px 0 15px}
- .rules-stage{max-height:450px}
- .brute-panel{max-height:340px;min-height:315px}
- .identity-row{padding:16px 0}
- .result-layout{max-height:365px}
- .output-grid{max-height:445px}
- .output-card p{min-height:72px}
- .memory-layout{max-height:465px}
- .challenge-grid{max-height:445px}
- .roadmap-layout{max-height:440px}
- .limitations>div:not(:first-child),.improvements>div:not(:first-child){flex:none;padding:12px 0}
+/* Use the height recovered from the header for the diagrams and examples. */
+@media (min-width: 1000px) {
+  .two-mode, .pipeline, .arch-layout, .func-columns, .rules-stage,
+  .brute-panel, .result-layout, .output-grid, .memory-layout,
+  .challenge-grid, .roadmap-layout {
+    flex: 1 0 auto;
+    max-height: min(56vh, 540px);
+  }
+  .pipeline { max-height: min(46vh, 420px); }
+  .mode-icon { height: 88px; }
+  .mode-card { padding: clamp(24px, 2.65vw, 38px); }
+  .mode-card p, .func-card p { font-size: clamp(17px, 1.4vw, 21px); }
+  .func-code { min-height: 158px; margin: 22px 0 15px; }
+  .identity-row { padding: 16px 0; }
+  .brute-panel { max-height: min(48vh, 430px); }
+  .output-card p { min-height: 72px; }
+  .limitations > div:not(:first-child), .improvements > div:not(:first-child) {
+    flex: 1;
+    padding: 12px 0;
+  }
 }
 /* Terminal replay layout and motion. */
 .demo-stage{flex:0 1 auto}
@@ -274,28 +275,34 @@
    when the browser targets a slide hash on a narrow display. Each slide
    itself remains vertically scrollable. */
 .app { overflow: clip; }
-/* Keep the original single palette and grid, but allow a second optical
-   rhythm for slides with short content. Auto margins distribute only truly
-   available space. When a screen is short, they collapse to zero so nothing
-   is cut off from the top. */
-@media (min-width: 1000px) {
-  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
-    .slide-inner > :first-child:not(.notes-text) { margin-top: auto; }
-  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
-    .slide-inner > :nth-last-child(2) { margin-bottom: auto; }
-}
-/* The code / process sequence gains enough substance to sit comfortably,
-   without filling the full height of a slide. Code stays readable at rest. */
-@media (min-width: 1200px) and (min-height: 780px) {
-  #slide-8 .func-columns { min-height: 352px; max-height: 365px; }
-  #slide-8 .func-card { padding: 25px 25px 23px; }
-  #slide-8 .func-code { margin: 20px 0 14px; padding: 18px 17px; }
-  #slide-8 .func-card p { font-size: 17px; line-height: 1.52; }
-  #slide-11 .rules-stage { min-height: 352px; max-height: 385px; }
-  #slide-14 .result-layout { min-height: 346px; max-height: 376px; }
-  #slide-19 .limitations > div:not(:first-child),
-  #slide-19 .improvements > div:not(:first-child) { padding: 15px 0; }
-  #slide-19 .roadmap-layout span { font-size: 16px; line-height: 1.45; }
+/* Use larger type and illustrations on projection screens with room to spare. */
+@media (min-width: 1100px) and (min-height: 780px) {
+  .cover-title { font-size: clamp(94px, 8.5vw, 160px); }
+  .term-content { font-size: clamp(16px, 1.3vw, 22px); }
+  .filetree, .syntax, .format-box pre, .func-code, .output-card pre,
+  .result-terminal pre, .demo-terminal { font-size: clamp(16px, 1.2vw, 21px); }
+  .module-list b, .rules-grid b, .test-matrix b { font-size: clamp(19px, 1.55vw, 25px); }
+  .module-list p, .rules-grid p, .test-matrix small { font-size: clamp(15px, 1.18vw, 20px); }
+  .pipe-step { padding: clamp(18px, 1.8vw, 28px); }
+  .pipe-step h3 { font-size: clamp(25px, 2.5vw, 38px); }
+  .pipe-step p { font-size: clamp(16px, 1.25vw, 20px); }
+  .format-box, .structure-box { flex: 1; align-content: center; }
+  .chart-panel { padding: 36px; }
+  .bar-row { margin-block: 28px; }
+  .bar-row > div { height: 24px; }
+  .venn-container svg { max-height: 390px; }
+  .loop-footer span, .roadmap-layout span { font-size: clamp(15px, 1.18vw, 20px); }
+  .mem-columns { min-height: 245px; }
+  .slide .intro, .slide .lead { font-size: clamp(19px, 1.55vw, 26px); }
+  .slide .cover-copy .lead { max-width: 34ch; }
+  .slide .command, .slide .pipe-file { font-size: clamp(15px, 1.15vw, 19px); }
+  .func-code { flex: 1; align-content: center; }
+  .identity-row { flex: 1; }
+  .ident-user, .attempts > span { font-size: 27px; }
+  .attempts > span { width: 58px; height: 58px; }
+  .result-bar { margin-block: 26px; }
+  .result-bar label { font-size: 16px; }
+  .validation-layout .mega-test { margin-top: 18px; }
 }
 /* Projection legibility: keep the smaller *content* type clear; do not grow
    the main headlines so much they overwhelm the evidence on the slide. */
@@ -334,15 +341,6 @@
   #slide-20 .closing-lower { margin-top: 25px; padding-top: 16px; }
   #slide-20 .closing-bottom { margin-top: 21px; }
 }
-@media print {
-  /* Print renders full slides even though in the live experience the overall
-     group is optically centered. Disable auto margins for deterministic PDF. */
-  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
-    .slide-inner > :first-child:not(.notes-text) { margin-top: 0; }
-  :is(#slide-3,#slide-4,#slide-5,#slide-8,#slide-11,#slide-12,#slide-13,#slide-14,#slide-15,#slide-17,#slide-18,#slide-19)
-    .slide-inner > :nth-last-child(2) { margin-bottom: 0; }
-}
-
 /* Shared deck controls and responsive cover. */
 .skip-link {
   position: fixed;
@@ -369,7 +367,7 @@
 .navbar { background: var(--paper); }
 .dark-context .navbar { background: var(--night); }
 .dark-context .navbar { border-color: #466458; }
-.slide-inner { max-width: 1320px; }
+.slide-inner { max-width: 1600px; }
 :where(.cover-grid, .split, .arch-layout, .stats-layout, .demo-body, .rules-stage) > * { min-width: 0; }
 :where(pre, .dictionary) { overflow-wrap: anywhere; }
 @media (hover: hover) and (pointer: fine) {
@@ -395,7 +393,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
   .term-content .command-line { margin-bottom: 8px; }
 }
 @media (max-width: 560px) {
-  :root { --dock-clearance: 130px; }
+  :root { --dock-clearance: 120px; }
   .navbar {
     grid-template-areas: "chapter help" "actions actions";
     grid-template-columns: 1fr auto;
@@ -440,6 +438,11 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 }
 @media print {
   .skip-link, .primary-action { display: none; }
+}
+
+@media (min-width: 1000px) {
+  .demo-stage { flex: 1 0 auto; max-height: min(58vh, 545px); }
+  .demo-stage .demo-terminal { max-height: none; }
 }
 
 /* Presenter-led replay, with a readable static summary for print. */
@@ -542,8 +545,9 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 <body class="app" id="top">
 <!-- Soutenance logiciel : vert terminal, typographie système, grille scindée.
      Moments guidés : trajet d’un log et révélation de l’alerte, sans lecture automatique. -->
+<main id="deck" tabindex="-1">
 <a class="skip-link" href="#deck">Aller à la diapositive</a>
-<main id="deck" tabindex="-1"><section class="slide hero dark is-active" id="slide-1" data-enter data-title="SecureLog Engine" data-chapter="Ouverture" aria-label="Diapositive 1: SecureLog Engine"><div class="slide-inner wrap">
+<section class="slide hero dark is-active" id="slide-1" data-enter data-title="SecureLog Engine" data-chapter="Ouverture" aria-label="Diapositive 1: SecureLog Engine"><div class="slide-inner wrap">
 <div class="cover-grid hero-text grid">
   <div class="cover-copy hero__text">
     <p class="eyebrow">ECE Paris · ING3 · Projet final Python</p>
@@ -802,10 +806,11 @@ Alertes : BLACKLIST 12
 <div class="notes-text" hidden>Terminez sur les compétences Python démontrées et la différence entre ce moteur pédagogique et une plateforme de surveillance complète. Les livrables demandés sont bien ceux de l’énoncé. Invitez aux questions.</div></div></section></main>
 <nav class="navbar actionbar" aria-label="Navigation des diapositives">
   <span class="nav-chapter" id="nav-chapter">Ouverture</span>
-  <button class="nav-btn" id="help-trigger" type="button" aria-haspopup="dialog" aria-controls="help" aria-label="Afficher les raccourcis">?</button>
   <div class="progress" id="progress" aria-hidden="true"></div>
   <span class="sr-only" id="slide-announcement" role="status"></span>
-  <div class="nav-actions"><button class="nav-btn" id="notes-trigger" type="button" aria-expanded="false" aria-controls="speaker-notes" title="Notes du présentateur" aria-label="Notes du présentateur">N</button><button class="nav-btn" id="fullscreen-trigger" type="button" aria-pressed="false" title="Plein écran" aria-label="Basculer en plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button><button class="nav-btn" id="overview-trigger" type="button" aria-haspopup="dialog" aria-controls="overview" title="Sommaire" aria-label="Sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button><button class="nav-btn" id="prev" type="button" title="Diapositive précédente" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><span class="nav-current" id="nav-current">01 <span>/ 20</span></span><button class="nav-btn" id="next" type="button" title="Diapositive suivante" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div></nav>
+  <div class="nav-actions"><button class="nav-btn" id="notes-trigger" type="button" aria-expanded="false" aria-controls="speaker-notes" title="Notes du présentateur" aria-label="Notes du présentateur">N</button><button class="nav-btn" id="fullscreen-trigger" type="button" aria-pressed="false" title="Plein écran" aria-label="Basculer en plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button><button class="nav-btn" id="overview-trigger" type="button" aria-haspopup="dialog" aria-controls="overview" title="Sommaire" aria-label="Sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button><button class="nav-btn" id="prev" type="button" title="Diapositive précédente" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><span class="nav-current" id="nav-current">01 <span>/ 20</span></span><button class="nav-btn" id="next" type="button" title="Diapositive suivante" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+  <button class="nav-btn" id="help-trigger" type="button" aria-haspopup="dialog" aria-controls="help" aria-label="Afficher les raccourcis">?</button>
+</nav>
 <dialog class="overview" id="overview" aria-labelledby="overview-heading"><div class="overlay-header"><h2 id="overview-heading">Sommaire des 20 diapositives</h2><button type="button" class="overlay-close" id="overview-close">Fermer ×</button></div><div class="overview-grid" id="overview-grid"></div></dialog>
 <dialog class="help" id="help" aria-labelledby="help-heading"><div class="help-card"><h2 id="help-heading">Commandes de présentation</h2><div class="shortcut-row"><span>Étape suivante ou diapositive suivante</span><span><kbd>→</kbd> <kbd>↓</kbd> <kbd>Espace</kbd></span></div><div class="shortcut-row"><span>Étape précédente ou diapositive précédente</span><span><kbd>←</kbd> <kbd>↑</kbd></span></div><div class="shortcut-row"><span>Recommencer la démo (slide 13)</span><kbd>R</kbd></div><div class="shortcut-row"><span>Ouvrir les 20 slides</span><kbd>O</kbd></div><div class="shortcut-row"><span>Notes orateur</span><kbd>N</kbd></div><div class="shortcut-row"><span>Plein écran</span><kbd>F</kbd></div><div class="shortcut-row"><span>Fermer les fenêtres</span><kbd>Esc</kbd></div><button type="button" class="help-close" id="help-close">Retour à la présentation</button></div></dialog>
 <div class="speaker-notes" id="speaker-notes" role="complementary" aria-label="Notes orateur"><small>NOTES DE PRÉSENTATION · APPUYEZ SUR N</small><p></p></div>

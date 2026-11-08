@@ -21,11 +21,12 @@ Les dérogations du contrôle officiel tiennent au format de la soutenance.
 - `moment-none` — Les deux animations du diaporama sont intégrées au fichier et
   se déclenchent à la navigation ou pendant le rejeu. Le contrôle détecte les
   modules d’animation du kit.
-- `container-edges` — Le trait de progression de 3 px traverse la largeur de
-  l’écran à la fin du diaporama. Le logo et les commandes de l’en-tête suivent
-  la grille.
+- `container-edges` — La piste de progression de 4 px traverse le bas de
+  l’écran. Le contenu de chaque diapositive suit sa grille.
 - `container-edges` — La barre de navigation flottante suit le bord droit
   de la fenêtre, avec 6 px de retrait en plus de la zone de sécurité éventuelle.
+- `one-section` — Le lien d’accès clavier précède les diapositives dans le
+  conteneur principal et reste disponible à chaque étape.
 
 ## Vérifications
 
@@ -64,3 +65,15 @@ La barre est à 6 px des bords droit et inférieur hors zone de sécurité.
 Chrome a vérifié les diapositives 3, 12, 13, 15 et 16 aux sept formats de
 projection, tablette et mobile indiqués ci-dessus. Les boutons conservent
 une cible de 44 px et le bouton Suivante déroule le rejeu.
+
+## Rendu pour la projection
+
+Le chapitre, le compteur et l’aide rejoignent les commandes en bas à droite.
+La progression occupe toute la largeur au bas de la fenêtre. Sur téléphone,
+la barre passe sur deux rangées pour conserver les cibles de 44 px.
+
+Les 20 diapositives ont été parcourues dans Chrome sur huit formats de 320 px
+au plein écran 1920×1080. La surface libérée en haut, les marges latérales
+réduites et les blocs techniques agrandis donnent davantage de place au texte,
+aux graphiques et au code. La navigation au clavier, l’aide, les notes et les
+huit étapes du rejeu ont été vérifiées.
