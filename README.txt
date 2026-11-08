@@ -5,7 +5,8 @@ Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA
 
 Ouvrez index.html dans un navigateur récent. Le diaporama et le rejeu
 fonctionnent hors ligne depuis ce fichier. Les diapositives gardent un
-format 16:9 fixe et se mettent à l’échelle au-dessus des commandes.
+format 16:9 fixe. En projection, le canevas remplit un écran 16:9 et
+les commandes restent en bas à droite.
 
 Navigation
 - Flèches, Espace ou boutons du bas pour avancer et reculer.

@@ -478,6 +478,52 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
   .demo-fallback { display: block; }
 }
 
+/* Make sequence labels and totals readable from the back of the room. */
+:is(.pipe-index, .rule-count, .challenge-index) {
+  display: inline-grid;
+  place-items: center;
+  width: max-content;
+  min-width: 2.25em;
+  min-height: 1.8em;
+  padding-inline: .35em;
+  border: 1px solid #a6b7a8;
+  background: #dce7da;
+  color: #264538;
+  font: 750 19px/1 ui-monospace, monospace;
+}
+.dark :is(.pipe-index, .rule-count) {
+  border-color: #627e6e;
+  background: #203d32;
+  color: var(--lime);
+}
+.dark .pipe-final .pipe-index {
+  border-color: #7fa657;
+  background: #e1f9c8;
+  color: #264538;
+}
+.rules-grid > div { grid-template-columns: 48px minmax(0, 1fr); }
+.mode-number, .output-badge { font-size: 16px; letter-spacing: .075em; }
+.output-badge, .roadmap-layout b { color: #385645; }
+.roadmap-layout b { font: 700 18px/1.3 ui-monospace, monospace; }
+.challenge { padding: 25px 30px; }
+.challenge h3 { margin-block: 14px 8px; }
+.slide .challenge .solution { font-size: 18px; }
+.slide :is(.result-strip strong, .mega-test, .venn-big, .set-operators span,
+  .mem-value, .mem-columns b, .demo-count b, .result-bar b),
+.nav-current, .overview-item small {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.slide .headline, .closing-title { letter-spacing: -.035em; }
+.cover-title { letter-spacing: -.04em; }
+.result-strip strong, .mega-test, .venn-big, .mem-aside > strong { letter-spacing: -.015em; }
+.rule-count { align-self: center; }
+.demo-count { font-size: 17px; }
+.demo-count b { font-size: 34px; letter-spacing: -.02em; white-space: nowrap; }
+.demo-streak { font-size: 17px; }
+.demo-streak li { min-height: 40px; font-size: 18px; }
+.nav-current span { opacity: 1; color: var(--muted); }
+.dark-context .nav-current span { color: #b3c6bd; }
+
 /* Scale the layout before painting. The controls remain outside the canvas. */
 @media screen {
   .app:has(#deck[data-canvas]) { display: grid; place-items: center; }

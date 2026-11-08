@@ -94,14 +94,21 @@ sans défilement et reste dégagé des commandes à 2560×1440, 1920×1080,
 ### Canevas 16:9 fixe
 
 Chaque diapositive utilise les mêmes dimensions logiques de 1920×1080.
-Le navigateur met le canevas entier à l’échelle dans la zone disponible
-au-dessus des commandes. Les marges autour du canevas absorbent les
-différences de ratio entre fenêtres. Le sommaire, l’aide, la navigation
-et la progression conservent leur propre mise en page.
+Le navigateur dimensionne le canevas par le zoom de mise en page CSS,
+sans transformation de mise à l’échelle permanente. Un écran 16:9 est
+rempli bord à bord. Sur un autre ratio, les marges reprennent le fond de la
+diapositive active. Le sommaire, l’aide, la navigation et la progression
+conservent leur propre mise en page.
 
 Dans Chrome, les 20 diapositives ont été vérifiées sur neuf tailles de
-fenêtre de 320×640 à 2560×1440. Le ratio, les dimensions de composition
-et la typographie des titres restent identiques. La navigation au clavier,
+fenêtre de 320×640 à 2560×1440. Le ratio et la composition sont conservés,
+avec les arrondis de rendu du navigateur selon l’échelle. La navigation au clavier,
 l’aide, les notes et les huit étapes du rejeu ont été vérifiées.
 Le contrôle de page web sur la hauteur du premier écran est remplacé ici
 par le contrôle du canevas et du dégagement au-dessus des commandes.
+
+Les indices, les compteurs et les chiffres des graphiques ont été repris
+pour la projection, en suivant l’espacement typographique de la présentation
+Larry Fink. Le focus programmatique du diaporama ne dessine plus de contour
+autour des titres. Dans Chrome, le test du raccourci F vérifie l’appel à
+l’API de plein écran et l’absence de contour avec cet appel simulé.
