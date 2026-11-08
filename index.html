@@ -418,11 +418,6 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
   .skip-link, .primary-action { display: none; }
 }
 
-@container slide-canvas (min-width: 1000px) {
-  .demo-stage {flex: 1 0 auto; max-height: min(58cqh, 850px);}
-  .demo-stage .demo-terminal {max-height: none;}
-}
-
 /* Presenter-led replay, with a readable static summary for print. */
 .sr-only {
   position: absolute;
@@ -554,7 +549,7 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
     width: 1920px;
     height: 1080px;
     container: slide-canvas / size;
-    --slide-bottom: 152px;
+    --slide-bottom: 180px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     zoom: var(--canvas-scale, 1);
@@ -571,6 +566,27 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
     padding: 28px 32px;
     font-size: 21px;
     line-height: 1.5;
+  }
+  /* Keep the replay inside the reserved row as log entries are revealed. */
+  #deck[data-canvas] #slide-13 .slide-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 560px);
+    align-content: center;
+  }
+  #deck[data-canvas] .demo-head { flex: none; }
+  #deck[data-canvas] .demo-body { grid-template-rows: minmax(0, 1fr); }
+  #deck[data-canvas] .demo-terminal {
+    min-height: 0;
+    max-height: none;
+    padding: 16px 24px;
+    font-size: 21px;
+    line-height: 1.4;
+    white-space: pre;
+  }
+  #deck[data-canvas] .demo-status {
+    min-height: 0;
+    overflow: auto;
   }
 }
 </style>
@@ -1135,7 +1151,7 @@ Alertes : BLACKLIST 12
     if (!Number.isFinite(bottomInset)) return;
     const fullScale = Math.min(width / canvasWidth, height / canvasHeight);
     const contentBottom = height / 2 + (canvasHeight / 2 - bottomInset) * fullScale;
-    const menuLimit = navigation.getBoundingClientRect().top - 10;
+    const menuLimit = navigation.getBoundingClientRect().top - 24;
 
     // Keep the full canvas when its content clears the menu. Short windows
     // fit the same composition entirely above the controls instead.
