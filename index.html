@@ -58,12 +58,13 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   align-content: center;
-  gap: 24px;
+  align-items: center;
+  gap: 34px 48px;
   flex: 1;
 }
+.cover-heading { grid-column: 1 / -1; }
 .cover-copy, .cover-visual { grid-column: span 6; }
-.cover-title { font-size: clamp(64px, 7.5cqw, 128px); margin: 18px 0 22px; color: var(--lime); }
-.cover-title::first-line { color: #edf5e9; }
+.cover-title { font-size: clamp(64px, 7.4cqw, 142px); margin: 0; }
 .cover-visual { display: flex; flex-direction: column; }
 .cover-visual .term-content { flex: 1; align-content: center; }
 .cover-copy .lead { max-width: 31ch; }
@@ -264,7 +265,6 @@
 .app { overflow: clip; }
 /* Use larger type and illustrations on projection screens with room to spare. */
 @container slide-canvas (min-width: 1100px) and (min-height: 780px) {
-  .cover-title {font-size: clamp(94px, 8.5cqw, 160px);}
   .term-content {font-size: clamp(16px, 1.3cqw, 22px);}
   .filetree, .syntax, .format-box pre, .func-code, .output-card pre,
   .result-terminal pre, .demo-terminal {font-size: clamp(16px, 1.2cqw, 21px);}
@@ -281,7 +281,7 @@
   .loop-footer span, .roadmap-layout span {font-size: clamp(15px, 1.18cqw, 20px);}
   .mem-columns {min-height: 245px;}
   .slide .intro, .slide .lead {font-size: clamp(19px, 1.55cqw, 26px);}
-  .slide .cover-copy .lead {max-width: 34ch;}
+  .slide .cover-copy .lead {max-width: 42ch;}
   .slide .command, .slide .pipe-file {font-size: clamp(15px, 1.15cqw, 19px);}
   .func-code {flex: 1; align-content: center;}
   .identity-row {flex: 1;}
@@ -319,7 +319,6 @@
   .slide .headline {font-size: clamp(76px, min(5cqw, 8.2cqh), 120px); max-width: 21ch;}
   .slide .headline.compact {font-size: clamp(65px, min(4.15cqw, 7cqh), 103px);
     max-width: none;}
-  .slide .cover-title {font-size: clamp(138px, min(8.6cqw, 15cqh), 214px);}
   .slide .lead, .slide .intro, .closing-lead {font-size: calc(var(--projected-text) * 1.12);}
   .slide .lead {max-width: 34ch;}
   .slide .intro {max-width: 68ch;}
@@ -524,22 +523,40 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 .nav-current span { opacity: 1; color: var(--muted); }
 .dark-context .nav-current span { color: #b3c6bd; }
 
+.validation-layout .headline {
+  font-size: clamp(48px, 4cqw, 76px);
+  max-width: none;
+  text-wrap: balance;
+}
+.slide .test-command {
+  font-size: clamp(14px, 1.08cqw, 21px);
+}
+
 /* Scale the layout before painting. The controls remain outside the canvas. */
 @media screen {
-  .app:has(#deck[data-canvas]) { display: grid; place-items: center; }
+  .app:has(#deck[data-canvas]) {
+    display: grid;
+    grid-template-rows: var(--canvas-area, 100%);
+    place-items: center;
+  }
   .app.dark-context:has(#deck[data-canvas]) { background: var(--night); }
   #deck[data-canvas] {
     position: relative;
     width: 1920px;
     height: 1080px;
     container: slide-canvas / size;
+    --slide-bottom: 152px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     zoom: var(--canvas-scale, 1);
   }
   #deck[data-canvas] .slide {
     --gutter: 85px;
-    padding-bottom: 124px;
+    padding-bottom: var(--slide-bottom);
+  }
+  #deck[data-canvas] :is(.cover-title, .test-command) {
+    white-space: nowrap;
+    overflow-wrap: normal;
   }
 }
 </style>
@@ -557,9 +574,11 @@ html[data-motion] :is(.primary-action, button:not(:disabled)):active { transform
 <main id="deck" tabindex="-1">
 <section class="slide hero dark is-active" id="slide-1" data-enter data-title="SecureLog Engine" data-chapter="Ouverture" aria-label="Diapositive 1: SecureLog Engine"><div class="slide-inner wrap">
 <div class="cover-grid hero-text grid">
-  <div class="cover-copy hero__text">
+  <div class="cover-heading">
     <p class="eyebrow">ECE Paris · ING3 · Projet final Python</p>
-    <h1 class="display cover-title">SecureLog<br>Engine</h1>
+    <h1 class="display cover-title">SecureLog <span class="accent">Engine</span></h1>
+  </div>
+  <div class="cover-copy hero__text">
     <p class="lead hero__lead">Un moteur Python qui détecte les événements suspects dans les logs système et réseau.</p>
     <div class="cover-meta"><span>Python 3.10+</span><span>Fichiers et entrée standard</span></div>
     <a class="cover-start primary-action btn btn--primary" href="#slide-2">Lancer la présentation <span aria-hidden="true">→</span></a>
@@ -788,8 +807,8 @@ Alertes : BLACKLIST 12
 "version": "1.0"</pre></div></div>
 <div class="notes-text" hidden>Le résumé est en JSON, les alertes en JSON Lines et l’audit documente l’état du processus. Le moteur prépare ses résultats dans un dossier temporaire et tente de restaurer les sorties antérieures si la publication échoue.</div></div></section>
 <section class="slide" id="slide-16" data-title="Tests et robustesse" data-chapter="Validation" aria-label="Diapositive 16: Tests et robustesse"><div class="slide-inner wrap">
-<div class="validation-layout"><div><p class="eyebrow">16 / VALIDATION</p><h2 class="headline">La suite de tests du moteur</h2><div class="mega-test">45<span> / 45</span></div><p class="test-sub">Tests automatisés réussis.</p><code class="command test-command">python -m unittest discover -s tests -v</code></div>
-<div class="test-matrix"><div><span class="checkmark">✓</span><b>Parsing &amp; entrées invalides</b><small>IP, JSON, Unicode, formats</small></div><div><span class="checkmark">✓</span><b>Logique de détection</b><small>Seuils, successions, blacklist</small></div><div><span class="checkmark">✓</span><b>Cas de force brute</b><small>256 séquences de 8 tentatives, seuils 1 à 5</small></div><div><span class="checkmark">✓</span><b>Publication sécurisée</b><small>48 scénarios d’échec simulés</small></div><div><span class="checkmark">✓</span><b>CLI &amp; flux ouvert</b><small>Alerte avant fermeture de stdin</small></div><div><span class="checkmark">✓</span><b>Compatibilité documentée</b><small>Python 3.10.22 · 3.12.16 · 3.14.10 · 3.15.2</small></div></div><div class="thin-note">Code typé, gestion d’exceptions et contrôle PEP 8 documentés dans le rapport.</div></div>
+<div class="validation-layout"><div><p class="eyebrow">16 / VALIDATION</p><h2 class="headline">La suite de tests du moteur</h2><div class="mega-test">45<span> / 45</span></div><p class="test-sub">Tests automatisés réussis.</p><code class="command test-command">python -m unittest discover -s tests -v</code><div class="thin-note">Code typé, gestion d’exceptions et contrôle PEP 8 documentés dans le rapport.</div></div>
+<div class="test-matrix"><div><span class="checkmark">✓</span><b>Parsing &amp; entrées invalides</b><small>IP, JSON, Unicode, formats</small></div><div><span class="checkmark">✓</span><b>Logique de détection</b><small>Seuils, successions, blacklist</small></div><div><span class="checkmark">✓</span><b>Cas de force brute</b><small>256 séries de 8 essais · seuils 1 à 5</small></div><div><span class="checkmark">✓</span><b>Publication sécurisée</b><small>48 scénarios d’échec simulés</small></div><div><span class="checkmark">✓</span><b>CLI &amp; flux ouvert</b><small>Alerte avant fermeture de stdin</small></div><div><span class="checkmark">✓</span><b>Compatibilité documentée</b><small>Python 3.10.22 · 3.12.16 · 3.14.10 · 3.15.2</small></div></div></div>
 <div class="notes-text" hidden>Ne confondez pas les 45 tests avec les 48 scénarios d’échec inclus dans l’un de ces tests. Les versions Python listées sont celles déclarées par le rapport. La suite couvre notamment les sorties lors d’erreurs et la CLI.</div></div></section>
 <section class="slide" id="slide-17" data-title="La mémoire au centre" data-chapter="Validation" aria-label="Diapositive 17: La mémoire au centre"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">17 / BENCHMARK · PYTHON 3.12.16 · TRACEMALLOC</p><h2 class="headline compact">Le pic mémoire reste proche de 68 Ko</h2></div>
@@ -826,6 +845,7 @@ Alertes : BLACKLIST 12
 (() => {
   'use strict';
   const deck = document.getElementById('deck');
+  const navigation = document.querySelector('.navbar');
   const slides = [...deck.querySelectorAll('.slide')];
   const slideCount = slides.length;
   const demoIndex = slides.findIndex(slide => slide.id === 'slide-13');
@@ -1088,11 +1108,23 @@ Alertes : BLACKLIST 12
   });
 
   function fitCanvas() {
-    const scale = Math.min(
-      document.body.clientWidth / deck.offsetWidth,
-      document.body.clientHeight / deck.offsetHeight,
-    );
-    if (Number.isFinite(scale) && scale > 0) deck.style.setProperty('--canvas-scale', scale);
+    const width = document.body.clientWidth;
+    const height = document.body.clientHeight;
+    const canvasWidth = deck.offsetWidth;
+    const canvasHeight = deck.offsetHeight;
+    if (!canvasWidth || !canvasHeight) return;
+
+    const bottomInset = parseFloat(getComputedStyle(deck).getPropertyValue('--slide-bottom'));
+    if (!Number.isFinite(bottomInset)) return;
+    const fullScale = Math.min(width / canvasWidth, height / canvasHeight);
+    const contentBottom = height / 2 + (canvasHeight / 2 - bottomInset) * fullScale;
+    const menuLimit = navigation.getBoundingClientRect().top - 10;
+
+    // Keep the full canvas when its content clears the menu. Short windows
+    // fit the same composition entirely above the controls instead.
+    const area = contentBottom <= menuLimit ? height : Math.max(1, menuLimit);
+    document.body.style.setProperty('--canvas-area', area + 'px');
+    deck.style.setProperty('--canvas-scale', Math.min(fullScale, area / canvasHeight));
   }
 
   window.addEventListener('hashchange', goToHash);
@@ -1101,5 +1133,6 @@ Alertes : BLACKLIST 12
   fitCanvas();
   const canvasObserver = new ResizeObserver(fitCanvas);
   canvasObserver.observe(document.body);
+  canvasObserver.observe(navigation);
 })();
 </script></body></html>
