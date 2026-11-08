@@ -112,3 +112,19 @@ pour la projection, en suivant l’espacement typographique de la présentation
 Larry Fink. Le focus programmatique du diaporama ne dessine plus de contour
 autour des titres. Dans Chrome, le test du raccourci F vérifie l’appel à
 l’API de plein écran et l’absence de contour avec cet appel simulé.
+
+### Dégagement et transitions de projection
+
+Le titre de couverture occupe une rangée entière au-dessus du terminal.
+Sur la diapositive 16, la commande de test tient sur une seule ligne et sa
+note reste dans la même colonne. Une zone libre sépare le contenu des
+commandes, tandis que le fond continue jusqu’à la progression.
+
+Les 20 diapositives ont été parcourues dans Chrome sur onze formats, de
+320×640 à 2560×1440. Le contrôle vérifie les limites du contenu, le
+dégagement au-dessus du menu et les sauts de ligne des deux éléments
+signalés à 1920×1080 et 2560×1440.
+
+La couverture entre par étapes. Le déplacement des diapositives suit le
+sens de la navigation et les barres des graphiques se déploient à leur
+apparition. Les deux modes de mouvement ont été contrôlés dans Chrome.

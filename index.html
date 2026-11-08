@@ -51,8 +51,17 @@
 #help-trigger { grid-area: help; }
 .nav-actions{grid-area:actions;display:flex;align-items:center;gap:7px}.nav-btn{width:44px;height:44px;border:1px solid currentColor;background:transparent;color:inherit;display:flex;justify-content:center;align-items:center;border-radius:50%;transition:transform .2s var(--curve),background .2s,color .2s}.nav-btn svg{height:18px;width:18px}.nav-btn:hover:not(:disabled){background:var(--ink);color:var(--paper)}.nav-btn:disabled{opacity:.23;cursor:default}.nav-current{font-size:13px;font-family:ui-monospace,monospace;min-width:64px;text-align:center}.nav-current span{opacity:.5}.dark-context .navbar{color:#f2f7ed;border-color:rgba(255,255,255,.15)}.dark-context .nav-btn:hover:not(:disabled){color:var(--ink);background:var(--lime)}
 .slide{position:absolute;inset:0;padding:clamp(24px,4cqh,44px) var(--gutter) calc(var(--dock-clearance) + env(safe-area-inset-bottom));background:var(--paper);overflow-y:auto;overflow-x:hidden;scrollbar-width:none;isolation:isolate}.slide::-webkit-scrollbar{display:none}.slide:not(.is-active){display:none}
-.slide.is-active:not(.hero) .slide-inner { animation: slide-in .18s var(--curve); }
-@keyframes slide-in { from { opacity: 0; } }.slide.dark{background:var(--night);color:#edf5e9}.slide.dark:before{content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;background-image:linear-gradient(to right,rgba(217,244,202,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(217,244,202,.05) 1px,transparent 1px);background-size:86px 86px;mask-image:linear-gradient(to right,transparent,#000 35%,#000)}.slide-inner{max-width:1450px;margin:0 auto;height:100%;min-height:0;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-start}
+#deck[data-direction="back"] { --slide-enter-offset: -20px; }
+.slide.is-active:not(.hero) .slide-inner { animation: slide-in .36s var(--curve); }
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(var(--slide-enter-offset, 20px)); }
+}
+.is-active :is(.chart-panel, .result-bars) i {
+  transform-origin: left;
+  animation: bar-enter .55s var(--curve);
+}
+@keyframes bar-enter { from { transform: scaleX(0); } }
+.slide.dark{background:var(--night);color:#edf5e9}.slide.dark:before{content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;background-image:linear-gradient(to right,rgba(217,244,202,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(217,244,202,.05) 1px,transparent 1px);background-size:86px 86px;mask-image:linear-gradient(to right,transparent,#000 35%,#000)}.slide-inner{max-width:1450px;margin:0 auto;height:100%;min-height:0;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-start}
 .eyebrow{font-size:12px;letter-spacing:.145em;font-weight:800;margin:0 0 16px;color:var(--muted)}.dark .eyebrow{color:var(--lime)}.slide-head{margin-bottom:clamp(22px,3cqh,39px)}.headline{font-size:clamp(48px,5.15cqw,86px);font-weight:650;line-height:1.02;letter-spacing:-.055em;margin:0 0 23px;max-width:1120px}.headline.compact{font-size:clamp(39px,4.15cqw,68px);line-height:1.04}.lead{font-size:clamp(17px,1.46cqw,22px);line-height:1.48;color:#435750;max-width:600px;margin:0}.intro{font-size:18px;line-height:1.48;color:var(--muted);max-width:940px;margin:0}.dark .intro,.dark .lead{color:#bdcdc3}.muted-ink{color:#9aa6a0}.accent,.accent-ink{color:var(--lime)}.accent-ink{color:#55853a}.display{font-weight:700;letter-spacing:-.062em;line-height:.95;margin:0}.label-line{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.14em;font-weight:800;color:#aac0ab}.line-dot,.status-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lime)}
 .cover-grid {
   display: grid;
@@ -107,10 +116,11 @@
 .term-content .command-line { margin: 0 0 18px; color: var(--lime); }
 .term-content mark { background: transparent; color: var(--lime); font-weight: 700; }
 .term-content .term-dim { color: #a9c0b3; }
-.m-enter .hero[data-enter] .cover-title { animation: cover-enter .65s var(--curve) both; }
-.m-enter .hero[data-enter] .cover-visual { animation: cover-enter .65s var(--curve) both; }
+.m-enter .hero[data-enter] .cover-heading { animation: cover-enter .55s var(--curve); }
+.m-enter .hero[data-enter] .cover-copy { animation: cover-enter .55s var(--curve) .08s backwards; }
+.m-enter .hero[data-enter] .cover-visual { animation: cover-enter .55s var(--curve) .15s backwards; }
 @keyframes cover-enter {
-  from { opacity: 0; }
+  from { opacity: 0; transform: translateY(16px); }
 }
 
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5cqw,84px);align-items:center;flex:1;min-height:0}.problem-layout{grid-template-columns:.92fr 1.08fr}.micro-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:57px}.micro-facts div{padding-top:16px;border-top:2px solid var(--ink)}.micro-facts b,.micro-facts small{display:block}.micro-facts b{font-size:16px}.micro-facts small{font-size:12px;line-height:1.5;margin-top:8px;color:var(--muted)}.noise-visual{border:1px solid #c0cbc4;background:#fff;box-shadow:none;min-width:0}.noise-top{display:flex;justify-content:space-between;gap:10px;padding:18px 20px;background:#18342c;color:white;font-family:ui-monospace,monospace;font-size:11px}.noise-lines{padding:24px 17px;font-size:clamp(10px,.93cqw,13px);font-family:ui-monospace,monospace;line-height:2.1;white-space:nowrap;overflow:hidden}.noise-lines div{padding-left:9px}.noise-lines .flagged{background:#ffe9df;border-left:4px solid var(--danger);font-weight:800}.noise-lines .flagged strong{float:right;color:var(--danger);padding-right:8px}.s-bad{color:#bd402c}.s-ok{color:#2c794b}.s-warn{color:#be8625}.signal-footer{background:#d1eab9;font-size:11px;font-weight:800;letter-spacing:.04em;padding:16px 19px;display:flex;gap:13px;align-items:center}.signal-footer .pulse{background:#518a23}.pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(197,247,124,.4);}
@@ -957,6 +967,7 @@ Alertes : BLACKLIST 12
     const previous = index;
     const outgoing = slides[previous];
     index = destination;
+    deck.dataset.direction = index < previous ? 'back' : 'forward';
 
     // Keep focus out of the outgoing slide before it becomes inert.
     if (outgoing?.contains(document.activeElement)) deck.focus({ preventScroll: true });
