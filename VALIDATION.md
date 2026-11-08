@@ -163,3 +163,7 @@ Les mesures reproduites avec Python 3.12.16 donnent de 67 655 à
 10 000 couples distincts. La diapositive reprend les mesures du notebook.
 Après correction, Chrome a vérifié les 20 diapositives et les neuf états
 du rejeu sur les onze tailles de fenêtre.
+
+Le contrôle de projection vérifie aussi les retours à la ligne dans
+la commande de la diapositive 3, le filtre de la 8, l’appel des règles
+de la 11 et l’exemple JSON de la 15.

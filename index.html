@@ -571,6 +571,11 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
     line-height: 1.4;
     white-space: pre;
   }
+  #deck[data-canvas] .mode-card p { min-height: 4.5em; }
+  #deck[data-canvas] .func-card p { min-height: 3em; }
+  #deck[data-canvas] .output-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr) minmax(0, 1fr);
+  }
   /* Give the results panels a fixed share of the projection area. */
   #deck[data-canvas] .result-layout {
     flex: 0 0 auto;
@@ -731,7 +736,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
 <section class="slide" id="slide-8" data-title="Module 2 · transformations" data-chapter="Module 2" aria-label="Diapositive 8: Module 2 · transformations"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">08 / MODULE 2 · PROGRAMMATION FONCTIONNELLE</p><h2 class="headline compact">Filtrage et normalisation des événements</h2></div>
 <div class="func-columns">
-  <div class="func-card"><div class="func-title"><span>01</span> FILTRER</div><div class="func-code"><span class="kw">filter</span>(<span class="fn">lambda</span> line:<br>&nbsp;bool(line[2].strip())<br>&nbsp;and not line[2].lstrip().startswith("#"),<br>&nbsp;counted_lines())</div><p>Écarte commentaires et lignes vides avant le parsing.</p></div>
+  <div class="func-card"><div class="func-title"><span>01</span> FILTRER</div><div class="func-code"><span class="kw">filter</span>(<span class="fn">lambda</span> line:<br>&nbsp;bool(line[2].strip())<br>&nbsp;and not line[2].lstrip()<br>&nbsp;&nbsp;.startswith("#"),<br>&nbsp;counted_lines())</div><p>Écarte commentaires et lignes vides avant le parsing.</p></div>
   <div class="func-card"><div class="func-title"><span>02</span> TRANSFORMER</div><div class="func-code"><span class="kw">filter</span>(None, <span class="kw">map</span>(<br>&nbsp;parse_and_normalize, nonempty))</div><p>Parse et normalise chaque ligne. Le filtre retire les résultats invalides.</p></div>
   <div class="func-card"><div class="func-title"><span>03</span> ROUTER</div><div class="func-code"><span class="kw">match</span> payload:<br>&nbsp;&nbsp;<span class="kw">case</span> str(): ...<br>&nbsp;&nbsp;<span class="kw">case</span> dict(): ...<br>&nbsp;&nbsp;<span class="kw">case</span> (host,port,proto): ...</div><p>Adapte le message à la structure du payload.</p></div>
 </div>
@@ -749,7 +754,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
 <div class="thin-note">IP communes observées : 203.0.113.66 et 198.51.100.24 · blacklist stockée en <code>frozenset</code> immuable.</div>
 <div class="notes-text" hidden>La blacklist comporte trois IP dont deux apparaissent dans les logs valides. On obtient donc 4 IP actives non blacklistées, 2 présentes dans les deux ensembles et 1 blacklistée non observée. Le moteur calcule les quatre opérations demandées.</div></div></section>
 <section class="slide dark" id="slide-11" data-title="Module 4 · règles" data-chapter="Module 4" aria-label="Diapositive 11: Module 4 · règles"><div class="slide-inner wrap">
-<div class="slide-head"><p class="eyebrow">11 / MODULE 4 · MOTEUR EXTENSIBLE</p><h2 class="headline compact">Trois règles dans un même moteur</h2><p class="intro">Les fonctions de sécurité sont passées comme objets à <code>apply_security_rules(*args, **kwargs)</code>.</p></div>
+<div class="slide-head"><p class="eyebrow">11 / MODULE 4 · MOTEUR EXTENSIBLE</p><h2 class="headline compact">Trois règles dans un même moteur</h2><p class="intro">Les fonctions de sécurité sont passées comme objets à <code>apply_security_rules(*args,&nbsp;**kwargs)</code>.</p></div>
 <div class="rules-stage"><div class="rules-code"><div class="code-title">main.py / appel des règles</div><pre class="syntax">apply_security_rules(
   <span class="fn">detect_bruteforce</span>,
   <span class="fn">detect_blacklisted_ip</span>,
