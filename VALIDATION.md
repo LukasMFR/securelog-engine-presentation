@@ -134,3 +134,15 @@ en 1920×1080 et à 227 px en 2560×1440.
 La couverture entre par étapes. Le déplacement des diapositives suit le
 sens de la navigation et les barres des graphiques se déploient à leur
 apparition. Les deux modes de mouvement ont été contrôlés dans Chrome.
+
+### Dernières retouches
+
+La couverture et la conclusion utilisent les commandes communes du
+diaporama pour la navigation. Les cinq étapes du pipeline occupent une
+rangée centrée de 330 px dans le canevas de projection. Les repères des
+modules et des pistes d’évolution ont été agrandis.
+
+Les panneaux de résultats ont été contrôlés sur les onze formats. Leur
+bord inférieur se trouve à 155 px du menu en 1920×1080 et à 50 px en
+1024×576. Le rejeu conserve ses 15 lignes visibles à l’étape 8/8 sur ces
+mêmes formats.
