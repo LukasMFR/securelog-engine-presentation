@@ -167,3 +167,8 @@ du rejeu sur les onze tailles de fenêtre.
 Le contrôle de projection vérifie aussi les retours à la ligne dans
 la commande de la diapositive 3, le filtre de la 8, l’appel des règles
 de la 11 et l’exemple JSON de la 15.
+
+Le bandeau de validation de la diapositive 7 a été mesuré dans WebKit
+à 1920×1080, 2560×1440 et 2560×1473. À 2560×1440, il s’arrête à
+198 px au-dessus du menu après correction, contre 109 px sous le haut
+du menu auparavant. Le contrôle Chrome passe sur treize tailles.
