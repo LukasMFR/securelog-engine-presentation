@@ -34,9 +34,9 @@ Les dérogations du contrôle officiel tiennent au format de la soutenance.
 - Les 20 diapositives et leurs notes sont présentes. Le navigateur affiche une
   seule diapositive à la fois et rend les autres inactives au clavier.
 - Dans Chrome, navigation, liens directs par ancre, sommaire, aide, focus,
-  notes et rejeu vérifiés. Le sixième événement déclenche `BRUTE_FORCE`, la
-  connexion suivante réinitialise la série. Le retour et le redémarrage ont
-  été testés.
+  notes et rejeu vérifiés. Le sixième événement déclenche `BRUTE_FORCE` et
+  clôt le bloc d’échecs. La connexion suivante déclenche `BLACKLIST`.
+  Le retour et le redémarrage ont été testés.
 - Les 20 diapositives tiennent sans défilement à 1440×900, 1280×720,
   1024×768 et 820×1180. La mise en page a également été contrôlée à
   768×1024, 390×844 et 320×640. Les diapositives longues restent
@@ -146,3 +146,20 @@ Les panneaux de résultats ont été contrôlés sur les onze formats. Leur
 bord inférieur se trouve à 155 px du menu en 1920×1080 et à 50 px en
 1024×576. Le rejeu conserve ses 15 lignes visibles à l’étape 8/8 sur ces
 mêmes formats.
+
+### Vérification contre le moteur Python
+
+La version `7f14f14` du moteur a été comparée aux diapositives et aux notes.
+L’analyse des fichiers de démonstration confirme 28 lignes lues, dont
+22 événements valides, 3 lignes ignorées et 3 lignes rejetées. Elle produit
+15 alertes, dont 12 `BLACKLIST`, 2 `BRUTE_FORCE` et 1 `CRITICAL`.
+Les huit événements du rejeu et leurs sept alertes concordent avec les
+données et l’export. Avec `--stream-alerts`, les alertes écrites sur stdout
+correspondent au contenu de `alerts.jsonl` produit par la même exécution.
+
+Les 45 tests passent sous Python 3.10.22, 3.12.16, 3.14.10 et 3.15.2.
+Les mesures reproduites avec Python 3.12.16 donnent de 67 655 à
+68 067 octets pour une identité fixe et 17 265 535 octets pour
+10 000 couples distincts. La diapositive reprend les mesures du notebook.
+Après correction, Chrome a vérifié les 20 diapositives et les neuf états
+du rejeu sur les onze tailles de fenêtre.

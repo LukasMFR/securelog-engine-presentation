@@ -612,7 +612,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
     </div>
   </div>
   <div class="cover-visual app-frame hero__window ui ui-terminal">
-    <div class="winbar"><span>results/alerts.jsonl · extrait</span><span class="terminal-tag">Alerte SSH</span></div>
+    <div class="winbar"><span>results/alerts.jsonl · alerte mise en forme</span><span class="terminal-tag">Alerte SSH</span></div>
     <div class="term-content">
       <p class="command-line">$ python main.py</p>
       <pre><code>{
@@ -620,6 +620,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   "timestamp": "2026-09-29 08:00:05",
   "ip": "203.0.113.66",
   "user": "admin",
+  "source": ["…/data/auth.log", 8],
   <span class="term-dim">"message": "5 échecs consécutifs"</span>
 }</code></pre>
     </div>
@@ -647,7 +648,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
 <div class="slide-head"><p class="eyebrow">03 / MODE D’EXÉCUTION</p><h2 class="headline compact">Deux façons de lancer le moteur</h2><p class="intro">Le moteur peut traiter des fichiers existants ou un flux de texte transmis au terminal.</p></div>
 <div class="two-mode">
   <div class="mode-card light-mode-card"><div class="mode-number">A / PONCTUEL</div><div class="mode-icon"><span class="icon-file"></span></div><h3>Analyser des fichiers</h3><p>La commande lit les logs fournis, écrit ses résultats, puis se termine.</p><code class="command">python main.py</code><div class="mode-bottom"><span class="status-dot"></span> SE TERMINE APRÈS L’ANALYSE</div></div>
-  <div class="mode-card dark-mode-card"><div class="mode-number">B / FLUX</div><div class="mode-icon"><span class="icon-stream">≋</span></div><h3>Suivre une entrée standard</h3><p>Avec <code>--stream-alerts</code>, chaque alerte sort dès sa détection. La lecture continue tant que le flux reste ouvert.</p><code class="command">cat data/*.log | python main.py --stream-alerts -</code><div class="mode-bottom"><span class="status-dot live"></span> ACTIF TANT QUE LE FLUX RESTE OUVERT</div></div>
+  <div class="mode-card dark-mode-card"><div class="mode-number">B / FLUX</div><div class="mode-icon"><span class="icon-stream">≋</span></div><h3>Suivre une entrée standard</h3><p>Avec <code>--stream-alerts</code>, les alertes JSONL sortent dès leur détection. Le résumé va sur stderr à la fin du flux.</p><code class="command">cat data/auth.log data/network.log |<br>python main.py --stream-alerts -</code><div class="mode-bottom"><span class="status-dot live"></span> ACTIF TANT QUE LE FLUX RESTE OUVERT</div></div>
 </div>
 <div class="notes-text" hidden>Précision essentielle : la commande par défaut fait une analyse finie ; en entrée standard, le programme peut rester actif et émettre les alertes au fil de l’eau. Il n’y a pas de démon ni de serveur H24. Ne pas confondre traitement d’un flux et collecte automatique.</div></div></section>
 <section class="slide dark" id="slide-4" data-title="La chaîne de traitement" data-chapter="Architecture" aria-label="Diapositive 4: La chaîne de traitement"><div class="slide-inner wrap">
@@ -712,23 +713,26 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
 
 <span class="kw">def</span> <span class="fn">read_multiple_logs</span>(paths, *, stdin=None):
     <span class="kw">for</span> path <span class="kw">in</span> paths:
-        ...
-        <span class="kw">yield from</span> read_logs(path)</pre><div class="flow-art"><div class="flow-file"><span>FICHIER</span><i></i><i></i><i></i><i></i><i></i></div><div class="flow-narrow">→</div><div class="flow-one"><span>UNE LIGNE</span><b>yield</b></div><div class="flow-narrow">→</div><div class="flow-file"><span>PIPELINE</span><i></i></div></div></div></div>
+        <span class="kw">if</span> path == STDIN_PATH <span class="kw">and</span> stdin <span class="kw">is not</span> None:
+            <span class="kw">yield from</span> read_stream(stdin, "&lt;stdin&gt;")
+        <span class="kw">else</span>:
+            <span class="kw">yield from</span> read_logs(path)</pre><div class="flow-art"><div class="flow-file"><span>FICHIER</span><i></i><i></i><i></i><i></i><i></i></div><div class="flow-narrow">→</div><div class="flow-one"><span>UNE LIGNE</span><b>yield</b></div><div class="flow-narrow">→</div><div class="flow-file"><span>PIPELINE</span><i></i></div></div></div></div>
 <div class="notes-text" hidden>Ce n’est pas un chargement massif en mémoire. Les générateurs suspendent leur exécution entre deux lignes. Le code affiché est un extrait volontairement abrégé du fichier ingestion.py ; il faut le présenter comme tel.</div></div></section>
 <section class="slide" id="slide-7" data-title="Module 1 · parsing" data-chapter="Module 1" aria-label="Diapositive 7: Module 1 · parsing"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">07 / MODULE 1 · MODÉLISATION</p><h2 class="headline compact">Un dictionnaire par événement</h2></div>
 <div class="parsing-layout">
-  <div class="format-box"><span class="format-tag">FORMAT A · DÉLIMITÉ</span><pre>2026-09-29 08:00:00|INFO|192.0.2.10|alice|LOGIN_SUCCESS|Session ouverte</pre><span class="format-tag spacer-tag">FORMAT B · JSON</span><pre>{"timestamp":"2026-09-29 08:00:21", "level":"WARNING", ...}</pre><div class="format-foot">Champs requis : <b>timestamp</b> · <b>level</b> · <b>ip</b> · <b>user</b> · <b>event</b></div></div>
+  <div class="format-box"><span class="format-tag">FORMAT A · SIX CHAMPS</span><pre>2026-09-29 08:00:00|info|192.0.2.10|alice|LOGIN_SUCCESS|Session SSH ouverte</pre><span class="format-tag spacer-tag">FORMAT B · JSON</span><pre>{"timestamp":"2026-09-29 08:00:21","level":"warning",
+ "ip":"192.0.2.30","user":"service","event":"ACCESS_DENIED"}</pre><div class="format-foot">Champs requis : <b>timestamp</b> · <b>level</b> · <b>ip</b> · <b>user</b> · <b>event</b></div></div>
   <div class="parsing-arrow">↓</div>
-  <div class="structure-box"><div class="st-tag">OBJET PYTHON NORMALISÉ</div><div class="dictionary"><span>{</span><div>"timestamp": <b>datetime(…)</b>,</div><div>"level": <b>"INFO"</b>,</div><div>"ip": <b>"192.0.2.10"</b>,</div><div>"user": <b>"alice"</b>,</div><div>"payload": <b>str | dict | tuple</b></div><span>}</span></div></div>
+  <div class="structure-box"><div class="st-tag">CHAMPS NORMALISÉS · EXTRAIT</div><div class="dictionary"><span>{</span><div>"timestamp": <b>datetime(…)</b>,</div><div>"level": <b>"INFO"</b>,</div><div>"ip": <b>"192.0.2.10"</b>,</div><div>"user": <b>"alice"</b>,</div><div>"event": <b>"LOGIN_SUCCESS"</b>,</div><div>"payload": <b>"Session SSH ouverte"</b></div><span>}</span></div></div>
 </div>
 <div class="validation-band"><b>Validation stricte des champs</b><span>IP invalide</span><span>JSON tronqué</span><span>Doublons de clés</span><span>UTF-8 incorrect</span></div>
-<div class="notes-text" hidden>Le parseur accepte une ligne séparée par | ou un objet JSON, vérifie les types et crée un dictionnaire Python. Les métadonnées de connexion (IP, port, protocole) deviennent un tuple immuable. Les données de test contiennent trois erreurs intentionnelles.</div></div></section>
+<div class="notes-text" hidden>Le parseur accepte une ligne séparée par | ou un objet JSON, vérifie les types et crée un dictionnaire Python. Le champ payload peut être vide dans le format à six champs et peut être omis dans le JSON. Il peut contenir du texte, un objet JSON ou une connexion. Les métadonnées de connexion (IP, port, protocole) deviennent un tuple immuable. Les données de test contiennent trois erreurs intentionnelles.</div></div></section>
 <section class="slide" id="slide-8" data-title="Module 2 · transformations" data-chapter="Module 2" aria-label="Diapositive 8: Module 2 · transformations"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">08 / MODULE 2 · PROGRAMMATION FONCTIONNELLE</p><h2 class="headline compact">Filtrage et normalisation des événements</h2></div>
 <div class="func-columns">
-  <div class="func-card"><div class="func-title"><span>01</span> FILTRER</div><div class="func-code"><span class="kw">filter</span>(<span class="fn">lambda</span> line: <br>&nbsp;&nbsp;bool(line[2].strip()) <br>&nbsp;&nbsp;..., lines)</div><p>Écarte commentaires et lignes vides avant le parsing.</p></div>
-  <div class="func-card"><div class="func-title"><span>02</span> TRANSFORMER</div><div class="func-code"><span class="kw">map</span>(parse_and_normalize,<br>&nbsp;&nbsp;&nbsp;&nbsp;nonempty)</div><p>Structure, normalise la casse et valide chaque entrée.</p></div>
+  <div class="func-card"><div class="func-title"><span>01</span> FILTRER</div><div class="func-code"><span class="kw">filter</span>(<span class="fn">lambda</span> line:<br>&nbsp;bool(line[2].strip())<br>&nbsp;and not line[2].lstrip().startswith("#"),<br>&nbsp;counted_lines())</div><p>Écarte commentaires et lignes vides avant le parsing.</p></div>
+  <div class="func-card"><div class="func-title"><span>02</span> TRANSFORMER</div><div class="func-code"><span class="kw">filter</span>(None, <span class="kw">map</span>(<br>&nbsp;parse_and_normalize, nonempty))</div><p>Parse et normalise chaque ligne. Le filtre retire les résultats invalides.</p></div>
   <div class="func-card"><div class="func-title"><span>03</span> ROUTER</div><div class="func-code"><span class="kw">match</span> payload:<br>&nbsp;&nbsp;<span class="kw">case</span> str(): ...<br>&nbsp;&nbsp;<span class="kw">case</span> dict(): ...<br>&nbsp;&nbsp;<span class="kw">case</span> (host,port,proto): ...</div><p>Adapte le message à la structure du payload.</p></div>
 </div>
 <div class="bottom-quote">Même logique de traitement, quels que soient les formats de logs reconnus.</div>
@@ -746,24 +750,24 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
 <div class="notes-text" hidden>La blacklist comporte trois IP dont deux apparaissent dans les logs valides. On obtient donc 4 IP actives non blacklistées, 2 présentes dans les deux ensembles et 1 blacklistée non observée. Le moteur calcule les quatre opérations demandées.</div></div></section>
 <section class="slide dark" id="slide-11" data-title="Module 4 · règles" data-chapter="Module 4" aria-label="Diapositive 11: Module 4 · règles"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">11 / MODULE 4 · MOTEUR EXTENSIBLE</p><h2 class="headline compact">Trois règles dans un même moteur</h2><p class="intro">Les fonctions de sécurité sont passées comme objets à <code>apply_security_rules(*args, **kwargs)</code>.</p></div>
-<div class="rules-stage"><div class="rules-code"><div class="code-title">main.py / invocation réelle abrégée</div><pre class="syntax">apply_security_rules(
+<div class="rules-stage"><div class="rules-code"><div class="code-title">main.py / appel des règles</div><pre class="syntax">apply_security_rules(
   <span class="fn">detect_bruteforce</span>,
   <span class="fn">detect_blacklisted_ip</span>,
   <span class="fn">detect_critical_event</span>,
   <span class="kw">log</span>=log,
-  <span class="kw">threshold</span>=5,
+  <span class="kw">threshold</span>=threshold,
+  <span class="kw">histories</span>=histories,
   <span class="kw">blacklist</span>=blacklist,
-  ...
-)</pre></div><div class="rules-grid"><div><span class="rule-count">01</span><b>BRUTE_FORCE</b><p>Cinq échecs de connexion consécutifs par IP et utilisateur.</p></div><div><span class="rule-count">02</span><b>BLACKLIST</b><p>Événement émis par une adresse IP présente dans la liste noire.</p></div><div><span class="rule-count">03</span><b>CRITICAL</b><p>Journal dont le niveau de sévérité est critique.</p></div></div></div>
+)</pre></div><div class="rules-grid"><div><span class="rule-count">01</span><b>BRUTE_FORCE</b><p>Un bloc d’échecs par IP et utilisateur. Seuil de cinq par défaut.</p></div><div><span class="rule-count">02</span><b>BLACKLIST</b><p>Événement émis par une adresse IP présente dans la liste noire.</p></div><div><span class="rule-count">03</span><b>CRITICAL</b><p>Journal dont le niveau de sévérité est critique.</p></div></div></div>
 <div class="bottom-quote">Une même ligne peut déclencher plusieurs règles : les alertes ne sont pas exclusives.</div>
 <div class="notes-text" hidden>Expliquez args : les fonctions de règles ; kwargs : log et configuration. Le moteur teste chaque fonction, émet une alerte si elle retourne un résultat. Un log critique issu d’une IP blacklistée peut produire deux alertes.</div></div></section>
 <section class="slide" id="slide-12" data-title="Zoom · force brute" data-chapter="Sécurité" aria-label="Diapositive 12: Zoom · force brute"><div class="slide-inner wrap">
-<div class="slide-head"><p class="eyebrow">12 / DÉTECTION D’ATTAQUE</p><h2 class="headline compact">Le cinquième échec déclenche l’alerte</h2><p class="intro">Par défaut, la règle suit cinq échecs consécutifs pour un même couple <code>(IP, utilisateur)</code>.</p></div>
-<div class="brute-panel"><div class="identity-row"><span class="ident-user">admin <small>203.0.113.66</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span><span class="success">✓</span></div><strong class="result-alert">1 ALERTE</strong></div>
-<div class="identity-row"><span class="ident-user">root <small>198.51.100.24</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span></div><strong class="result-alert">1 ALERTE</strong></div>
-<div class="identity-row"><span class="ident-user">bob <small>192.0.2.20</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="success">✓</span><span class="fail">×</span><span class="fail">×</span></div><strong class="result-silent">0 ALERTE</strong></div></div>
+<div class="slide-head"><p class="eyebrow">12 / DÉTECTION D’ATTAQUE</p><h2 class="headline compact">Le cinquième échec déclenche l’alerte</h2><p class="intro">La règle compte par couple <code>(IP, utilisateur)</code>. Chaque bloc de cinq échecs déclenche une alerte par défaut.</p></div>
+<div class="brute-panel"><div class="identity-row"><span class="ident-user">admin <small>203.0.113.66</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span><span class="success">✓</span></div><strong class="result-alert">1 BRUTE_FORCE</strong></div>
+<div class="identity-row"><span class="ident-user">root <small>198.51.100.24</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span></div><strong class="result-alert">1 BRUTE_FORCE</strong></div>
+<div class="identity-row"><span class="ident-user">bob <small>192.0.2.20</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="success">✓</span><span class="fail">×</span><span class="fail">×</span></div><strong class="result-silent">0 BRUTE_FORCE</strong></div></div>
 <div class="loop-footer"><div><b>while</b><span>Décide quand vérifier</span></div><div><b>for + continue</b><span>Parcourt les échecs</span></div><div><b>break</b><span>Interrompt sur un succès</span></div><div><b>else</b><span>Déclenche après un bloc entièrement en échec</span></div></div>
-<div class="notes-text" hidden>Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annule immédiatement la série du couple. Le code utilise délibérément while, for, break, continue et else pour respecter le cahier des charges.</div></div></section>
+<div class="notes-text" hidden>Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annule les échecs encore en attente, comme pour bob. Dix échecs consécutifs donnent deux alertes au seuil par défaut. Le code utilise délibérément while, for, break, continue et else pour respecter le cahier des charges.</div></div></section>
 <section class="slide dark" id="slide-13" data-title="La démonstration" data-chapter="Démo" aria-label="Diapositive 13: La démonstration"><div class="slide-inner wrap">
 <div class="slide-head">
   <p class="eyebrow">13 / DÉMONSTRATION</p>
@@ -784,7 +788,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
       <div class="demo-count"><span>Événements</span><b id="demo-count">0 / 8</b></div>
       <div class="demo-count"><span>Alertes</span><b id="demo-alerts">0</b></div>
       <div class="demo-streak">
-        <span>Échecs consécutifs · <code>admin</code></span>
+        <span>Échecs du bloc · <code>admin</code></span>
         <ol id="demo-attempts" aria-hidden="true"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
       </div>
       <div class="demo-alert-block" id="demo-alert-box">
@@ -796,14 +800,14 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   </div>
 </div>
 <div class="demo-fallback" hidden>
-  <p>À 08:00:05, le cinquième échec SSH pour <code>admin</code> déclenche <code>BRUTE_FORCE</code>. La connexion réussie qui suit remet la série à zéro.</p>
+  <p>À 08:00:05, le cinquième échec SSH pour <code>admin</code> déclenche <code>BRUTE_FORCE</code>. Le bloc d’échecs est alors consommé.</p>
   <p>Ce rejeu illustre huit événements du jeu de test. Les résultats de l’analyse complète figurent sur la diapositive suivante.</p>
 </div>
-<div class="notes-text" hidden>Révélez une ligne à la fois avec → ou le bouton. Montrez la série de cinq échecs, l’alerte de force brute et la remise à zéro après la connexion réussie. Le rejeu HTML reprend les événements de auth.log. L’analyse complète se lance avec python main.py.</div></div></section>
+<div class="notes-text" hidden>Révélez une ligne à la fois avec → ou le bouton. Montrez le bloc de cinq échecs et l’alerte de force brute. Le moteur clôt le bloc dès l’alerte. La connexion réussie qui suit déclenche encore BLACKLIST. Le rejeu HTML reprend les événements de auth.log. L’analyse complète se lance avec python main.py.</div></div></section>
 <section class="slide" id="slide-14" data-title="Les résultats" data-chapter="Démonstration" aria-label="Diapositive 14: Les résultats"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">14 / RÉSULTATS DE LA DÉMONSTRATION RÉELLE</p><h2 class="headline compact">Le bilan de l’analyse complète</h2></div>
 <div class="result-strip"><div><span>ÉVÉNEMENTS VALIDES</span><strong>22</strong></div><div><span>LIGNES REJETÉES</span><strong>3</strong></div><div><span>ALERTES PRODUITES</span><strong>15</strong></div></div>
-<div class="result-layout"><div class="result-chart"><div class="minor-heading">RÉPARTITION DES DÉTECTIONS</div><div class="result-bars"><div class="result-bar"><label>BLACKLIST</label><div><i style="width:80%;background:var(--ink)"></i></div><b>12</b></div><div class="result-bar"><label>BRUTE_FORCE</label><div><i style="width:13.33%;background:var(--danger)"></i></div><b>2</b></div><div class="result-bar"><label>CRITICAL</label><div><i style="width:6.67%;background:var(--gold)"></i></div><b>1</b></div></div><div class="result-note">Une ligne peut générer plus d’une alerte.</div></div><div class="result-terminal"><div class="code-title">python main.py · extrait de la sortie</div><pre>SECURELOG ENGINE
+<div class="result-layout"><div class="result-chart"><div class="minor-heading">RÉPARTITION DES DÉTECTIONS</div><div class="result-bars"><div class="result-bar"><label>BLACKLIST</label><div><i style="width:80%;background:var(--ink)"></i></div><b>12</b></div><div class="result-bar"><label>BRUTE_FORCE</label><div><i style="width:13.33%;background:var(--danger)"></i></div><b>2</b></div><div class="result-bar"><label>CRITICAL</label><div><i style="width:6.67%;background:var(--gold)"></i></div><b>1</b></div></div><div class="result-note">Une ligne peut générer plus d’une alerte.</div></div><div class="result-terminal"><div class="code-title">python main.py · sortie mise en forme</div><pre>SECURELOG ENGINE
 Logs analysés : 22
 Lignes rejetées : 3
 Par niveau : ERROR 11 · WARNING 5
@@ -811,26 +815,25 @@ Par niveau : ERROR 11 · WARNING 5
 Alertes : BLACKLIST 12
           BRUTE_FORCE 2
           CRITICAL 1</pre></div></div>
-<div class="notes-text" hidden>Il s’agit des résultats effectivement obtenus avec auth.log et network.log. Trois lignes volontairement mal formées sont rejetées ; trois lignes vides ou commentaires sont ignorées séparément. Les 15 alertes représentent les détections, pas 15 attaques indépendantes.</div></div></section>
+<div class="notes-text" hidden>Il s’agit des résultats effectivement obtenus avec auth.log et network.log. Trois lignes volontairement mal formées sont rejetées ; trois lignes vides ou commentaires sont ignorées séparément. Le total de 15 compte les détections. Une même ligne peut en produire plusieurs.</div></div></section>
 <section class="slide" id="slide-15" data-title="Trois fichiers de sortie" data-chapter="Livrables" aria-label="Diapositive 15: Trois fichiers de sortie"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">15 / EXPORTS &amp; AUDIT</p><h2 class="headline compact">Trois fichiers pour examiner les résultats</h2></div>
-<div class="output-grid"><div class="output-card"><span class="output-badge">01 / COMPTEURS</span><h3>summary.json</h3><p>Statistiques globales, niveaux, utilisateurs, ensembles d’IP, configuration et rejets.</p><pre>{
+<div class="output-grid"><div class="output-card"><span class="output-badge">01 / EXTRAIT DES COMPTEURS</span><h3>summary.json</h3><p>Statistiques globales, niveaux, utilisateurs, ensembles d’IP, configuration et rejets.</p><pre>{
   "total": 22,
   "by_level": {
     "ERROR": 11,
     "INFO": 5
   }
-}</pre></div><div class="output-card alert-output"><span class="output-badge">02 / ALERTES</span><h3>alerts.jsonl</h3><p>Une alerte JSON par ligne, avec règle, IP, utilisateur, horodatage et source.</p><pre>{"rule":"BRUTE_FORCE",
+}</pre></div><div class="output-card alert-output"><span class="output-badge">02 / ALERTE MISE EN FORME</span><h3>alerts.jsonl</h3><p>Une alerte JSON par ligne, avec règle, IP, utilisateur, horodatage et source.</p><pre>{"rule":"BRUTE_FORCE",
+ "timestamp":"2026-09-29 08:00:05",
  "ip":"203.0.113.66",
  "user":"admin",
- "message":
- "5 échecs consécutifs"}</pre></div><div class="output-card"><span class="output-badge">03 / INTROSPECTION</span><h3>audit.json</h3><p>Inventaire des noms, types et tailles disponibles via <code>globals()</code> et <code>locals()</code>.</p><pre>"blacklist": {
+ "source":["…/data/auth.log",8],
+ "message":"5 échecs consécutifs"}</pre></div><div class="output-card"><span class="output-badge">03 / EXTRAIT DE PIPELINE_LOCALS</span><h3>audit.json</h3><p>Inventaire des noms, types et tailles disponibles via <code>globals()</code> et <code>locals()</code>.</p><pre>"blacklist": {
   "type": "frozenset",
   "size": 3
-}
-
-"version": "1.0"</pre></div></div>
-<div class="notes-text" hidden>Le résumé est en JSON, les alertes en JSON Lines et l’audit documente l’état du processus. Le moteur prépare ses résultats dans un dossier temporaire et tente de restaurer les sorties antérieures si la publication échoue.</div></div></section>
+}</pre></div></div>
+<div class="notes-text" hidden>Chaque alerte occupe une ligne dans le fichier réel. Ici, elle est mise en forme et son chemin source est abrégé. L’audit enregistre des métadonnées sur les variables. Le moteur prépare ses résultats dans un dossier temporaire et tente de restaurer les sorties antérieures si la publication échoue.</div></div></section>
 <section class="slide" id="slide-16" data-title="Tests et robustesse" data-chapter="Validation" aria-label="Diapositive 16: Tests et robustesse"><div class="slide-inner wrap">
 <div class="validation-layout"><div><p class="eyebrow">16 / VALIDATION</p><h2 class="headline">La suite de tests du moteur</h2><div class="mega-test">45<span> / 45</span></div><p class="test-sub">Tests automatisés réussis.</p><code class="command test-command">python -m unittest discover -s tests -v</code><div class="thin-note">Code typé, gestion d’exceptions et contrôle PEP 8 documentés dans le rapport.</div></div>
 <div class="test-matrix"><div><span class="checkmark">✓</span><b>Parsing &amp; entrées invalides</b><small>IP, JSON, Unicode, formats</small></div><div><span class="checkmark">✓</span><b>Logique de détection</b><small>Seuils, successions, blacklist</small></div><div><span class="checkmark">✓</span><b>Cas de force brute</b><small>256 séries de 8 essais · seuils 1 à 5</small></div><div><span class="checkmark">✓</span><b>Publication sécurisée</b><small>48 scénarios d’échec simulés</small></div><div><span class="checkmark">✓</span><b>CLI &amp; flux ouvert</b><small>Alerte avant fermeture de stdin</small></div><div><span class="checkmark">✓</span><b>Compatibilité documentée</b><small>Python 3.10.22 · 3.12.16 · 3.14.10 · 3.15.2</small></div></div></div>
@@ -945,24 +948,24 @@ Alertes : BLACKLIST 12
 
     const record = stream[step - 1];
     const streak = record?.streak ?? 0;
-    const streakReset = step > 1 && stream[step - 2].streak > 0 && streak === 0;
+    const followsBruteForce = step > 1 && stream[step - 2].alerts.includes('BRUTE_FORCE');
     demoCount.textContent = step + ' / ' + stream.length;
     demoAlerts.textContent = String(alertCount);
     for (const [i, attempt] of attempts.entries()) {
       attempt.classList.toggle('filled', i < streak);
     }
     alertBox.querySelector('b').textContent = lastAlert || 'Aucune alerte';
-    alertBox.querySelector('p').textContent = streakReset
-      ? 'La connexion réussie remet la série d’échecs à zéro.'
+    alertBox.querySelector('p').textContent = followsBruteForce
+      ? 'Le bloc est terminé. Le succès déclenche aussi BLACKLIST.'
       : lastAlert === 'BRUTE_FORCE'
-        ? 'Cinq échecs consécutifs pour admin déclenchent cette règle.'
+        ? 'Le cinquième échec d’admin clôt le bloc et déclenche l’alerte.'
         : lastAlert === 'BLACKLIST'
           ? 'L’adresse 203.0.113.66 figure dans la blacklist.'
           : 'La détection commence au prochain événement.';
     alertBox.classList.toggle('alert-flash', animate && !!record?.alerts.includes('BRUTE_FORCE'));
     demoAdvance.textContent = step === stream.length ? 'Voir les résultats' : 'Révéler un événement';
     demoAnnouncement.textContent = step
-      ? `Événement ${step} sur ${stream.length}. ${alertCount} alertes. ${streak} échecs consécutifs pour admin.` +
+      ? `Événement ${step} sur ${stream.length}. ${alertCount} alertes. ${streak} échecs affichés pour le bloc d’admin.` +
         (record.alerts.length ? ' Règles déclenchées : ' + record.alerts.join(', ') + '.' : '')
       : 'Démonstration prête.';
     terminal.scrollTop = terminal.scrollHeight;

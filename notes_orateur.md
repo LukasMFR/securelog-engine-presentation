@@ -28,7 +28,7 @@ Ce n’est pas un chargement massif en mémoire. Les générateurs suspendent le
 
 ## 07 · Un dictionnaire par événement
 
-Le parseur accepte une ligne séparée par | ou un objet JSON, vérifie les types et crée un dictionnaire Python. Les métadonnées de connexion (IP, port, protocole) deviennent un tuple immuable. Les données de test contiennent trois erreurs intentionnelles.
+Le parseur accepte une ligne séparée par | ou un objet JSON, vérifie les types et crée un dictionnaire Python. Le champ payload peut être vide dans le format à six champs et peut être omis dans le JSON. Il peut contenir du texte, un objet JSON ou une connexion. Les métadonnées de connexion (IP, port, protocole) deviennent un tuple immuable. Les données de test contiennent trois erreurs intentionnelles.
 
 ## 08 · Filtrage et normalisation des événements
 
@@ -48,11 +48,11 @@ Expliquez args : les fonctions de règles ; kwargs : log et configuration. Le mo
 
 ## 12 · Le cinquième échec déclenche l’alerte
 
-Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annule immédiatement la série du couple. Le code utilise délibérément while, for, break, continue et else pour respecter le cahier des charges.
+Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annule les échecs encore en attente, comme pour bob. Dix échecs consécutifs donnent deux alertes au seuil par défaut. Le code utilise délibérément while, for, break, continue et else pour respecter le cahier des charges.
 
 ## 13 · Une alerte au cinquième échec SSH
 
-Révélez une ligne avec → ou le bouton. Montrez la série de cinq échecs d’admin, puis l’alerte BRUTE_FORCE et la remise à zéro après la connexion réussie. ← remonte d’un événement. Après le huitième événement, → ouvre le bilan de l’analyse complète. Depuis le bilan, ← revient sur le rejeu terminé. R ou « Recommencer » remet le rejeu à zéro. Le navigateur rejoue les résultats enregistrés sur les données fictives du dépôt.
+Révélez une ligne avec → ou le bouton. Montrez le bloc de cinq échecs d’admin et l’alerte BRUTE_FORCE. Le moteur clôt le bloc dès l’alerte. La connexion réussie qui suit déclenche encore BLACKLIST. ← remonte d’un événement. Après le huitième événement, → ouvre le bilan de l’analyse complète. Depuis le bilan, ← revient sur le rejeu terminé. R ou « Recommencer » remet le rejeu à zéro. Le navigateur rejoue les résultats enregistrés sur les données fictives du dépôt.
 
 ## 14 · Le bilan de l’analyse complète
 
@@ -60,7 +60,7 @@ Il s’agit des résultats effectivement obtenus avec auth.log et network.log. T
 
 ## 15 · Trois fichiers pour examiner les résultats
 
-Le résumé est en JSON, les alertes en JSON Lines et l’audit documente l’état du processus. Le moteur prépare ses résultats dans un dossier temporaire et tente de restaurer les sorties antérieures si la publication échoue.
+Chaque alerte occupe une ligne dans le fichier réel. La diapositive la met en forme et abrège le chemin source. L’audit enregistre des métadonnées sur les variables. Le moteur prépare ses résultats dans un dossier temporaire et tente de restaurer les sorties antérieures si la publication échoue.
 
 ## 16 · La suite de tests du moteur
 
