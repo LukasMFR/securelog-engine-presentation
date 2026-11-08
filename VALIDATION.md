@@ -22,7 +22,10 @@ Les dérogations du contrôle officiel tiennent au format de la soutenance.
   se déclenchent à la navigation ou pendant le rejeu. Le contrôle détecte les
   modules d’animation du kit.
 - `container-edges` — Le trait de progression de 3 px traverse la largeur de
-  l’écran à la fin du diaporama. Le logo et les commandes suivent la grille.
+  l’écran à la fin du diaporama. Le logo et les commandes de l’en-tête suivent
+  la grille.
+- `container-edges` — La barre de navigation flottante suit le bord droit
+  de la fenêtre, avec 6 px de retrait en plus de la zone de sécurité éventuelle.
 
 ## Vérifications
 
@@ -56,6 +59,7 @@ Les dérogations du contrôle officiel tiennent au format de la soutenance.
 Le marqueur du cinquième échec est centré dans sa rangée. Le total de la
 diapositive 16 est espacé et aligné sur la ligne de base. Les cartes d’export
 gardent un dégagement au-dessus de la navigation compacte en bas à droite.
+La barre est à 6 px des bords droit et inférieur hors zone de sécurité.
 
 Chrome a vérifié les diapositives 3, 12, 13, 15 et 16 aux sept formats de
 projection, tablette et mobile indiqués ci-dessus. Les boutons conservent
