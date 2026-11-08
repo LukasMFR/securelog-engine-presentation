@@ -1,21 +1,9 @@
-SECURELOG ENGINE — PRÉSENTATION HTML V3
+SECURELOG ENGINE — SOUTENANCE ING3
 
-ECE Paris · ING3
-Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA
+1. Ouvrez index.html dans votre navigateur.
+2. Utilisez ← et → pour naviguer. F active le plein écran, O ouvre le
+   sommaire et N affiche les notes d’orateur.
+3. À la diapositive 13, utilisez → ou « Révéler un événement » pour suivre
+   les échecs SSH. La touche R redémarre le rejeu.
 
-Ouvrez index.html directement dans Safari, Chrome ou Edge.
-Aucune connexion Internet, extension ou serveur n’est requis.
-
-Navigation : ←/→, ↑/↓, Espace, O pour le sommaire, F pour plein écran,
-N pour les notes d’orateur. Sur la diapositive 13, → révèle les étapes
-de la démonstration, ← revient en arrière ; R remet la démo à zéro.
-
-V3 : équilibrage vertical du contenu des diapositives avec de grands
-espaces inutilisés, hiérarchie de taille lisible sur vidéoprojecteur,
-ajustements de la diapositive de tests à la résolution 1024 × 768.
-Les 20 diapositives, leur texte et la démonstration restent inchangés.
-Une protection évite le décalage latéral au chargement sur mobile.
-
-Références de conception : Taste Skill 2.5.1 (Leonxlnx/taste-skill),
-notamment layout-v4, system et motion : un écran par section, alignements,
-respiration, contenus réels et animations non intrusives.
+La présentation s’ouvre hors ligne. Pour les détails, voir README.txt.
