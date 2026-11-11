@@ -154,8 +154,8 @@ Une évolution serait de compter les échecs dans une fenêtre glissante, avec d
 
 ## 20 · Ce que révèle un fichier de logs — Jeanne — 0:45
 
-Ce qui nous a le plus intéressés dans ce projet, c’est de voir comment on passe d’un journal difficile à lire à des événements qu’on peut examiner. On a choisi comment lire les fichiers, comment repérer une série d’échecs, puis on a vérifié ces choix avec les tests.
+Ce qui nous a vraiment plu dans ce projet, c’est de nous mettre à la place de la personne qui doit comprendre ce qui se passe derrière un écran rempli de logs. Un mot de passe mal saisi, ça arrive à tout le monde. Mais quand les échecs s’enchaînent, on a envie de savoir ce qui s’est passé juste avant, si la connexion a fini par réussir et si on retrouve la même activité ailleurs. C’est cette démarche d’enquête qui nous donne envie d’aller plus loin en cybersécurité.
 
-Comme on s’oriente vers la cybersécurité, on aimerait pousser le projet un peu plus loin. On commencerait par essayer la fenêtre de temps sur des journaux de labo. On pourrait alors comparer les alertes et voir lesquelles aident vraiment à savoir où regarder en premier.
+Si on poursuit le projet, on aimerait réunir les journaux de plusieurs machines dans un labo et rejouer des scénarios dont on connaît le déroulement. On pourrait comparer les alertes avant et après l’ajout d’une fenêtre de temps. Est-ce qu’on repère mieux une série d’échecs rapprochés ? Est-ce qu’on peut éviter de signaler des erreurs ordinaires qui n’ont aucun lien entre elles ? Ce serait un bon moyen de voir si le moteur aide vraiment la personne qui doit décider quoi examiner en premier.
 
 Merci pour votre attention.
