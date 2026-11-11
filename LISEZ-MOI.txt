@@ -2,7 +2,8 @@ SECURELOG ENGINE · SOUTENANCE ING3
 
 1. Ouvrez index.html dans votre navigateur.
 2. Utilisez ← et → pour naviguer. F active le plein écran, O ouvre le
-   sommaire et N affiche les notes d’orateur.
+   sommaire. N ouvre les notes synchronisées dans une autre fenêtre.
+   Placez cette fenêtre sur votre écran et gardez les slides en projection.
 3. À la diapositive 13, utilisez → ou « Révéler un événement » pour suivre
    les échecs SSH. La touche R redémarre le rejeu.
 

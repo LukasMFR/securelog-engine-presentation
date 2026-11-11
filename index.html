@@ -178,7 +178,7 @@
 .challenge-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:18px;flex:1;min-height:0}.challenge{padding:21px 27px;background:#e5eadf;border-left:3px solid #7aa05d;display:flex;flex-direction:column}.challenge-index{font:12px ui-monospace,monospace;color:#618052}.challenge h3{font-size:clamp(20px,2.1cqw,30px);letter-spacing:-.035em;margin:12px 0}.challenge p{font-size:15px;color:var(--muted);margin:0}.solution{font-size:13px;border-top:1px solid #c3d1c0;padding-top:14px;margin-top:auto;line-height:1.5;font-weight:650}.challenge code{font-size:12px}
 .roadmap-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0}.limitations,.improvements{padding:25px 28px;background:#e5e8df;display:flex;flex-direction:column;gap:6px}.improvements{background:#dce9d5}.roadmap-title{font-size:12px;font-weight:900;letter-spacing:.1em;margin-bottom:7px}.limitations>div:not(:first-child),.improvements>div:not(:first-child){display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;border-bottom:1px solid #bdcdbb;padding:13px 0;flex:1}.limitations b,.improvements b{font:14px ui-monospace,monospace;color:#6e9261}.limitations span,.improvements span{font-size:clamp(13px,1.1cqw,17px);line-height:1.42}
 .closing-content{display:flex;flex-direction:column;justify-content:center;flex:1}.closing-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.small-counter{font:11px ui-monospace,monospace;color:#b5c7af}.closing-title{font-size:clamp(65px,8.2cqw,134px);line-height:.93;letter-spacing:-.07em;margin:34px 0}.closing-lead{color:#b7ccb9;font-size:clamp(17px,1.6cqw,25px);max-width:1050px;line-height:1.5;margin:0}.closing-lower{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-top:1px solid #5e7865;margin-top:49px;padding-top:25px}.closing-lower b{font-size:15px}.closing-lower p{font-size:13px;line-height:1.6;color:#bdd1bd;margin:10px 0 0}.closing-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:54px}.closing-bottom>span:first-child{font-size:38px;font-weight:750;letter-spacing:-.055em}.closing-bottom>span:last-child{font-size:11px;letter-spacing:.09em;color:#c0d1bc}
-.overview{position:fixed;z-index:100;inset:0;background:rgba(6,20,15,.97);color:#edf7e9;padding:54px clamp(28px,6vw,110px);overflow:auto;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s var(--curve)}.overview[open]{visibility:visible;opacity:1;pointer-events:auto;transform:none}.overlay-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}.overlay-header h2{font-size:44px;letter-spacing:-.05em;margin:0}.overlay-close{border:1px solid #6d8574;background:transparent;color:white;padding:12px 15px}.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.overview-item{min-height:152px;padding:19px 20px;background:#18362b;border:1px solid #4d6c58;color:#f3f6ee;text-align:left;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}.overview-item:hover{border-color:var(--lime)}.overview-item[aria-current="step"]{border-color:var(--lime);background:#254a38}.overview-item small{font:12px ui-monospace,monospace;color:var(--lime)}.overview-item b{font-size:19px;letter-spacing:-.025em}.overview-item span{font-size:11px;color:#a6c2ac;margin-top:auto}.help{position:fixed;inset:0;z-index:110;background:rgba(7,20,17,.65);display:none;align-items:center;justify-content:center;padding:20px}.help[open]{display:flex}.help-card{background:#f4f5ec;color:var(--ink);padding:36px;max-width:620px;width:100%;box-shadow:0 25px 100px #06130f}.help-card h2{font-size:34px;letter-spacing:-.045em;margin:0 0 18px}.shortcut-row{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #ccd5cb;padding:10px 0;font-size:15px}.shortcut-row kbd{background:#dee8d7;border:1px solid #a9bca7;padding:6px 9px;font:12px ui-monospace,monospace}.help-close{margin-top:25px;background:var(--ink);color:white;padding:12px 19px;border:0}.speaker-notes{position:fixed;z-index:90;bottom:calc(var(--dock-clearance) + env(safe-area-inset-bottom));left:var(--gutter);width:min(520px,80vw);background:#f5f6ee;color:var(--ink);border:1px solid #8fa48f;padding:22px 24px;box-shadow:0 8px 50px #0002;display:none}.speaker-notes.open{display:block}.speaker-notes small{display:block;margin-bottom:12px;font-size:12px;font-weight:800;letter-spacing:.08em}.speaker-notes p{font-size:15px;line-height:1.5;margin:0}
+.overview{position:fixed;z-index:100;inset:0;background:rgba(6,20,15,.97);color:#edf7e9;padding:54px clamp(28px,6vw,110px);overflow:auto;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s var(--curve)}.overview[open]{visibility:visible;opacity:1;pointer-events:auto;transform:none}.overlay-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}.overlay-header h2{font-size:44px;letter-spacing:-.05em;margin:0}.overlay-close{border:1px solid #6d8574;background:transparent;color:white;padding:12px 15px}.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.overview-item{min-height:152px;padding:19px 20px;background:#18362b;border:1px solid #4d6c58;color:#f3f6ee;text-align:left;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}.overview-item:hover{border-color:var(--lime)}.overview-item[aria-current="step"]{border-color:var(--lime);background:#254a38}.overview-item small{font:12px ui-monospace,monospace;color:var(--lime)}.overview-item b{font-size:19px;letter-spacing:-.025em}.overview-item span{font-size:11px;color:#a6c2ac;margin-top:auto}.help{position:fixed;inset:0;z-index:110;background:rgba(7,20,17,.65);display:none;align-items:center;justify-content:center;padding:20px}.help[open]{display:flex}.help-card{background:#f4f5ec;color:var(--ink);padding:36px;max-width:620px;width:100%;box-shadow:0 25px 100px #06130f}.help-card h2{font-size:34px;letter-spacing:-.045em;margin:0 0 18px}.shortcut-row{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #ccd5cb;padding:10px 0;font-size:15px}.shortcut-row kbd{background:#dee8d7;border:1px solid #a9bca7;padding:6px 9px;font:12px ui-monospace,monospace}.help-close{margin-top:25px;background:var(--ink);color:white;padding:12px 19px;border:0}
 @media (max-width:800px) {
   :root {--gutter:clamp(22px,5vw,38px)}
   .overview-grid {grid-template-columns:repeat(2,1fr)}
@@ -187,10 +187,9 @@
 @media (max-width:500px) {
   .overview-grid {grid-template-columns:1fr}
   .overview {padding:30px 20px}
-  .speaker-notes {width:calc(100vw - 44px)}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-@media print{@page{size:landscape;margin:0}html,body,.app{height:auto!important;overflow:visible!important}.slide{position:relative!important;inset:auto!important;display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;height:100vh!important;page-break-after:always;overflow:hidden!important;padding-bottom:68px!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.slide-inner{height:100%!important;animation:none!important}.navbar,.progress,.overview,.help,.speaker-notes{display:none!important}}
+@media print{@page{size:landscape;margin:0}html,body,.app{height:auto!important;overflow:visible!important}.slide{position:relative!important;inset:auto!important;display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;height:100vh!important;page-break-after:always;overflow:hidden!important;padding-bottom:68px!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.slide-inner{height:100%!important;animation:none!important}.navbar,.progress,.overview,.help{display:none!important}}
 
 /* ================================================================
    Revision 2 · presenter-first navigation & legibility refinements
@@ -699,8 +698,106 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   .navbar, .progress, .skip-link, .demo-stage { display: none; }
   .demo-fallback { display: block; }
 </style></noscript>
+<style id="presenter-styles">
+#presenter-console{display:flex}
+html[data-view-mode="preview"] .deck-controls,html[data-view-mode="preview"] .progress-track,html[data-view-mode="preview"] .overview,html[data-view-mode="preview"] .help{display:none!important}
+html[data-view-mode="preview"] .slide,html[data-view-mode="preview"] .slide.active,html[data-view-mode="preview"] .anim{transition:none!important;animation:none!important;transform:none!important}
+html[data-view-mode="preview"] .slide.active{opacity:1!important;visibility:visible!important}
+#presenter-console{display:none;min-height:100vh;flex-direction:column;color:#102b2c;--pc-ink:#102b2c;--pc-muted:#546b69;--pc-card:#fff;--pc-back:#edf3f0;--pc-teal:#087b76;--pc-blue:#d8ece7}
+#presenter-console *,#presenter-console *::before,#presenter-console *::after{box-sizing:border-box}
+#presenter-console button{font:inherit;cursor:pointer;white-space:nowrap}
+#presenter-console button:focus-visible{outline:3px solid #087b76;outline-offset:3px}
+.pc-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px clamp(22px,3vw,50px);background:#fbfdfb}
+.pc-brand{display:flex;flex-direction:column;gap:6px}.pc-brand strong{font-size:27px;letter-spacing:-.035em;line-height:1}.pc-brand span{font-size:14px;color:#59706e;font-weight:500}
+.pc-head-right{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px}
+.pc-status{display:flex;align-items:center;gap:9px;padding:10px 12px;background:#e9f0ec;color:#4a6461;font-size:13px;font-weight:650}
+.pc-status-dot{width:9px;height:9px;background:#adbbb7;border-radius:50%;flex:none}
+.pc-status.connected .pc-status-dot{background:#00846f}.pc-status.connected{color:#136157}
+.pc-button{background:#e5efeb;color:#163934;border:0;padding:12px 17px;font-size:14px!important;font-weight:700!important;transition:background .2s}
+.pc-button:hover{background:#d2e7df}.pc-button.primary{color:white;background:#057b74}.pc-button.primary:hover{background:#066962}
+.pc-layout{width:100%;max-width:1800px;margin:0 auto;padding:28px clamp(22px,3vw,50px) 26px;display:grid;grid-template-columns:minmax(250px,.31fr) minmax(0,1fr);gap:22px;align-items:start;flex:1}
+.pc-left,.pc-right{min-width:0;display:flex;flex-direction:column;gap:18px}
+.pc-panel{background:#fff;padding:19px 20px}.pc-panel h2{font-size:15px;font-weight:750;color:#2e504d;margin:0}.pc-panel-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pc-count{color:#536d68;font-size:14px;font-weight:650;font-variant-numeric:tabular-nums}
+.pc-preview{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;background:#071a1d}
+.pc-preview iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#071a1d;pointer-events:none}
+.pc-slide-meta{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:9px;margin-top:13px}
+.pc-slide-meta h3{margin:0;font-size:20px;letter-spacing:-.02em;line-height:1.2}.pc-slide-meta p{font-size:14px;color:#637c75;margin-top:5px}
+.pc-pacing{white-space:nowrap;font-size:13px;color:#0a6864;background:#e6f1ed;padding:8px 11px;font-variant-numeric:tabular-nums;font-weight:700}
+.pc-next-layout{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:12px}
+.pc-next-label{font-size:14px;color:#536e69;margin-bottom:8px;font-weight:750}.pc-next-title{font-size:17px;letter-spacing:-.01em;line-height:1.3;font-weight:730}
+.pc-next-preview{aspect-ratio:16/9;position:relative;overflow:hidden;background:#061719}.pc-next-preview iframe{width:100%;height:100%;border:0;pointer-events:none;display:block}
+.pc-notes{display:flex;flex-direction:column;min-height:580px;height:calc(100dvh - 175px);max-height:calc(100dvh - 175px);position:sticky;top:18px;padding:0;overflow:hidden}
+.pc-notes-head{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:16px;padding:22px 28px 18px;background:#fff}
+.pc-speaker{font-size:16px;font-weight:750;color:#08746e}.pc-notes-head h2{font-size:27px;line-height:1.16;letter-spacing:-.035em;color:#102b2c;margin-top:8px}
+.pc-notes-head .pc-note-target{color:#58716d;font-size:14px;font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap;padding-top:2px}
+/* Controls affect note text only, not the projected slide. */
+.pc-notes-tools{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin-left:auto}
+.pc-font-tools{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.pc-font-label{font-size:13px;color:#58716d;font-weight:700;margin-right:5px}
+.pc-font-button{background:#e6f1ed;border:0;color:#135c55;padding:7px 11px;min-height:34px;min-width:35px;font-size:16px!important;font-weight:750!important;line-height:1.1}
+.pc-font-button:hover{background:#cfe6de}
+.pc-font-button:disabled{opacity:.38;cursor:default}
+.pc-font-button.pc-font-default{font-size:13px!important;min-width:auto}
+.pc-font-size-value{font-size:13px;color:#526e68;font-variant-numeric:tabular-nums;min-width:40px;text-align:right}
+.pc-note-scroll{overflow:auto;overscroll-behavior:contain;flex:1;padding:10px 28px 26px;scrollbar-color:#c2d7d0 transparent}
+.pc-speech{font-size:var(--pc-notes-font-size,24px);line-height:1.55;color:#203937;max-width:76ch;overflow-wrap:break-word}
+.pc-speech p{line-height:1.55;margin:0 0 20px}.pc-speech strong{font-weight:750;color:#0a4846}.pc-speech em{color:#456661}.pc-speech p:last-child{margin-bottom:0}
+.pc-note-action{margin-bottom:20px;padding:17px 19px;background:#e4f1ec;color:#214c46;font-size:17px;line-height:1.52}
+.pc-note-hidden{display:none;padding:30px;font-size:19px;color:#465c58;line-height:1.5}
+.pc-notes.is-hidden .pc-note-scroll{display:none}.pc-notes.is-hidden .pc-note-hidden{display:block}
+.pc-bottom{position:sticky;bottom:0;background:#fbfdfb;z-index:20;padding:18px clamp(22px,3vw,50px) 18px;border-top:3px solid #dbe8e3;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.pc-bottom-left{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+.pc-nav{display:flex;gap:7px}.pc-nav button{border:0;background:#e3efea;padding:12px 17px;color:#103d38;font-size:15px;font-weight:750}.pc-nav button:hover{background:#cce6de}.pc-nav button:disabled{opacity:.4;cursor:default}
+.pc-time{font-variant-numeric:tabular-nums;display:flex;gap:12px;align-items:baseline}.pc-time #pc-elapsed{font-size:29px;font-weight:800;letter-spacing:-.03em}.pc-time small{font-size:13px;color:#59746e;font-weight:600}.pc-time.overrun #pc-elapsed{color:#b5382a}
+.pc-meter{flex:1;min-width:200px;max-width:560px}.pc-meter-labels{display:flex;justify-content:space-between;gap:10px;color:#5b746f;font-size:12px;font-weight:700;margin-bottom:8px}
+.pc-meter-track{height:8px;display:flex;gap:3px;background:#dfebe6;position:relative;overflow:hidden}.pc-meter-track span{height:100%;background:#b2d9cd;flex:1}.pc-meter-track span.current{background:#087b76}.pc-meter-track span.done{background:#4bada1}
+.pc-mini{color:#56716d;font-size:13px;font-weight:600;white-space:nowrap}
+#pc-full-script{border:0;padding:0;width:min(980px,calc(100vw - 40px));height:min(90vh,960px);max-height:90vh;color:#102b2c;background:#fff;box-shadow:0 24px 65px #071b1840}#pc-full-script::backdrop{background:#061917b3}.pc-dialog-top{padding:20px 24px;background:#e5f1eb;display:flex;justify-content:space-between;align-items:center;gap:20px;position:sticky;top:0;z-index:2}.pc-dialog-top strong{font-size:23px}.pc-dialog-body{padding:28px 35px 44px;overflow:auto;line-height:1.58;font-size:16px}.pc-dialog-body h1{font-size:32px;line-height:1.1;margin:22px 0 17px}.pc-dialog-body h2{font-size:23px;margin:28px 0 12px}.pc-dialog-body p{margin:0 0 15px}.pc-dialog-body table{border-collapse:collapse;width:100%;margin:12px 0 24px;display:block;overflow-x:auto}.pc-dialog-body th,.pc-dialog-body td{text-align:left;padding:8px 10px;border-bottom:1px solid #cbded5}.pc-dialog-body hr{height:3px;border:0;background:#dcece3;margin:30px 0}.pc-dialog-body blockquote{margin:17px 0;padding:12px 18px;background:#e6f1eb}.pc-dialog-body ul,.pc-dialog-body ol{padding-left:23px;margin:12px 0 25px}.pc-dialog-body li{margin-bottom:5px}.pc-dialog-body code{white-space:normal;word-break:break-word}
+@media(max-width:900px){.pc-layout{grid-template-columns:1fr}.pc-notes{position:static;min-height:460px;height:auto;max-height:none;overflow:visible;order:-1}.pc-left{order:1}.pc-note-scroll{overflow:visible}.pc-head{align-items:flex-start}.pc-bottom{position:static}.pc-meter{display:none}.pc-next-layout{grid-template-columns:minmax(130px,38%) 1fr}}
+@media(max-width:650px){.pc-head{flex-direction:column;align-items:stretch}.pc-head-right{justify-content:flex-start}.pc-layout{padding:17px 14px;gap:16px}.pc-panel{padding:16px}.pc-notes-head{padding:21px 18px}.pc-note-scroll{padding:9px 18px 20px}.pc-bottom{padding:14px;flex-wrap:wrap}.pc-mini{display:none}.pc-next-layout{grid-template-columns:38% 1fr;gap:12px}.pc-notes-tools{align-items:flex-start;margin-left:0}.pc-font-tools{justify-content:flex-start}}
+@media(min-width:901px) and (max-width:1100px){.pc-notes{min-height:360px;height:calc(100dvh - 310px);max-height:calc(100dvh - 310px)}}
+@media(prefers-reduced-motion:reduce){#presenter-console *,#presenter-console *::before,#presenter-console *::after{transition:none!important}}
+@media print{#presenter-console{display:none!important}}
+html[data-view-mode="presenter"] body.app {
+  display: block; height: auto; min-height: 100dvh; overflow: auto;
+  background: #edf3f0; color: #102b2c; color-scheme: light;
+}
+html[data-view-mode="presenter"] :is(#deck,.navbar,.skip-link) { display: none; }
+html[data-view-mode="presenter"] #presenter-console { display: flex; }
+.pc-layout { padding-bottom: 22px; }
+.pc-notes { height: calc(100dvh - 192px); max-height: none; min-height: 400px; }
+.pc-speech code { color: #0a4846; font-size: .84em; }
+.pc-preview iframe, .pc-next-preview iframe { background: transparent; }
+.pc-demo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 14px; }
+.pc-demo-controls[hidden], #pc-next-card[hidden] { display: none; }
+.pc-demo-controls output { font-size: 14px; color: #2e504d; }
+#pc-full-script { margin: auto; }
+@media(max-width:900px) {
+  .pc-layout { display: flex; flex-direction: column; }
+  .pc-left, .pc-notes { width: 100%; }
+  .pc-notes { min-height: 330px; height: auto; padding: 0; }
+  .pc-note-scroll { max-height: 55dvh; overflow: auto; }
+  .pc-bottom { position: sticky; }
+}
+@media(max-width:480px) {
+  .pc-head { padding: 16px 14px; gap: 12px; }
+  .pc-head-right { gap: 6px; }
+  .pc-head-right .pc-button, .pc-status { padding: 8px 10px; }
+  .pc-nav button { padding: 8px 10px; }
+  .pc-bottom-left { gap: 8px 14px; }
+  .pc-bottom { padding: 8px 14px; }
+  .pc-notes-head { gap: 8px; }
+  .pc-note-scroll { max-height: 48dvh; }
+}
+</style>
 </head>
 <body class="app" id="top">
+<script>
+  if (new URLSearchParams(location.search).get('presenter') === '1') {
+    document.documentElement.dataset.viewMode = 'presenter';
+  }
+</script>
 <!-- Soutenance logiciel : vert terminal, typographie système, grille scindée.
      Moments guidés : trajet d’un log et révélation de l’alerte, sans lecture automatique. -->
 <a class="skip-link" href="#deck">Aller à la diapositive</a>
@@ -733,7 +830,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
     </div>
   </div>
 </div>
-<div class="notes-text" hidden>Présentez le nom du projet et le cadre ING3. Expliquez dès le départ qu’il s’agit d’un moteur Python en ligne de commande, pas d’un service SIEM complet. Les trois noms du groupe figurent sur la couverture.</div></div></section>
+</div></section>
 <section class="slide" id="slide-2" data-title="Le problème" data-chapter="Contexte" aria-label="Diapositive 2: Le problème"><div class="slide-inner wrap">
 <div class="split problem-layout">
   <div><p class="eyebrow">02 / CONTEXTE</p><h2 class="headline">Repérer une attaque dans les logs</h2><p class="lead">Les journaux mêlent connexions réussies, erreurs et échanges réseau. Une série d’échecs SSH peut s’y perdre.</p>
@@ -750,14 +847,14 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
     <div>08:00:07 <span class="s-warn">WARNING</span> 192.0.2.20 bob LOGIN_FAILED</div>
   </div><div class="signal-footer"><span class="pulse"></span> CINQ ÉCHECS CONSÉCUTIFS IDENTIFIÉS</div></div>
 </div>
-<div class="notes-text" hidden>Le cas d’usage retenu est une salle informatique fictive, avec des journaux d’authentification et réseau. Le problème est de rendre les événements lisibles et détectables sans ouvrir manuellement chaque ligne.</div></div></section>
+</div></section>
 <section class="slide" id="slide-3" data-title="Un programme, deux modes" data-chapter="Exploitation" aria-label="Diapositive 3: Un programme, deux modes"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">03 / MODE D’EXÉCUTION</p><h2 class="headline compact">Deux façons de lancer le moteur</h2><p class="intro">Le moteur peut traiter des fichiers existants ou un flux de texte transmis au terminal.</p></div>
 <div class="two-mode">
   <div class="mode-card light-mode-card"><div class="mode-number">A / PONCTUEL</div><div class="mode-icon"><span class="icon-file"></span></div><h3>Analyser des fichiers</h3><p>La commande lit les logs fournis, écrit ses résultats, puis se termine.</p><code class="command">python main.py</code><div class="mode-bottom"><span class="status-dot"></span> SE TERMINE APRÈS L’ANALYSE</div></div>
   <div class="mode-card dark-mode-card"><div class="mode-number">B / FLUX</div><div class="mode-icon"><span class="icon-stream">≋</span></div><h3>Suivre une entrée standard</h3><p>Avec <code>--stream-alerts</code>, les alertes JSONL sortent dès leur détection. Le résumé va sur stderr à la fin du flux.</p><code class="command">cat data/auth.log data/network.log |<br>python main.py --stream-alerts -</code><div class="mode-bottom"><span class="status-dot live"></span> ACTIF TANT QUE LE FLUX RESTE OUVERT</div></div>
 </div>
-<div class="notes-text" hidden>Précision essentielle : la commande par défaut fait une analyse finie ; en entrée standard, le programme peut rester actif et émettre les alertes au fil de l’eau. Il n’y a pas de démon ni de serveur H24. Ne pas confondre traitement d’un flux et collecte automatique.</div></div></section>
+</div></section>
 <section class="slide dark" id="slide-4" data-title="La chaîne de traitement" data-chapter="Architecture" aria-label="Diapositive 4: La chaîne de traitement"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">04 / PIPELINE</p><h2 class="headline compact">Le trajet d’une ligne de log</h2></div>
 <ol class="pipeline" aria-label="Les étapes de traitement">
@@ -787,7 +884,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
     <code class="pipe-file">JSON · JSONL</code>
   </li>
 </ol>
-<div class="notes-text" hidden>Montrez les cinq étapes du pipeline. Ingestion et transformations utilisent des itérateurs ; les statistiques et les règles s’appliquent à chaque log valide. Les sorties sont publiées à la fin d’une analyse réussie.</div></div></section>
+</div></section>
 <section class="slide" id="slide-5" data-title="Une architecture modulaire" data-chapter="Architecture" aria-label="Diapositive 5: Une architecture modulaire"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">05 / STRUCTURE DU CODE</p><h2 class="headline compact">Les modules du moteur</h2></div>
 <div class="arch-layout">
@@ -811,7 +908,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
    <div><span>SECURITY</span><b>rules · audit</b><p>Détecte les événements suspects et inspecte l’exécution.</p></div>
  </div>
 </div>
-<div class="notes-text" hidden>Le code est organisé en package src/ avec un point d’entrée main.py. Le notebook n’est pas le moteur : il documente et illustre les résultats. Cet isolement facilite tests et maintenance.</div></div></section>
+</div></section>
 <section class="slide" id="slide-6" data-title="Module 1 · ingestion" data-chapter="Module 1" aria-label="Diapositive 6: Module 1 · ingestion"><div class="slide-inner wrap">
 <div class="split ingestion-grid"><div><p class="eyebrow">06 / MODULE 1 · GÉNÉRATEURS</p><h2 class="headline">Une lecture ligne par ligne</h2><p class="lead"><code>yield</code> produit un enregistrement à la demande. <code>yield from</code> permet d’enchaîner plusieurs sources sans tout charger en RAM.</p><div class="primitive-list"><div><b>yield</b><span>Production paresseuse d’une ligne</span></div><div><b>yield from</b><span>Lecture successive de plusieurs flux</span></div><div><b>stdin</b><span>Prise en charge d’une entrée textuelle ouverte</span></div></div></div>
 <div class="code-stage"><div class="code-title">src/ingestion.py <span>CODE ABRÉGÉ</span></div><pre class="syntax"><span class="kw">def</span> <span class="fn">read_logs</span>(path):
@@ -824,7 +921,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
             <span class="kw">yield from</span> read_stream(stdin, "&lt;stdin&gt;")
         <span class="kw">else</span>:
             <span class="kw">yield from</span> read_logs(path)</pre><div class="flow-art"><div class="flow-file"><span>FICHIER</span><i></i><i></i><i></i><i></i><i></i></div><div class="flow-narrow">→</div><div class="flow-one"><span>UNE LIGNE</span><b>yield</b></div><div class="flow-narrow">→</div><div class="flow-file"><span>PIPELINE</span><i></i></div></div></div></div>
-<div class="notes-text" hidden>Ce n’est pas un chargement massif en mémoire. Les générateurs suspendent leur exécution entre deux lignes. Le code affiché est un extrait volontairement abrégé du fichier ingestion.py ; il faut le présenter comme tel.</div></div></section>
+</div></section>
 <section class="slide" id="slide-7" data-title="Module 1 · parsing" data-chapter="Module 1" aria-label="Diapositive 7: Module 1 · parsing"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">07 / MODULE 1 · MODÉLISATION</p><h2 class="headline compact">Un dictionnaire par événement</h2></div>
 <div class="parsing-layout">
@@ -834,7 +931,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   <div class="structure-box"><div class="st-tag">CHAMPS NORMALISÉS · EXTRAIT</div><div class="dictionary"><span>{</span><div>"timestamp": <b>datetime(…)</b>,</div><div>"level": <b>"INFO"</b>,</div><div>"ip": <b>"192.0.2.10"</b>,</div><div>"user": <b>"alice"</b>,</div><div>"event": <b>"LOGIN_SUCCESS"</b>,</div><div>"payload": <b>"Session SSH ouverte"</b></div><span>}</span></div></div>
 </div>
 <div class="validation-band"><b>Validation stricte des champs</b><span>IP invalide</span><span>JSON tronqué</span><span>Doublons de clés</span><span>UTF-8 incorrect</span></div>
-<div class="notes-text" hidden>Le parseur accepte une ligne séparée par | ou un objet JSON, vérifie les types et crée un dictionnaire Python. Le champ payload peut être vide dans le format à six champs et peut être omis dans le JSON. Il peut contenir du texte, un objet JSON ou une connexion. Les métadonnées de connexion (IP, port, protocole) deviennent un tuple immuable. Les données de test contiennent trois erreurs intentionnelles.</div></div></section>
+</div></section>
 <section class="slide" id="slide-8" data-title="Module 2 · transformations" data-chapter="Module 2" aria-label="Diapositive 8: Module 2 · transformations"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">08 / MODULE 2 · PROGRAMMATION FONCTIONNELLE</p><h2 class="headline compact">Filtrage et normalisation des événements</h2></div>
 <div class="func-columns">
@@ -843,18 +940,18 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   <div class="func-card"><div class="func-title"><span>03</span> ROUTER</div><div class="func-code"><span class="kw">match</span> payload:<br>&nbsp;&nbsp;<span class="kw">case</span> str(): ...<br>&nbsp;&nbsp;<span class="kw">case</span> dict(): ...<br>&nbsp;&nbsp;<span class="kw">case</span> (host,port,proto): ...</div><p>Adapte le message à la structure du payload.</p></div>
 </div>
 <div class="bottom-quote">Même logique de traitement, quels que soient les formats de logs reconnus.</div>
-<div class="notes-text" hidden>C’est une consigne explicite du cours. Le pipeline emploie filter(), lambda, map() et match-case. Distinguez les lignes nettoyées de celles qui sont rejetées pour erreur de validation.</div></div></section>
+</div></section>
 <section class="slide" id="slide-9" data-title="Module 3 · statistiques" data-chapter="Module 3" aria-label="Diapositive 9: Module 3 · statistiques"><div class="slide-inner wrap">
 <div class="stats-layout"><div><p class="eyebrow">09 / MODULE 3 · AGRÉGATION</p><h2 class="headline">Compteurs par niveau et utilisateur</h2><p class="lead"><code>defaultdict(int)</code> compte sans provoquer de <code>KeyError</code>. Le moteur agrège les logs valides par niveau et par utilisateur.</p>
 <div class="tiny-terminal"><span>Analyzer.update(log)</span><code>by_level[log["level"]] += 1</code><code>by_user[log["user"]] += 1</code></div></div>
 <div class="chart-panel"><div class="chart-h"><b>RÉPARTITION PAR SÉVÉRITÉ</b><span>22 LOGS VALIDES</span></div><div class="bar-row"><label>ERROR</label><div><i style="--pct:100%;--c:var(--danger)"></i></div><strong>11</strong></div><div class="bar-row"><label>WARNING</label><div><i style="--pct:45.45%;--c:var(--gold)"></i></div><strong>5</strong></div><div class="bar-row"><label>INFO</label><div><i style="--pct:45.45%;--c:var(--blue)"></i></div><strong>5</strong></div><div class="bar-row"><label>CRITICAL</label><div><i style="--pct:9.09%;--c:var(--orange)"></i></div><strong>1</strong></div><div class="stat-divider"></div><div class="chart-bottom"><div><b>6</b><span>IP actives</span></div><div><b>3</b><span>IP avec ERROR / CRITICAL</span></div></div></div></div>
-<div class="notes-text" hidden>Ces chiffres proviennent de l’exécution réelle des données fournies, pas d’un exemple inventé. Le niveau ERROR n’est pas nécessairement une attaque ; les règles de détection sont distinctes du comptage par niveau.</div></div></section>
+</div></section>
 <section class="slide" id="slide-10" data-title="Module 3 · ensembles" data-chapter="Module 3" aria-label="Diapositive 10: Module 3 · ensembles"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">10 / MODULE 3 · SET &amp; FROZENSET</p><h2 class="headline compact">Les IP actives et la blacklist</h2></div>
 <div class="venn-layout"><div class="venn-container"><svg viewBox="0 0 620 340" role="img" aria-label="Diagramme des IP actives et blacklistées : quatre IP seulement actives, deux dans les deux ensembles et une seulement blacklistée"><circle cx="235" cy="170" r="148" fill="#d9eaf1" fill-opacity=".9" stroke="#39687b" stroke-width="2"/><circle cx="389" cy="170" r="148" fill="#d6f7a9" fill-opacity=".68" stroke="#4a7328" stroke-width="2"/><text x="165" y="152" class="venn-big">4</text><text x="163" y="175" class="venn-small">actives</text><text x="314" y="153" class="venn-big">2</text><text x="303" y="176" class="venn-small">communes</text><text x="448" y="152" class="venn-big">1</text><text x="431" y="175" class="venn-small">blacklist</text></svg><div class="venn-legend"><span><i class="a"></i> IP actives (6)</span><span><i class="b"></i> Blacklist (3)</span></div></div>
 <div class="set-operators"><div><b>A ∩ B</b><span>2</span><p>IP actives ET blacklistées</p></div><div><b>A ∪ B</b><span>7</span><p>Union des adresses</p></div><div><b>A − B</b><span>4</span><p>IP actives non blacklistées</p></div><div><b>A △ B</b><span>5</span><p>Différence symétrique</p></div></div></div>
 <div class="thin-note">IP communes observées : 203.0.113.66 et 198.51.100.24 · blacklist stockée en <code>frozenset</code> immuable.</div>
-<div class="notes-text" hidden>La blacklist comporte trois IP dont deux apparaissent dans les logs valides. On obtient donc 4 IP actives non blacklistées, 2 présentes dans les deux ensembles et 1 blacklistée non observée. Le moteur calcule les quatre opérations demandées.</div></div></section>
+</div></section>
 <section class="slide dark" id="slide-11" data-title="Module 4 · règles" data-chapter="Module 4" aria-label="Diapositive 11: Module 4 · règles"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">11 / MODULE 4 · MOTEUR EXTENSIBLE</p><h2 class="headline compact">Trois règles dans un même moteur</h2><p class="intro">Les fonctions de sécurité sont passées comme objets à <code>apply_security_rules(*args,&nbsp;**kwargs)</code>.</p></div>
 <div class="rules-stage"><div class="rules-code"><div class="code-title">main.py / appel des règles</div><pre class="syntax">apply_security_rules(
@@ -867,14 +964,14 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   <span class="kw">blacklist</span>=blacklist,
 )</pre></div><div class="rules-grid"><div><span class="rule-count">01</span><b>BRUTE_FORCE</b><p>Un bloc d’échecs par IP et utilisateur. Seuil de cinq par défaut.</p></div><div><span class="rule-count">02</span><b>BLACKLIST</b><p>Événement émis par une adresse IP présente dans la liste noire.</p></div><div><span class="rule-count">03</span><b>CRITICAL</b><p>Journal dont le niveau de sévérité est critique.</p></div></div></div>
 <div class="bottom-quote">Une même ligne peut déclencher plusieurs règles : les alertes ne sont pas exclusives.</div>
-<div class="notes-text" hidden>Expliquez args : les fonctions de règles ; kwargs : log et configuration. Le moteur teste chaque fonction, émet une alerte si elle retourne un résultat. Un log critique issu d’une IP blacklistée peut produire deux alertes.</div></div></section>
+</div></section>
 <section class="slide" id="slide-12" data-title="Zoom · force brute" data-chapter="Sécurité" aria-label="Diapositive 12: Zoom · force brute"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">12 / DÉTECTION D’ATTAQUE</p><h2 class="headline compact">Le cinquième échec déclenche l’alerte</h2><p class="intro">La règle compte par couple <code>(IP, utilisateur)</code>. Chaque bloc de cinq échecs déclenche une alerte par défaut.</p></div>
 <div class="brute-panel"><div class="identity-row"><span class="ident-user">admin <small>203.0.113.66</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span><span class="success">✓</span></div><strong class="result-alert">1 BRUTE_FORCE</strong></div>
 <div class="identity-row"><span class="ident-user">root <small>198.51.100.24</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail">×</span><span class="fail final-fail"><span aria-hidden="true">×</span><span class="sr-only">Échec déclenchant l’alerte</span></span></div><strong class="result-alert">1 BRUTE_FORCE</strong></div>
 <div class="identity-row"><span class="ident-user">bob <small>192.0.2.20</small></span><div class="attempts"><span class="fail">×</span><span class="fail">×</span><span class="success">✓</span><span class="fail">×</span><span class="fail">×</span></div><strong class="result-silent">0 BRUTE_FORCE</strong></div></div>
 <div class="loop-footer"><div><b>while</b><span>Décide quand vérifier</span></div><div><b>for + continue</b><span>Parcourt les échecs</span></div><div><b>break</b><span>Interrompt sur un succès</span></div><div><b>else</b><span>Déclenche après un bloc entièrement en échec</span></div></div>
-<div class="notes-text" hidden>Les exemples admin, root et bob sont ceux des fichiers fournis. Un succès annule les échecs encore en attente, comme pour bob. Dix échecs consécutifs donnent deux alertes au seuil par défaut. Le code utilise délibérément while, for, break, continue et else pour respecter le cahier des charges.</div></div></section>
+</div></section>
 <section class="slide dark" id="slide-13" data-title="La démonstration" data-chapter="Démo" aria-label="Diapositive 13: La démonstration"><div class="slide-inner wrap">
 <div class="slide-head">
   <p class="eyebrow">13 / DÉMONSTRATION</p>
@@ -910,7 +1007,7 @@ html[data-motion] button:not(:disabled):active { transform: translateY(1px) scal
   <p>À 08:00:05, le cinquième échec SSH pour <code>admin</code> déclenche <code>BRUTE_FORCE</code>. Le bloc d’échecs est alors consommé.</p>
   <p>Ce rejeu illustre huit événements du jeu de test. Les résultats de l’analyse complète figurent sur la diapositive suivante.</p>
 </div>
-<div class="notes-text" hidden>Révélez une ligne à la fois avec → ou le bouton. Montrez le bloc de cinq échecs et l’alerte de force brute. Le moteur clôt le bloc dès l’alerte. La connexion réussie qui suit déclenche encore BLACKLIST. Le rejeu HTML reprend les événements de auth.log. L’analyse complète se lance avec python main.py.</div></div></section>
+</div></section>
 <section class="slide" id="slide-14" data-title="Les résultats" data-chapter="Démonstration" aria-label="Diapositive 14: Les résultats"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">14 / RÉSULTATS DE LA DÉMONSTRATION RÉELLE</p><h2 class="headline compact">Le bilan de l’analyse complète</h2></div>
 <div class="result-strip"><div><span>ÉVÉNEMENTS VALIDES</span><strong>22</strong></div><div><span>LIGNES REJETÉES</span><strong>3</strong></div><div><span>ALERTES PRODUITES</span><strong>15</strong></div></div>
@@ -922,7 +1019,7 @@ Par niveau : ERROR 11 · WARNING 5
 Alertes : BLACKLIST 12
           BRUTE_FORCE 2
           CRITICAL 1</pre></div></div>
-<div class="notes-text" hidden>Il s’agit des résultats effectivement obtenus avec auth.log et network.log. Trois lignes volontairement mal formées sont rejetées ; trois lignes vides ou commentaires sont ignorées séparément. Le total de 15 compte les détections. Une même ligne peut en produire plusieurs.</div></div></section>
+</div></section>
 <section class="slide" id="slide-15" data-title="Trois fichiers de sortie" data-chapter="Livrables" aria-label="Diapositive 15: Trois fichiers de sortie"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">15 / EXPORTS &amp; AUDIT</p><h2 class="headline compact">Trois fichiers pour examiner les résultats</h2></div>
 <div class="output-grid"><div class="output-card"><span class="output-badge">01 / EXTRAIT DES COMPTEURS</span><h3>summary.json</h3><p>Statistiques globales, niveaux, utilisateurs, ensembles d’IP, configuration et rejets.</p><pre>{
@@ -942,42 +1039,78 @@ Alertes : BLACKLIST 12
   "type": "frozenset",
   "size": 3
 }</pre></div></div>
-<div class="notes-text" hidden>Chaque alerte occupe une ligne dans le fichier réel. Ici, elle est mise en forme et son chemin source est abrégé. L’extrait d’audit vient de pipeline_locals et montre les métadonnées de la variable blacklist. Le moteur prépare ses résultats dans un dossier temporaire et tente de restaurer les sorties antérieures si la publication échoue.</div></div></section>
+</div></section>
 <section class="slide" id="slide-16" data-title="Tests et robustesse" data-chapter="Validation" aria-label="Diapositive 16: Tests et robustesse"><div class="slide-inner wrap">
 <div class="validation-layout"><div><p class="eyebrow">16 / VALIDATION</p><h2 class="headline">La suite de tests du moteur</h2><div class="mega-test">45<span> / 45</span></div><p class="test-sub">Tests automatisés réussis.</p><code class="command test-command">python -m unittest discover -s tests -v</code><div class="thin-note">Code typé, gestion d’exceptions et contrôle PEP 8 documentés dans le rapport.</div></div>
 <div class="test-matrix"><div><span class="checkmark">✓</span><b>Parsing &amp; entrées invalides</b><small>IP, JSON, Unicode, formats</small></div><div><span class="checkmark">✓</span><b>Logique de détection</b><small>Seuils, successions, blacklist</small></div><div><span class="checkmark">✓</span><b>Cas de force brute</b><small>256 séries de 8 essais · seuils 1 à 5</small></div><div><span class="checkmark">✓</span><b>Publication sécurisée</b><small>48 scénarios d’échec simulés</small></div><div><span class="checkmark">✓</span><b>CLI &amp; flux ouvert</b><small>Alerte avant fermeture de stdin</small></div><div><span class="checkmark">✓</span><b>Compatibilité documentée</b><small>Python 3.10.22 · 3.12.16 · 3.14.10 · 3.15.2</small></div></div></div>
-<div class="notes-text" hidden>Ne confondez pas les 45 tests avec les 48 scénarios d’échec inclus dans l’un de ces tests. Les versions Python listées sont celles déclarées par le rapport. La suite couvre notamment les sorties lors d’erreurs et la CLI.</div></div></section>
+</div></section>
 <section class="slide" id="slide-17" data-title="La mémoire au centre" data-chapter="Validation" aria-label="Diapositive 17: La mémoire au centre"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">17 / BENCHMARK · PYTHON 3.12.16 · TRACEMALLOC</p><h2 class="headline compact">Le pic mémoire reste proche de 68 Ko</h2></div>
 <div class="memory-layout"><div class="mem-graph"><div class="minor-heading">PIC DES ALLOCATIONS PYTHON · UNE IDENTITÉ FIXE</div><div class="mem-columns"><div><span class="mem-value">68,1 Ko</span><i style="height:79%"></i><b>10k</b><small>0,495 s</small></div><div><span class="mem-value">67,7 Ko</span><i style="height:78.4%"></i><b>100k</b><small>4,685 s</small></div><div><span class="mem-value">67,9 Ko</span><i style="height:78.7%"></i><b>1M</b><small>48,873 s</small></div></div><div class="mem-caption">59 Mo de fichier à 1 million de lignes · 200 000 alertes émises</div></div>
 <div class="mem-aside"><span class="circle-overline">LE POINT À RETENIR</span><strong>≈ 68 Ko</strong><p>de pic mesuré sur trois volumes de 10 000 à 1 000 000 lignes avec le même couple IP/utilisateur.</p><div class="mem-warning"><b>Limite importante</b><span>Avec 10 000 couples distincts, l’essai mesure environ <strong>17,3 Mo</strong>. La mémoire dépend aussi du nombre d’identités et d’IP uniques.</span></div></div></div>
-<div class="notes-text" hidden>Ces chiffres viennent du tableau de benchmark sauvegardé dans le notebook. Ils mesurent les allocations Python via tracemalloc, pas toute la RAM du processus. La stabilité concerne un scénario avec une seule identité : ne pas la généraliser à toutes les charges.</div></div></section>
+</div></section>
 <section class="slide" id="slide-18" data-title="Les défis techniques" data-chapter="Retour d’expérience" aria-label="Diapositive 18: Les défis techniques"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">18 / PROBLÈMES TECHNIQUES TRAITÉS</p><h2 class="headline compact">Les cas limites traités par le moteur</h2></div>
 <div class="challenge-grid"><div class="challenge"><div class="challenge-index">01</div><h3>Entrées mal formées</h3><p>IP incorrecte, JSON tronqué, encodage invalide.</p><div class="solution">→ Rejet contrôlé, message localisé, option <code>--strict</code></div></div><div class="challenge"><div class="challenge-index">02</div><h3>Mémoire maîtrisée</h3><p>Ne pas charger les fichiers entiers.</p><div class="solution">→ <code>yield</code>, itérateurs et agrégation progressive</div></div><div class="challenge"><div class="challenge-index">03</div><h3>Séries de connexions</h3><p>Un succès doit interrompre les échecs.</p><div class="solution">→ Historique séparé par couple IP / utilisateur</div></div><div class="challenge"><div class="challenge-index">04</div><h3>Écriture des résultats</h3><p>Une erreur en cours de publication ne doit pas effacer les sorties précédentes.</p><div class="solution">→ Dossier temporaire, sauvegarde et restauration tentée</div></div></div>
-<div class="notes-text" hidden>Il s’agit des difficultés techniques que le projet gère réellement, telles que le montrent le code et les tests. Il ne faut pas les présenter comme des anecdotes personnelles dont nous n’avons pas de preuve.</div></div></section>
+</div></section>
 <section class="slide" id="slide-19" data-title="Limites et évolutions" data-chapter="Perspectives" aria-label="Diapositive 19: Limites et évolutions"><div class="slide-inner wrap">
 <div class="slide-head"><p class="eyebrow">19 / RECUL CRITIQUE &amp; PISTES D’AMÉLIORATION</p><h2 class="headline compact">Limites du moteur et pistes d’évolution</h2></div>
 <div class="roadmap-layout"><div class="limitations"><div class="roadmap-title">AUJOURD’HUI</div><div><b>01</b><span>Pas de collecte native de machines distantes</span></div><div><b>02</b><span>Logs traités dans l’ordre reçu, sans tri temporel</span></div><div><b>03</b><span>Force brute par consécutivité, sans fenêtre de temps</span></div><div><b>04</b><span>Statistiques et état conservés en mémoire durant l’analyse</span></div><div><b>05</b><span>Sorties JSON, sans tableau de bord graphique</span></div></div><div class="improvements"><div class="roadmap-title">DEMAIN / AMÉLIORATIONS PROPOSÉES</div><div><b>→</b><span>Connecteurs syslog / agents pour centraliser les sources</span></div><div><b>→</b><span>Horodatages UTC et traitement des événements désordonnés</span></div><div><b>→</b><span>Corrélation avec fenêtre glissante et seuils par contexte</span></div><div><b>→</b><span>Persistance ou stockage durable des états et métriques</span></div><div><b>→</b><span>Dashboard et intégration SIEM / alerting</span></div></div></div>
 <div class="thin-note">Ces évolutions sont des propositions : elles ne font pas partie de la version livrée.</div>
-<div class="notes-text" hidden>Admettez clairement les limites actuelles. Les principales améliorations sont des hypothèses de feuille de route et non des fonctionnalités réalisées. Le cahier des charges n’impose pas de serveur permanent ni d’interface graphique.</div></div></section>
+</div></section>
 <section class="slide dark" id="slide-20" data-title="Conclusion" data-chapter="Clôture" aria-label="Diapositive 20: Conclusion"><div class="slide-inner wrap">
 <div class="closing-content"><div class="closing-top"><span class="eyebrow">20 / BILAN DU PROJET</span><span class="small-counter">ECE · ING3 · PYTHON</span></div>
 <h2 class="closing-title">Ce que révèle<br><span class="accent">un fichier de logs.</span></h2>
 <p class="closing-lead">SecureLog lit les journaux ligne par ligne, détecte les événements suspects et exporte les éléments utiles à l’enquête.</p>
 <div class="closing-lower"><div><b>Validation</b><p>45 tests · données de démonstration · mesures mémoire documentées</p></div><div><b>Trinôme</b><p>Lukas MAUFFRÉ · Sacha BEHLOULI-DROLLÉE · Jeanne TONDA</p></div></div>
 <div class="closing-bottom"><span>MERCI.</span><span>QUESTIONS / ÉCHANGES</span></div></div>
-<div class="notes-text" hidden>Terminez sur les compétences Python démontrées et la différence entre ce moteur pédagogique et une plateforme de surveillance complète. Invitez aux questions.</div></div></section></main>
+</div></section></main>
 <nav class="navbar actionbar" aria-label="Navigation des diapositives">
   <span class="nav-chapter" id="nav-chapter">Ouverture</span>
   <div class="progress" id="progress" aria-hidden="true"></div>
   <span class="sr-only" id="slide-announcement" role="status"></span>
-  <div class="nav-actions"><button class="nav-btn" id="notes-trigger" type="button" aria-expanded="false" aria-controls="speaker-notes" title="Notes du présentateur" aria-label="Notes du présentateur">N</button><button class="nav-btn" id="fullscreen-trigger" type="button" aria-pressed="false" title="Plein écran" aria-label="Basculer en plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button><button class="nav-btn" id="overview-trigger" type="button" aria-haspopup="dialog" aria-controls="overview" title="Sommaire" aria-label="Sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button><button class="nav-btn" id="prev" type="button" title="Diapositive précédente" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><span class="nav-current" id="nav-current">01 <span>/ 20</span></span><button class="nav-btn" id="next" type="button" title="Diapositive suivante" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
+  <div class="nav-actions"><button class="nav-btn" id="notes-trigger" type="button" title="Ouvrir les notes du présentateur dans une autre fenêtre (N)" aria-label="Ouvrir les notes du présentateur dans une autre fenêtre">N</button><button class="nav-btn" id="fullscreen-trigger" type="button" aria-pressed="false" title="Plein écran" aria-label="Basculer en plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button><button class="nav-btn" id="overview-trigger" type="button" aria-haspopup="dialog" aria-controls="overview" title="Sommaire" aria-label="Sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button><button class="nav-btn" id="prev" type="button" title="Diapositive précédente" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><span class="nav-current" id="nav-current">01 <span>/ 20</span></span><button class="nav-btn" id="next" type="button" title="Diapositive suivante" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
   <button class="nav-btn" id="help-trigger" type="button" aria-haspopup="dialog" aria-controls="help" aria-label="Afficher les raccourcis">?</button>
 </nav>
 <dialog class="overview" id="overview" aria-labelledby="overview-heading"><div class="overlay-header"><h2 id="overview-heading">Sommaire des 20 diapositives</h2><button type="button" class="overlay-close" id="overview-close">Fermer ×</button></div><div class="overview-grid" id="overview-grid"></div></dialog>
-<dialog class="help" id="help" aria-labelledby="help-heading"><div class="help-card"><h2 id="help-heading">Commandes de présentation</h2><div class="shortcut-row"><span>Étape suivante ou diapositive suivante</span><span><kbd>→</kbd> <kbd>↓</kbd> <kbd>Espace</kbd></span></div><div class="shortcut-row"><span>Étape précédente ou diapositive précédente</span><span><kbd>←</kbd> <kbd>↑</kbd></span></div><div class="shortcut-row"><span>Recommencer la démo (slide 13)</span><kbd>R</kbd></div><div class="shortcut-row"><span>Ouvrir les 20 slides</span><kbd>O</kbd></div><div class="shortcut-row"><span>Notes orateur</span><kbd>N</kbd></div><div class="shortcut-row"><span>Plein écran</span><kbd>F</kbd></div><div class="shortcut-row"><span>Fermer les fenêtres</span><kbd>Esc</kbd></div><button type="button" class="help-close" id="help-close">Retour à la présentation</button></div></dialog>
-<div class="speaker-notes" id="speaker-notes" role="complementary" aria-label="Notes orateur"><small>NOTES DE PRÉSENTATION · APPUYEZ SUR N</small><p></p></div>
+<dialog class="help" id="help" aria-labelledby="help-heading"><div class="help-card"><h2 id="help-heading">Commandes de présentation</h2><div class="shortcut-row"><span>Étape suivante ou diapositive suivante</span><span><kbd>→</kbd> <kbd>↓</kbd> <kbd>Espace</kbd></span></div><div class="shortcut-row"><span>Étape précédente ou diapositive précédente</span><span><kbd>←</kbd> <kbd>↑</kbd></span></div><div class="shortcut-row"><span>Recommencer la démo (slide 13)</span><kbd>R</kbd></div><div class="shortcut-row"><span>Ouvrir les 20 slides</span><kbd>O</kbd></div><div class="shortcut-row"><span>Ouvrir la console du présentateur</span><kbd>N</kbd></div><div class="shortcut-row"><span>Plein écran</span><kbd>F</kbd></div><div class="shortcut-row"><span>Fermer les fenêtres</span><kbd>Esc</kbd></div><button type="button" class="help-close" id="help-close">Retour à la présentation</button></div></dialog>
+<section id="presenter-console" aria-label="Console du présentateur">
+  <header class="pc-head">
+    <div class="pc-brand"><strong>SecureLog Engine</strong><span>ECE Paris · ING3 · Projet Python · Console présentateur</span></div>
+    <div class="pc-head-right">
+      <span id="pc-status" class="pc-status" aria-live="polite"><span class="pc-status-dot"></span><span id="pc-status-text">En attente de la projection</span></span>
+      <button id="pc-open-projection" type="button" class="pc-button primary">Ouvrir les slides ↗</button>
+      <button id="pc-full-script-btn" class="pc-button">Script intégral</button>
+      <button id="pc-notes-toggle" class="pc-button">Masquer les notes</button>
+    </div>
+  </header>
+  <main class="pc-layout">
+    <div class="pc-left">
+      <section class="pc-panel">
+        <div class="pc-panel-top"><h2>Diapositive à l'écran</h2><span id="pc-current-count" class="pc-count">1 / 20</span></div>
+        <div class="pc-preview"><iframe id="pc-current-frame" title="Aperçu de la diapositive actuelle" tabindex="-1" loading="eager"></iframe></div>
+        <div class="pc-slide-meta"><div><h3 id="pc-current-title">SecureLog Engine</h3><p id="pc-current-chapter">Ouverture</p></div><span id="pc-slide-duration" class="pc-pacing">40 s prévues</span></div>
+        <div id="pc-demo-controls" class="pc-demo-controls" hidden><button type="button" id="pc-demo-reset" class="pc-button">Recommencer</button><output id="pc-demo-step"></output></div>
+      </section>
+      <section class="pc-panel" id="pc-next-card">
+        <div class="pc-panel-top"><h2>Diapositive suivante</h2><span id="pc-next-count" class="pc-count">2 / 20</span></div>
+        <div class="pc-next-layout"><div class="pc-next-preview"><iframe id="pc-next-frame" title="Aperçu de la prochaine diapositive" tabindex="-1" loading="lazy"></iframe></div><div><p class="pc-next-label">À venir</p><p class="pc-next-title" id="pc-next-title">Repérer une attaque dans les logs</p></div></div>
+      </section>
+    </div>
+    <section id="pc-notes-panel" class="pc-panel pc-notes" aria-label="Notes privées du présentateur">
+      <div class="pc-notes-head"><div><span class="pc-speaker" id="pc-speaker">Lukas MAUFFRÉ</span><h2 id="pc-notes-title">01 · SecureLog Engine</h2></div><div class="pc-notes-tools"><span class="pc-note-target" id="pc-note-target">Cible : 40 s</span><div class="pc-font-tools" role="group" aria-label="Taille de police des notes"><span class="pc-font-label">Texte</span><button type="button" id="pc-font-decrease" class="pc-font-button" aria-label="Réduire la police des notes" title="Diminuer">−</button><button type="button" id="pc-font-reset" class="pc-font-button pc-font-default" title="Rétablir la taille par défaut">Défaut</button><button type="button" id="pc-font-increase" class="pc-font-button" aria-label="Agrandir la police des notes" title="Agrandir">+</button><output id="pc-font-size-value" class="pc-font-size-value" aria-live="polite">24 px</output></div></div></div>
+      <div class="pc-note-scroll" id="pc-note-scroll"><div id="pc-action" class="pc-note-action" hidden></div><div id="pc-speech" class="pc-speech"></div></div>
+      <div class="pc-note-hidden">Les notes sont masquées. Utilisez le plan et les aperçus pour vous entraîner sans lire le script.</div>
+    </section>
+  </main>
+  <dialog id="pc-full-script" aria-label="Script oral complet du groupe"><div class="pc-dialog-top"><strong>Script oral intégral</strong><button id="pc-close-full-script" type="button" class="pc-button">Fermer ×</button></div><div class="pc-dialog-body" id="pc-full-script-body"></div></dialog>
+  <footer class="pc-bottom">
+    <div class="pc-bottom-left"><div class="pc-nav"><button type="button" id="pc-prev" aria-label="Diapositive précédente">← Précédente</button><button type="button" id="pc-next" aria-label="Diapositive suivante">Suivante →</button></div><div class="pc-time" id="pc-time-box"><span id="pc-elapsed">00:00</span><small>/ 15:00</small></div><div class="pc-nav"><button id="pc-timer-toggle" type="button">Démarrer</button><button id="pc-timer-reset" type="button">Remise à zéro</button></div></div>
+    <div class="pc-meter"><div class="pc-meter-labels"><span id="pc-current-speaker">Lukas · slides 1–7</span><span>Lukas → Sacha → Jeanne</span></div><div class="pc-meter-track" id="pc-meter-track" aria-label="Progression par intervenant"></div></div>
+    <span class="pc-mini">← → naviguer · T chrono · N notes</span>
+  </footer>
+</section>
+<script type="application/json" id="presenter-script">{"slides": [{"title": "01 · SecureLog Engine", "speaker": "Lukas MAUFFRÉ", "seconds": 40, "speech": "\u003cp>Bonjour à toutes et à tous. Je suis Lukas, et je vais vous présenter SecureLog Engine avec Sacha et Jeanne.\u003c/p>\u003cp>Sur la droite, vous voyez une alerte produite par notre moteur Python. Le compte admin vient d’enregistrer son cinquième échec de connexion SSH. L’alerte indique le compte, l’adresse IP et la ligne du journal où revenir vérifier l’événement.\u003c/p>\u003cp>Je vais suivre le trajet d’un log. Sacha expliquera la détection, puis Jeanne présentera les résultats et leur validation.\u003c/p>", "action": ""}, {"title": "02 · Repérer une attaque dans les logs", "speaker": "Lukas MAUFFRÉ", "seconds": 40, "speech": "\u003cp>On a imaginé une salle informatique qui produit deux types de journaux, l’un pour les authentifications, l’autre pour le réseau. Quelqu’un qui examine ces journaux peut chercher des échecs de connexion, une IP connue ou un événement critique.\u003c/p>\u003cp>À la main, la recherche devient difficile quand plusieurs comptes et adresses se mélangent dans des milliers de lignes de formats différents. L’énoncé nous demandait donc d’automatiser ce travail avec une application en ligne de commande capable de traiter des fichiers volumineux sans les charger entièrement en RAM.\u003c/p>", "action": ""}, {"title": "03 · Deux façons de lancer le moteur", "speaker": "Lukas MAUFFRÉ", "seconds": 40, "speech": "\u003cp>La commande affichée à gauche, \u003ccode>python main.py\u003c/code>, lit les deux fichiers fournis. L’analyse s’arrête à la fin des fichiers et le moteur publie les résultats.\u003c/p>\u003cp>À droite, le tiret indique qu’on lit sur l’entrée standard. Un autre programme peut alors nous envoyer des lignes. Tant que la source continue à écrire, le moteur peut émettre les alertes au fil de l’eau avec \u003ccode>--stream-alerts\u003c/code>. C’est le sens de « temps réel » ici. La collecte dépend du programme qu’on lui raccorde.\u003c/p>", "action": ""}, {"title": "04 · Le trajet d’une ligne de log", "speaker": "Lukas MAUFFRÉ", "seconds": 40, "speech": "\u003cp>Suivons une ligne d’authentification dans le schéma. L’ingestion la lit et conserve sa provenance. Le parseur en extrait les champs, puis la normalisation donne à la suite du code un format commun.\u003c/p>\u003cp>À partir de cet événement, on met à jour les compteurs et on applique les règles de sécurité. Une règle peut alors produire une alerte. Ce parcours se fait au fil de la lecture. Les fichiers du bilan sont publiés une fois l’analyse terminée avec succès.\u003c/p>", "action": ""}, {"title": "05 · Les modules du moteur", "speaker": "Lukas MAUFFRÉ", "seconds": 45, "speech": "\u003cp>L’énoncé imposait un point d’entrée, \u003ccode>main.py\u003c/code>, et du code organisé en package. \u003ccode>main.py\u003c/code> reçoit les options de la commande et orchestre le traitement. Le découpage de \u003ccode>src\u003c/code> permet de tester le parseur avec une seule ligne, indépendamment du reste.\u003c/p>\u003cp>Pour l’environnement, on utilise un \u003ccode>venv\u003c/code>. Il isole l’installation du projet. Le fichier \u003ccode>requirements.txt\u003c/code>, issu d’un \u003ccode>pip freeze\u003c/code> dans cet environnement, ne contient aucune dépendance à installer puisque le moteur utilise la bibliothèque standard. Python 3.10 est le minimum, notamment pour \u003ccode>match-case\u003c/code>. Le notebook sert à présenter les résultats et les mesures.\u003c/p>", "action": ""}, {"title": "06 · Une lecture ligne par ligne", "speaker": "Lukas MAUFFRÉ", "seconds": 45, "speech": "\u003cp>L’énoncé demandait explicitement \u003ccode>yield\u003c/code> et \u003ccode>yield from\u003c/code>. Dans le générateur appelé par cet extrait, \u003ccode>yield\u003c/code> fournit une ligne, avec le nom du fichier et son numéro de ligne. Le générateur se met en pause à cet endroit. Quand l’étape suivante demande un nouvel élément, il reprend là où il s’était arrêté. On évite ainsi de construire une grande liste avant de commencer le traitement.\u003c/p>\u003cp>\u003ccode>yield from\u003c/code> délègue cette lecture au générateur du fichier courant. Quand le premier fichier est épuisé, on passe au suivant avec la même interface. Le reste du programme utilise le même itérateur du début à la fin.\u003c/p>", "action": ""}, {"title": "07 · Un dictionnaire par événement", "speaker": "Lukas MAUFFRÉ", "seconds": 50, "speech": "\u003cp>Le parseur reconnaît deux formats, une ligne dont les champs sont séparés par des barres verticales et un objet JSON. Dans les deux cas, on vérifie les champs et on construit un dictionnaire Python. Il contient notamment une date, une sévérité, une IP validée, un utilisateur et un type d’événement. Les clés nommées permettent ensuite aux règles d’accéder directement au champ dont elles ont besoin.\u003c/p>\u003cp>Le contenu associé à l’événement, le \u003ccode>payload\u003c/code>, peut être du texte, un objet JSON ou une description de connexion. Pour cette dernière, on utilise le tuple demandé dans l’énoncé. L’IP, le port et le protocole ont un ordre fixe et le tuple est immuable. Sacha va maintenant vous montrer comment on exploite ces événements.\u003c/p>", "action": ""}, {"title": "08 · Filtrage et normalisation des événements", "speaker": "Sacha BEHLOULI-DROLLÉE", "seconds": 55, "speech": "\u003cp>Le premier \u003ccode>filter\u003c/code> utilise une \u003ccode>lambda\u003c/code>, une fonction anonyme qui écarte les lignes vides et celles qui commencent par un dièse.\u003c/p>\u003cp>Ensuite, \u003ccode>map\u003c/code> applique la même fonction à chaque ligne restante. Elle parse et normalise la ligne. En mode standard, si une ligne est invalide, cette fonction la compte comme rejetée et renvoie \u003ccode>None\u003c/code>. Le deuxième filtre écarte ces résultats. Les deux opérations travaillent à la demande, comme le générateur.\u003c/p>\u003cp>Enfin, \u003ccode>match-case\u003c/code> reconnaît la structure du contenu. Un texte est nettoyé, un dictionnaire d’erreur donne un message avec son code et un tuple donne une description de la connexion.\u003c/p>", "action": ""}, {"title": "09 · Compteurs par niveau et utilisateur", "speaker": "Sacha BEHLOULI-DROLLÉE", "seconds": 35, "speech": "\u003cp>On compte les événements par sévérité et par utilisateur. L’énoncé demandait un \u003ccode>defaultdict\u003c/code>. Avec \u003ccode>defaultdict(int)\u003c/code>, quand un utilisateur apparaît pour la première fois, son compteur part automatiquement de zéro. On peut directement l’incrémenter sans vérifier si la clé existe.\u003c/p>\u003cp>Sur les vingt-deux événements du jeu d’essai, onze sont classés ERROR. Ce graphique décrit la sévérité enregistrée dans le journal. Pour décider si un événement mérite une alerte, on utilise des règles dédiées.\u003c/p>", "action": ""}, {"title": "10 · Les IP actives et la blacklist", "speaker": "Sacha BEHLOULI-DROLLÉE", "seconds": 45, "speech": "\u003cp>Le \u003ccode>set\u003c/code> déduplique les adresses, notamment celles qui ont généré des erreurs. À gauche, on voit toutes les IP actives. À droite, la blacklist est un \u003ccode>frozenset\u003c/code>, ce qui empêche de la modifier accidentellement pendant l’analyse.\u003c/p>\u003cp>Les quatre opérations demandées répondent à quatre questions. L’intersection trouve les deux IP qu’on a effectivement observées et qui figurent dans la liste. L’union donne les sept adresses distinctes au total. La différence donne les quatre IP actives hors de la liste. La différence symétrique retient les cinq adresses qui ne figurent que d’un côté.\u003c/p>", "action": ""}, {"title": "11 · Trois règles dans un même moteur", "speaker": "Sacha BEHLOULI-DROLLÉE", "seconds": 45, "speech": "\u003cp>L’énoncé demandait que le moteur reçoive ses règles comme des fonctions. Dans l’appel affiché, \u003ccode>*args\u003c/code> récupère ces fonctions. On passe les fonctions elles-mêmes, et c’est \u003ccode>apply_security_rules\u003c/code> qui les appelle. \u003ccode>**kwargs\u003c/code> permet de transmettre les paramètres nommés, comme le log, le seuil, les historiques et la blacklist.\u003c/p>\u003cp>On peut donc ajouter une règle dans l’appel en gardant la même boucle d’exécution. Aujourd’hui, on cherche les séries d’échecs, les adresses de la blacklist et les événements critiques. Chaque fonction prend sa propre décision. Par exemple, un événement critique provenant d’une IP sur liste noire peut déclencher deux alertes.\u003c/p>", "action": ""}, {"title": "12 · Le cinquième échec déclenche l’alerte", "speaker": "Sacha BEHLOULI-DROLLÉE", "seconds": 55, "speech": "\u003cp>On suit les tentatives par couple IP et utilisateur. Un échec sur le compte de Bob ne prolonge donc pas la série d’admin. Par défaut, cinq échecs consécutifs pour un même couple forment un bloc et produisent une alerte. Sur la ligne de Bob, la connexion réussie coupe la série, donc ses deux groupes d’échecs ne s’additionnent pas.\u003c/p>\u003cp>Le sujet imposait aussi les deux boucles et leurs instructions de contrôle. Le \u003ccode>while\u003c/code> lance la vérification quand le seuil est atteint ou qu’un succès arrive. Le \u003ccode>for\u003c/code> retire les tentatives une à une. Un échec fait \u003ccode>continue\u003c/code>. Un succès fait \u003ccode>break\u003c/code>. Le \u003ccode>else\u003c/code> du \u003ccode>for\u003c/code> s’exécute seulement si la boucle termine sans \u003ccode>break\u003c/code>. C’est là qu’on émet l’alerte et que le bloc est consommé.\u003c/p>", "action": ""}, {"title": "13 · Une alerte au cinquième échec SSH", "speaker": "Sacha BEHLOULI-DROLLÉE", "seconds": 65, "speech": "\u003cp>Voici les huit premiers événements valides du journal d’authentification. Ce rejeu reprend les résultats du moteur Python.\u003c/p>\u003cp>\u003cstrong>À 1/8.\u003c/strong> Alice se connecte normalement. Le compteur d’alertes reste à zéro.\u003c/p>\u003cp>\u003cstrong>À 2/8.\u003c/strong> Voici le premier échec d’admin. Son adresse est sur la blacklist, donc elle déclenche déjà une alerte. Le compteur d’échecs du bloc, lui, indique un.\u003c/p>\u003cp>\u003cstrong>À 6/8.\u003c/strong> À la cinquième tentative échouée d’admin, le moteur signale une force brute. La même ligne déclenche aussi BLACKLIST.\u003c/p>\u003cp>\u003cstrong>À 7/8, puis 8/8.\u003c/strong> Au succès suivant, le compteur du bloc revient à zéro à l’écran. L’adresse, elle, reste sur la blacklist. Bob a son propre compteur. Jeanne va vous montrer ce qu’on obtient sur les deux fichiers complets.\u003c/p>", "action": "Suivre les gestes dans l’ordre. → une fois pour Alice, une fois pour le premier échec d’admin, quatre fois jusqu’à 6/8, puis une fois pour le succès d’admin et une fois pour Bob. À 8/8, → ouvre le bilan pour Jeanne. R relance le rejeu si besoin."}, {"title": "14 · Le bilan de l’analyse complète", "speaker": "Jeanne TONDA", "seconds": 40, "speech": "\u003cp>Sur les deux fichiers complets, on obtient vingt-deux événements valides. On compte séparément trois lignes rejetées et trois lignes ignorées, vides ou commentées.\u003c/p>\u003cp>Le moteur produit quinze alertes. Douze viennent de la blacklist, deux de la règle de force brute et une du niveau critique. Plusieurs alertes peuvent provenir d’une seule ligne, comme celle qu’on vient de voir. Et les douze alertes de blacklist correspondent à des événements répétés sur seulement deux adresses présentes dans la liste.\u003c/p>", "action": ""}, {"title": "15 · Trois fichiers pour examiner les résultats", "speaker": "Jeanne TONDA", "seconds": 45, "speech": "\u003cp>\u003ccode>summary.json\u003c/code> donne la vue d’ensemble, avec les compteurs, la configuration et les rejets. Dans \u003ccode>alerts.jsonl\u003c/code>, chaque alerte tient sur une ligne JSON. Chaque alerte indique le fichier source et le numéro de ligne à examiner.\u003c/p>\u003cp>Pour l’audit, l’énoncé imposait l’introspection avec \u003ccode>globals()\u003c/code> et \u003ccode>locals()\u003c/code>. Ces fonctions donnent accès aux noms de la portée du module et de la portée locale. Notre audit en extrait les noms, les types et, pour certaines variables, le nombre d’éléments. Ici, on voit que la blacklist est un \u003ccode>frozenset\u003c/code> de trois éléments. Cet inventaire permet de contrôler l’état du programme en limitant les données exposées.\u003c/p>", "action": ""}, {"title": "16 · La suite de tests du moteur", "speaker": "Jeanne TONDA", "seconds": 40, "speech": "\u003cp>Les quarante-cinq tests automatisés couvrent notamment la force brute. Ils vérifient les deux cent cinquante-six suites possibles de huit réussites ou échecs, avec des seuils de un à cinq. Ça couvre des cas comme un succès juste avant le seuil.\u003c/p>\u003cp>La suite vérifie aussi les entrées invalides, les options de la ligne de commande et la conservation des résultats précédents quand la publication échoue.\u003c/p>", "action": ""}, {"title": "17 · Le pic mémoire reste proche de 68 Ko", "speaker": "Jeanne TONDA", "seconds": 45, "speech": "\u003cp>Pour vérifier la contrainte mémoire, on a mesuré le pic des allocations suivies par \u003ccode>tracemalloc\u003c/code>. Dans le graphique, on passe de dix mille à un million de lignes avec le même couple IP et utilisateur. Le temps augmente, et le pic mesuré reste proche de soixante-huit kilo-octets. Cette mesure porte sur les allocations suivies par Python pendant l’essai.\u003c/p>\u003cp>Avec dix mille couples distincts, le pic monte à environ dix-sept mégaoctets. Les générateurs évitent de conserver toutes les lignes, mais les compteurs, les ensembles et les historiques en cours prennent de la place.\u003c/p>", "action": ""}, {"title": "18 · Les cas limites traités par le moteur", "speaker": "Jeanne TONDA", "seconds": 40, "speech": "\u003cp>Face à une entrée mal formée, le moteur indique la source et la ligne, puis poursuit l’analyse en mode standard. Avec \u003ccode>--strict\u003c/code>, il s’arrête sur l’erreur. C’est pratique quand on cherche à vérifier la qualité d’une source avant de s’appuyer sur ses résultats.\u003c/p>\u003cp>Autre cas, l’écriture des fichiers de sortie. Le moteur les prépare dans un dossier temporaire avant de les publier. Si une erreur survient pendant le remplacement, il tente de restaurer les anciennes sorties. Ça évite autant que possible de laisser un bilan composé de fichiers issus de deux analyses différentes.\u003c/p>", "action": ""}, {"title": "19 · Limites du moteur et pistes d’évolution", "speaker": "Jeanne TONDA", "seconds": 45, "speech": "\u003cp>Si on voulait utiliser le moteur pour surveiller une vraie salle informatique, je commencerais par la règle de force brute. Aujourd’hui, elle suit l’ordre d’arrivée et compte les échecs consécutifs, quel que soit le temps qui les sépare. Cinq échecs dans une minute et cinq dans une journée peuvent donc déclencher le même signal.\u003c/p>\u003cp>Une évolution serait de compter les échecs dans une fenêtre glissante, avec des horodatages ramenés en UTC et une politique pour les événements qui arrivent en retard. Ensuite, on pourrait raccorder une source syslog et tester cette règle sur plusieurs machines. On pourrait alors mesurer combien d’alertes sont réellement utiles et ajuster le seuil selon le contexte.\u003c/p>", "action": ""}, {"title": "20 · Ce que révèle un fichier de logs", "speaker": "Jeanne TONDA", "seconds": 45, "speech": "\u003cp>Revenons à l’alerte sur le compte admin. On peut retrouver la ligne qui l’a déclenchée, expliquer pourquoi la règle a réagi et vérifier son comportement sur d’autres séries de connexions.\u003c/p>\u003cp>Ce qui nous a plu dans le projet, c’est de voir comment des choix Python très concrets finissent par changer ce qu’on est capable de repérer dans un journal. Comme on s’oriente vers la cybersécurité, on aimerait prolonger l’essai sur des journaux de labo, avec une fenêtre de temps, pour voir si les alertes aident vraiment à décider quoi examiner en premier.\u003c/p>\u003cp>Merci pour votre attention.\u003c/p>", "action": ""}], "full": "\u003ch1>SecureLog Engine\u003c/h1>\u003cp>\u003cstrong>15 minutes chronométrées, rejeu compris.\u003c/strong> Les 5 minutes restantes sont réservées à la suite de la présentation. Les temps par slide sont des cibles de répétition, gestes et transitions compris. Les lignes « À faire » indiquent des gestes et restent silencieuses.\u003c/p>\u003cul>\u003cli>\u003cstrong>Lukas · slides 01 à 07 · 00:00–05:00\u003c/strong> — Du problème au dictionnaire Python.\u003c/li>\u003cli>\u003cstrong>Sacha · slides 08 à 13 · 05:00–10:00\u003c/strong> — Transformations, règles et rejeu SSH.\u003c/li>\u003cli>\u003cstrong>Jeanne · slides 14 à 20 · 10:00–15:00\u003c/strong> — Résultats, validation et perspectives.\u003c/li>\u003c/ul>\u003ch2>01 · SecureLog Engine — Lukas — 0:40\u003c/h2>\u003cp>Bonjour à toutes et à tous. Je suis Lukas, et je vais vous présenter SecureLog Engine avec Sacha et Jeanne.\u003c/p>\u003cp>Sur la droite, vous voyez une alerte produite par notre moteur Python. Le compte admin vient d’enregistrer son cinquième échec de connexion SSH. L’alerte indique le compte, l’adresse IP et la ligne du journal où revenir vérifier l’événement.\u003c/p>\u003cp>Je vais suivre le trajet d’un log. Sacha expliquera la détection, puis Jeanne présentera les résultats et leur validation.\u003c/p>\u003ch2>02 · Repérer une attaque dans les logs — Lukas — 0:40\u003c/h2>\u003cp>On a imaginé une salle informatique qui produit deux types de journaux, l’un pour les authentifications, l’autre pour le réseau. Quelqu’un qui examine ces journaux peut chercher des échecs de connexion, une IP connue ou un événement critique.\u003c/p>\u003cp>À la main, la recherche devient difficile quand plusieurs comptes et adresses se mélangent dans des milliers de lignes de formats différents. L’énoncé nous demandait donc d’automatiser ce travail avec une application en ligne de commande capable de traiter des fichiers volumineux sans les charger entièrement en RAM.\u003c/p>\u003ch2>03 · Deux façons de lancer le moteur — Lukas — 0:40\u003c/h2>\u003cp>La commande affichée à gauche, \u003ccode>python main.py\u003c/code>, lit les deux fichiers fournis. L’analyse s’arrête à la fin des fichiers et le moteur publie les résultats.\u003c/p>\u003cp>À droite, le tiret indique qu’on lit sur l’entrée standard. Un autre programme peut alors nous envoyer des lignes. Tant que la source continue à écrire, le moteur peut émettre les alertes au fil de l’eau avec \u003ccode>--stream-alerts\u003c/code>. C’est le sens de « temps réel » ici. La collecte dépend du programme qu’on lui raccorde.\u003c/p>\u003ch2>04 · Le trajet d’une ligne de log — Lukas — 0:40\u003c/h2>\u003cp>Suivons une ligne d’authentification dans le schéma. L’ingestion la lit et conserve sa provenance. Le parseur en extrait les champs, puis la normalisation donne à la suite du code un format commun.\u003c/p>\u003cp>À partir de cet événement, on met à jour les compteurs et on applique les règles de sécurité. Une règle peut alors produire une alerte. Ce parcours se fait au fil de la lecture. Les fichiers du bilan sont publiés une fois l’analyse terminée avec succès.\u003c/p>\u003ch2>05 · Les modules du moteur — Lukas — 0:45\u003c/h2>\u003cp>L’énoncé imposait un point d’entrée, \u003ccode>main.py\u003c/code>, et du code organisé en package. \u003ccode>main.py\u003c/code> reçoit les options de la commande et orchestre le traitement. Le découpage de \u003ccode>src\u003c/code> permet de tester le parseur avec une seule ligne, indépendamment du reste.\u003c/p>\u003cp>Pour l’environnement, on utilise un \u003ccode>venv\u003c/code>. Il isole l’installation du projet. Le fichier \u003ccode>requirements.txt\u003c/code>, issu d’un \u003ccode>pip freeze\u003c/code> dans cet environnement, ne contient aucune dépendance à installer puisque le moteur utilise la bibliothèque standard. Python 3.10 est le minimum, notamment pour \u003ccode>match-case\u003c/code>. Le notebook sert à présenter les résultats et les mesures.\u003c/p>\u003ch2>06 · Une lecture ligne par ligne — Lukas — 0:45\u003c/h2>\u003cp>L’énoncé demandait explicitement \u003ccode>yield\u003c/code> et \u003ccode>yield from\u003c/code>. Dans le générateur appelé par cet extrait, \u003ccode>yield\u003c/code> fournit une ligne, avec le nom du fichier et son numéro de ligne. Le générateur se met en pause à cet endroit. Quand l’étape suivante demande un nouvel élément, il reprend là où il s’était arrêté. On évite ainsi de construire une grande liste avant de commencer le traitement.\u003c/p>\u003cp>\u003ccode>yield from\u003c/code> délègue cette lecture au générateur du fichier courant. Quand le premier fichier est épuisé, on passe au suivant avec la même interface. Le reste du programme utilise le même itérateur du début à la fin.\u003c/p>\u003ch2>07 · Un dictionnaire par événement — Lukas — 0:50\u003c/h2>\u003cp>Le parseur reconnaît deux formats, une ligne dont les champs sont séparés par des barres verticales et un objet JSON. Dans les deux cas, on vérifie les champs et on construit un dictionnaire Python. Il contient notamment une date, une sévérité, une IP validée, un utilisateur et un type d’événement. Les clés nommées permettent ensuite aux règles d’accéder directement au champ dont elles ont besoin.\u003c/p>\u003cp>Le contenu associé à l’événement, le \u003ccode>payload\u003c/code>, peut être du texte, un objet JSON ou une description de connexion. Pour cette dernière, on utilise le tuple demandé dans l’énoncé. L’IP, le port et le protocole ont un ordre fixe et le tuple est immuable. Sacha va maintenant vous montrer comment on exploite ces événements.\u003c/p>\u003ch2>08 · Filtrage et normalisation des événements — Sacha — 0:55\u003c/h2>\u003cp>Le premier \u003ccode>filter\u003c/code> utilise une \u003ccode>lambda\u003c/code>, une fonction anonyme qui écarte les lignes vides et celles qui commencent par un dièse.\u003c/p>\u003cp>Ensuite, \u003ccode>map\u003c/code> applique la même fonction à chaque ligne restante. Elle parse et normalise la ligne. En mode standard, si une ligne est invalide, cette fonction la compte comme rejetée et renvoie \u003ccode>None\u003c/code>. Le deuxième filtre écarte ces résultats. Les deux opérations travaillent à la demande, comme le générateur.\u003c/p>\u003cp>Enfin, \u003ccode>match-case\u003c/code> reconnaît la structure du contenu. Un texte est nettoyé, un dictionnaire d’erreur donne un message avec son code et un tuple donne une description de la connexion.\u003c/p>\u003ch2>09 · Compteurs par niveau et utilisateur — Sacha — 0:35\u003c/h2>\u003cp>On compte les événements par sévérité et par utilisateur. L’énoncé demandait un \u003ccode>defaultdict\u003c/code>. Avec \u003ccode>defaultdict(int)\u003c/code>, quand un utilisateur apparaît pour la première fois, son compteur part automatiquement de zéro. On peut directement l’incrémenter sans vérifier si la clé existe.\u003c/p>\u003cp>Sur les vingt-deux événements du jeu d’essai, onze sont classés ERROR. Ce graphique décrit la sévérité enregistrée dans le journal. Pour décider si un événement mérite une alerte, on utilise des règles dédiées.\u003c/p>\u003ch2>10 · Les IP actives et la blacklist — Sacha — 0:45\u003c/h2>\u003cp>Le \u003ccode>set\u003c/code> déduplique les adresses, notamment celles qui ont généré des erreurs. À gauche, on voit toutes les IP actives. À droite, la blacklist est un \u003ccode>frozenset\u003c/code>, ce qui empêche de la modifier accidentellement pendant l’analyse.\u003c/p>\u003cp>Les quatre opérations demandées répondent à quatre questions. L’intersection trouve les deux IP qu’on a effectivement observées et qui figurent dans la liste. L’union donne les sept adresses distinctes au total. La différence donne les quatre IP actives hors de la liste. La différence symétrique retient les cinq adresses qui ne figurent que d’un côté.\u003c/p>\u003ch2>11 · Trois règles dans un même moteur — Sacha — 0:45\u003c/h2>\u003cp>L’énoncé demandait que le moteur reçoive ses règles comme des fonctions. Dans l’appel affiché, \u003ccode>*args\u003c/code> récupère ces fonctions. On passe les fonctions elles-mêmes, et c’est \u003ccode>apply_security_rules\u003c/code> qui les appelle. \u003ccode>**kwargs\u003c/code> permet de transmettre les paramètres nommés, comme le log, le seuil, les historiques et la blacklist.\u003c/p>\u003cp>On peut donc ajouter une règle dans l’appel en gardant la même boucle d’exécution. Aujourd’hui, on cherche les séries d’échecs, les adresses de la blacklist et les événements critiques. Chaque fonction prend sa propre décision. Par exemple, un événement critique provenant d’une IP sur liste noire peut déclencher deux alertes.\u003c/p>\u003ch2>12 · Le cinquième échec déclenche l’alerte — Sacha — 0:55\u003c/h2>\u003cp>On suit les tentatives par couple IP et utilisateur. Un échec sur le compte de Bob ne prolonge donc pas la série d’admin. Par défaut, cinq échecs consécutifs pour un même couple forment un bloc et produisent une alerte. Sur la ligne de Bob, la connexion réussie coupe la série, donc ses deux groupes d’échecs ne s’additionnent pas.\u003c/p>\u003cp>Le sujet imposait aussi les deux boucles et leurs instructions de contrôle. Le \u003ccode>while\u003c/code> lance la vérification quand le seuil est atteint ou qu’un succès arrive. Le \u003ccode>for\u003c/code> retire les tentatives une à une. Un échec fait \u003ccode>continue\u003c/code>. Un succès fait \u003ccode>break\u003c/code>. Le \u003ccode>else\u003c/code> du \u003ccode>for\u003c/code> s’exécute seulement si la boucle termine sans \u003ccode>break\u003c/code>. C’est là qu’on émet l’alerte et que le bloc est consommé.\u003c/p>\u003ch2>13 · Une alerte au cinquième échec SSH — Sacha — 1:05\u003c/h2>\u003cblockquote>Suivre les gestes dans l’ordre. → une fois pour Alice, une fois pour le premier échec d’admin, quatre fois jusqu’à 6/8, puis une fois pour le succès d’admin et une fois pour Bob. À 8/8, → ouvre le bilan pour Jeanne. R relance le rejeu si besoin.\u003c/blockquote>\u003cp>Voici les huit premiers événements valides du journal d’authentification. Ce rejeu reprend les résultats du moteur Python.\u003c/p>\u003cp>\u003cstrong>À 1/8.\u003c/strong> Alice se connecte normalement. Le compteur d’alertes reste à zéro.\u003c/p>\u003cp>\u003cstrong>À 2/8.\u003c/strong> Voici le premier échec d’admin. Son adresse est sur la blacklist, donc elle déclenche déjà une alerte. Le compteur d’échecs du bloc, lui, indique un.\u003c/p>\u003cp>\u003cstrong>À 6/8.\u003c/strong> À la cinquième tentative échouée d’admin, le moteur signale une force brute. La même ligne déclenche aussi BLACKLIST.\u003c/p>\u003cp>\u003cstrong>À 7/8, puis 8/8.\u003c/strong> Au succès suivant, le compteur du bloc revient à zéro à l’écran. L’adresse, elle, reste sur la blacklist. Bob a son propre compteur. Jeanne va vous montrer ce qu’on obtient sur les deux fichiers complets.\u003c/p>\u003ch2>14 · Le bilan de l’analyse complète — Jeanne — 0:40\u003c/h2>\u003cp>Sur les deux fichiers complets, on obtient vingt-deux événements valides. On compte séparément trois lignes rejetées et trois lignes ignorées, vides ou commentées.\u003c/p>\u003cp>Le moteur produit quinze alertes. Douze viennent de la blacklist, deux de la règle de force brute et une du niveau critique. Plusieurs alertes peuvent provenir d’une seule ligne, comme celle qu’on vient de voir. Et les douze alertes de blacklist correspondent à des événements répétés sur seulement deux adresses présentes dans la liste.\u003c/p>\u003ch2>15 · Trois fichiers pour examiner les résultats — Jeanne — 0:45\u003c/h2>\u003cp>\u003ccode>summary.json\u003c/code> donne la vue d’ensemble, avec les compteurs, la configuration et les rejets. Dans \u003ccode>alerts.jsonl\u003c/code>, chaque alerte tient sur une ligne JSON. Chaque alerte indique le fichier source et le numéro de ligne à examiner.\u003c/p>\u003cp>Pour l’audit, l’énoncé imposait l’introspection avec \u003ccode>globals()\u003c/code> et \u003ccode>locals()\u003c/code>. Ces fonctions donnent accès aux noms de la portée du module et de la portée locale. Notre audit en extrait les noms, les types et, pour certaines variables, le nombre d’éléments. Ici, on voit que la blacklist est un \u003ccode>frozenset\u003c/code> de trois éléments. Cet inventaire permet de contrôler l’état du programme en limitant les données exposées.\u003c/p>\u003ch2>16 · La suite de tests du moteur — Jeanne — 0:40\u003c/h2>\u003cp>Les quarante-cinq tests automatisés couvrent notamment la force brute. Ils vérifient les deux cent cinquante-six suites possibles de huit réussites ou échecs, avec des seuils de un à cinq. Ça couvre des cas comme un succès juste avant le seuil.\u003c/p>\u003cp>La suite vérifie aussi les entrées invalides, les options de la ligne de commande et la conservation des résultats précédents quand la publication échoue.\u003c/p>\u003ch2>17 · Le pic mémoire reste proche de 68 Ko — Jeanne — 0:45\u003c/h2>\u003cp>Pour vérifier la contrainte mémoire, on a mesuré le pic des allocations suivies par \u003ccode>tracemalloc\u003c/code>. Dans le graphique, on passe de dix mille à un million de lignes avec le même couple IP et utilisateur. Le temps augmente, et le pic mesuré reste proche de soixante-huit kilo-octets. Cette mesure porte sur les allocations suivies par Python pendant l’essai.\u003c/p>\u003cp>Avec dix mille couples distincts, le pic monte à environ dix-sept mégaoctets. Les générateurs évitent de conserver toutes les lignes, mais les compteurs, les ensembles et les historiques en cours prennent de la place.\u003c/p>\u003ch2>18 · Les cas limites traités par le moteur — Jeanne — 0:40\u003c/h2>\u003cp>Face à une entrée mal formée, le moteur indique la source et la ligne, puis poursuit l’analyse en mode standard. Avec \u003ccode>--strict\u003c/code>, il s’arrête sur l’erreur. C’est pratique quand on cherche à vérifier la qualité d’une source avant de s’appuyer sur ses résultats.\u003c/p>\u003cp>Autre cas, l’écriture des fichiers de sortie. Le moteur les prépare dans un dossier temporaire avant de les publier. Si une erreur survient pendant le remplacement, il tente de restaurer les anciennes sorties. Ça évite autant que possible de laisser un bilan composé de fichiers issus de deux analyses différentes.\u003c/p>\u003ch2>19 · Limites du moteur et pistes d’évolution — Jeanne — 0:45\u003c/h2>\u003cp>Si on voulait utiliser le moteur pour surveiller une vraie salle informatique, je commencerais par la règle de force brute. Aujourd’hui, elle suit l’ordre d’arrivée et compte les échecs consécutifs, quel que soit le temps qui les sépare. Cinq échecs dans une minute et cinq dans une journée peuvent donc déclencher le même signal.\u003c/p>\u003cp>Une évolution serait de compter les échecs dans une fenêtre glissante, avec des horodatages ramenés en UTC et une politique pour les événements qui arrivent en retard. Ensuite, on pourrait raccorder une source syslog et tester cette règle sur plusieurs machines. On pourrait alors mesurer combien d’alertes sont réellement utiles et ajuster le seuil selon le contexte.\u003c/p>\u003ch2>20 · Ce que révèle un fichier de logs — Jeanne — 0:45\u003c/h2>\u003cp>Revenons à l’alerte sur le compte admin. On peut retrouver la ligne qui l’a déclenchée, expliquer pourquoi la règle a réagi et vérifier son comportement sur d’autres séries de connexions.\u003c/p>\u003cp>Ce qui nous a plu dans le projet, c’est de voir comment des choix Python très concrets finissent par changer ce qu’on est capable de repérer dans un journal. Comme on s’oriente vers la cybersécurité, on aimerait prolonger l’essai sur des journaux de labo, avec une fenêtre de temps, pour voir si les alertes aident vraiment à décider quoi examiner en premier.\u003c/p>\u003cp>Merci pour votre attention.\u003c/p>"}</script>
 <script>
 (() => {
   'use strict';
@@ -995,10 +1128,11 @@ Alertes : BLACKLIST 12
   const overview = document.getElementById('overview');
   const overviewGrid = document.getElementById('overview-grid');
   const help = document.getElementById('help');
-  const notes = document.getElementById('speaker-notes');
   const notesTrigger = document.getElementById('notes-trigger');
   const fullscreen = document.getElementById('fullscreen-trigger');
   let index = -1;
+  const isPresenter = document.documentElement.dataset.viewMode === 'presenter';
+  let updatePresenterState = () => {};
 
   // Replay the first eight valid records in auth.log and their recorded alerts.
   const stream = [
@@ -1020,7 +1154,7 @@ Alertes : BLACKLIST 12
   const demoAdvance = document.getElementById('demo-advance');
   let demoStep = 0;
 
-  function renderDemo(step, animate = false) {
+  function renderDemo(step, animate = false, notify = true) {
     demoStep = step;
     terminal.replaceChildren();
     if (step === 0) {
@@ -1079,6 +1213,7 @@ Alertes : BLACKLIST 12
       : 'Démonstration prête.';
     terminal.scrollTop = terminal.scrollHeight;
     updateProgress();
+    if (notify && index === demoIndex) updatePresenterState();
   }
 
   function updateProgress() {
@@ -1105,7 +1240,7 @@ Alertes : BLACKLIST 12
       slide.setAttribute('aria-hidden', String(!active));
       if (active) slide.scrollTop = 0;
     });
-    if (index === demoIndex) renderDemo(!resetDemo && previous > index ? stream.length : 0);
+    if (index === demoIndex) renderDemo(!resetDemo && previous > index ? stream.length : 0, false, false);
 
     const slide = slides[index];
     chapter.textContent = slide.dataset.chapter;
@@ -1114,16 +1249,16 @@ Alertes : BLACKLIST 12
     next.disabled = index === slideCount - 1;
     if (focused === prev && prev.disabled) next.focus();
     if (focused === next && next.disabled) prev.focus();
-    document.body.classList.toggle('dark-context', slide.classList.contains('dark'));
+    document.body.classList.toggle('dark-context', !isPresenter && slide.classList.contains('dark'));
     overviewItems.forEach((button, i) => {
       if (i === index) button.setAttribute('aria-current', 'step');
       else button.removeAttribute('aria-current');
     });
-    notes.querySelector('p').textContent = slide.querySelector('.notes-text').textContent;
     history.replaceState(null, '', '#' + slide.id);
     document.title = slide.dataset.title + ' · SecureLog Engine';
     slideAnnouncement.textContent = `Diapositive ${index + 1} sur ${slideCount}. ${slide.dataset.title}.`;
     updateProgress();
+    updatePresenterState();
   }
 
   function navigate(direction) {
@@ -1151,19 +1286,12 @@ Alertes : BLACKLIST 12
     return button;
   });
 
-  function showNotes(open) {
-    notes.classList.toggle('open', open);
-    notesTrigger.setAttribute('aria-expanded', String(open));
-  }
-
   function showOverview() {
-    showNotes(false);
     overview.showModal();
     overviewItems[index].focus();
   }
 
   function showHelp() {
-    showNotes(false);
     help.showModal();
   }
 
@@ -1183,7 +1311,6 @@ Alertes : BLACKLIST 12
   document.getElementById('overview-close').onclick = () => overview.close();
   document.getElementById('help-trigger').onclick = showHelp;
   document.getElementById('help-close').onclick = () => help.close();
-  notesTrigger.onclick = () => showNotes(!notes.classList.contains('open'));
   fullscreen.onclick = toggleFullscreen;
   fullscreen.hidden = !document.fullscreenEnabled;
   document.addEventListener('fullscreenchange', () => {
@@ -1192,7 +1319,7 @@ Alertes : BLACKLIST 12
 
   window.addEventListener('keydown', event => {
     if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return;
-    if (overview.open || help.open) return; // The browser handles Escape and focus in modal dialogs.
+    if (isPresenter || overview.open || help.open) return; // The browser handles Escape and focus in modal dialogs.
     const key = event.key.toLowerCase();
     if ((key === ' ' || key === 'enter') && event.target.closest?.('button,a')) return;
     if (['arrowright', 'arrowdown', 'pagedown', ' ', 'enter'].includes(key)) {
@@ -1204,7 +1331,7 @@ Alertes : BLACKLIST 12
     } else if (key === 'r' && index === demoIndex) {
       renderDemo(0);
     } else if (key === 'o') showOverview();
-    else if (key === 'n') showNotes(!notes.classList.contains('open'));
+    else if (key === 'n' && !event.repeat) openCompanion(true);
     else if (key === 'f' && !fullscreen.hidden) {
       event.preventDefault();
       if (!event.repeat) toggleFullscreen();
@@ -1212,7 +1339,7 @@ Alertes : BLACKLIST 12
       event.preventDefault();
       go(key === 'home' ? 0 : slideCount - 1);
     } else if (key === '?') showHelp();
-    else if (key === 'escape') showNotes(false);
+
   });
 
   let touch = null;
@@ -1262,9 +1389,250 @@ Alertes : BLACKLIST 12
   window.addEventListener('hashchange', goToHash);
   goToHash();
   deck.dataset.canvas = '';
-  fitCanvas();
-  const canvasObserver = new ResizeObserver(fitCanvas);
-  canvasObserver.observe(document.body);
-  canvasObserver.observe(navigation);
+  if (!isPresenter) {
+    fitCanvas();
+    const canvasObserver = new ResizeObserver(fitCanvas);
+    canvasObserver.observe(document.body);
+    canvasObserver.observe(navigation);
+  }
+  // A dedicated pair of windows keeps separate rehearsals independent.
+  const params = new URLSearchParams(location.search);
+  const inheritedSession = params.get('session');
+  const session = inheritedSession || [...crypto.getRandomValues(new Uint32Array(4))].join('-');
+  const localFile = location.protocol === 'file:';
+  const origin = localFile ? '*' : location.origin;
+  let peer = inheritedSession ? window.opener : null;
+  let connected = false;
+  let renderConsole = () => {};
+  let applyingRemote = false;
+  const byId = id => document.getElementById(id);
+
+  function post(action) {
+    if (!peer || peer.closed) return;
+    peer.postMessage({ session, action, index, demoStep }, origin);
+  }
+
+  function setConnected(value) {
+    connected = value;
+    if (!isPresenter) return;
+    byId('pc-status').classList.toggle('connected', value);
+    byId('pc-status-text').textContent = value
+      ? 'Synchronisé avec les slides'
+      : 'En attente de la projection';
+  }
+
+  function openCompanion(openNotes) {
+    if (peer && !peer.closed) {
+      peer.focus();
+      return;
+    }
+    setConnected(false);
+    const url = new URL(location.href);
+    url.searchParams.set('session', session);
+    if (openNotes) url.searchParams.set('presenter', '1');
+    else url.searchParams.delete('presenter');
+    url.hash = slides[index].id;
+    peer = window.open(url, '_blank', 'popup,width=1440,height=900');
+    if (peer) peer.focus();
+    else alert('Autorisez les fenêtres surgissantes dans votre navigateur, puis réessayez.');
+  }
+
+  window.addEventListener('message', event => {
+    const sameOrigin = event.origin === location.origin || (localFile && event.origin === 'null');
+    if (!peer || event.source !== peer || !sameOrigin) return;
+    const state = event.data;
+    if (!state || state.session !== session) return;
+    if (state.action === 'ready') {
+      setConnected(true);
+      post('state');
+      return;
+    }
+    if (state.action !== 'state' || !Number.isInteger(state.index) ||
+        state.index < 0 || state.index >= slideCount ||
+        !Number.isInteger(state.demoStep) || state.demoStep < 0 ||
+        state.demoStep > stream.length) return;
+    setConnected(true);
+    applyingRemote = true;
+    try {
+      go(state.index);
+      if (index === demoIndex && demoStep !== state.demoStep) renderDemo(state.demoStep);
+    } finally {
+      applyingRemote = false;
+    }
+  });
+
+  updatePresenterState = () => {
+    if (!applyingRemote && connected) post('state');
+    if (isPresenter) renderConsole();
+  };
+
+  notesTrigger.onclick = () => openCompanion(true);
+  if (peer) post('ready');
+  if (isPresenter) initializeConsole();
+
+  function initializeConsole() {
+    const script = JSON.parse(byId('presenter-script').textContent);
+    const fullScript = byId('pc-full-script');
+    const consoleNotes = byId('pc-notes-panel');
+    const noteScroll = byId('pc-note-scroll');
+    const speakerRanges = [
+      { name: 'Lukas', start: 0, end: 6 },
+      { name: 'Sacha', start: 7, end: 12 },
+      { name: 'Jeanne', start: 13, end: 19 },
+    ];
+    const meter = byId('pc-meter-track');
+    const formatTime = seconds => [Math.floor(seconds / 60), seconds % 60]
+      .map(part => String(part).padStart(2, '0')).join(':');
+    const previewStyles = [...document.querySelectorAll('head style:not(#presenter-styles)')]
+      .map(style => style.textContent).join('\n');
+    let renderedIndex = -1;
+    let renderedDemoStep = -1;
+
+    function showPreview(frame, target) {
+      const source = slides[target];
+      const clone = source.cloneNode(true);
+      clone.inert = true;
+      clone.classList.add('is-active');
+      // Prepare the next slide at its initial state, even after a completed replay.
+      if (target === demoIndex && index !== demoIndex) {
+        clone.querySelector('#demo-terminal').replaceChildren();
+        clone.querySelector('#demo-count').textContent = '0 / 8';
+        clone.querySelector('#demo-alerts').textContent = '0';
+        clone.querySelectorAll('#demo-attempts .filled').forEach(item => item.classList.remove('filled'));
+        clone.querySelector('#demo-alert-box b').textContent = 'Aucune alerte';
+        clone.querySelector('#demo-alert-box p').textContent = 'La détection commence au prochain événement.';
+        clone.querySelector('#demo-advance').textContent = 'Révéler un événement';
+      }
+      const dark = source.classList.contains('dark') ? ' dark-context' : '';
+      frame.srcdoc = `<!doctype html><html lang="fr"><meta charset="utf-8">
+        <style>${previewStyles}
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+        </style><body class="app${dark}"><main id="deck" data-canvas>${clone.outerHTML}</main>
+        <scr${'ipt'}>function fit() {
+          document.body.style.setProperty('--canvas-scale', Math.min(innerWidth / 1920, innerHeight / 1080));
+          const log = document.getElementById('demo-terminal');
+          if (log) log.scrollTop = log.scrollHeight;
+        } addEventListener('resize', fit); fit();</scr${'ipt'}></body></html>`;
+    }
+
+    function drawConsole() {
+      const note = script.slides[index];
+      const onDemo = index === demoIndex;
+      if (index !== renderedIndex || (onDemo && demoStep !== renderedDemoStep)) {
+        showPreview(byId('pc-current-frame'), index);
+        renderedDemoStep = demoStep;
+      }
+      byId('pc-demo-step').textContent = `Événement ${demoStep} / ${stream.length}`;
+      byId('pc-demo-controls').hidden = !onDemo;
+      byId('pc-next').textContent = onDemo && demoStep < stream.length ? 'Événement suivant →' : 'Suivante →';
+      if (index === renderedIndex) return;
+      renderedIndex = index;
+      byId('pc-current-count').textContent = `${index + 1} / ${slideCount}`;
+      byId('pc-current-title').textContent = slides[index].dataset.title;
+      byId('pc-current-chapter').textContent = slides[index].dataset.chapter;
+      byId('pc-slide-duration').textContent = formatTime(note.seconds) + ' prévues';
+      byId('pc-speaker').textContent = note.speaker;
+      byId('pc-notes-title').textContent = note.title;
+      const cueStart = script.slides.slice(0, index).reduce((sum, slide) => sum + slide.seconds, 0);
+      byId('pc-note-target').textContent = `${formatTime(cueStart)}–${formatTime(cueStart + note.seconds)}`;
+      byId('pc-speech').innerHTML = note.speech;
+      byId('pc-action').hidden = !note.action;
+      byId('pc-action').textContent = note.action ? 'À faire · ' + note.action : '';
+      noteScroll.scrollTop = 0;
+      byId('pc-prev').disabled = index === 0;
+      byId('pc-next').disabled = index === slideCount - 1;
+      byId('pc-next-card').hidden = index === slideCount - 1;
+      if (index < slideCount - 1) {
+        byId('pc-next-count').textContent = `${index + 2} / ${slideCount}`;
+        byId('pc-next-title').textContent = script.slides[index + 1].title.split(' · ')[1];
+        showPreview(byId('pc-next-frame'), index + 1);
+      }
+      speakerRanges.forEach(({ name, start, end }, i) => {
+        const segment = meter.children[i];
+        const active = index >= start && index <= end;
+        segment.classList.toggle('done', index > end);
+        segment.classList.toggle('current', active);
+        if (active) byId('pc-current-speaker').textContent = `${name} · slides ${start + 1}–${end + 1}`;
+      });
+    }
+
+    speakerRanges.forEach(({ name }) => {
+      const segment = document.createElement('span');
+      segment.title = name + ' · 5 minutes';
+      meter.append(segment);
+    });
+
+    const fontKey = 'securelog-presenter-font';
+    let fontSize = 24;
+    function setFont(size) {
+      fontSize = Math.max(18, Math.min(36, size));
+      consoleNotes.style.setProperty('--pc-notes-font-size', fontSize + 'px');
+      byId('pc-font-size-value').textContent = fontSize + ' px';
+      byId('pc-font-decrease').disabled = fontSize === 18;
+      byId('pc-font-increase').disabled = fontSize === 36;
+      try { localStorage.setItem(fontKey, fontSize); } catch {}
+    }
+    try { fontSize = Number(localStorage.getItem(fontKey)) || fontSize; } catch {}
+    setFont(fontSize);
+
+    let elapsed = 0;
+    let started = null;
+    function drawClock() {
+      const seconds = Math.floor((elapsed + (started === null ? 0 : performance.now() - started)) / 1000);
+      byId('pc-elapsed').textContent = formatTime(seconds);
+      byId('pc-time-box').classList.toggle('overrun', seconds >= 900);
+    }
+    function toggleClock() {
+      if (started === null) {
+        started = performance.now();
+        byId('pc-timer-toggle').textContent = 'Pause';
+      } else {
+        elapsed += performance.now() - started;
+        started = null;
+        byId('pc-timer-toggle').textContent = 'Reprendre';
+      }
+      drawClock();
+    }
+    function toggleNotes() {
+      const hidden = consoleNotes.classList.toggle('is-hidden');
+      byId('pc-notes-toggle').textContent = hidden ? 'Afficher les notes' : 'Masquer les notes';
+    }
+
+    byId('pc-prev').onclick = () => navigate(-1);
+    byId('pc-next').onclick = () => navigate(1);
+    byId('pc-open-projection').onclick = () => openCompanion(false);
+    byId('pc-demo-reset').onclick = () => renderDemo(0);
+    byId('pc-font-decrease').onclick = () => setFont(fontSize - 2);
+    byId('pc-font-reset').onclick = () => setFont(24);
+    byId('pc-font-increase').onclick = () => setFont(fontSize + 2);
+    byId('pc-timer-toggle').onclick = toggleClock;
+    byId('pc-timer-reset').onclick = () => {
+      started = null;
+      elapsed = 0;
+      byId('pc-timer-toggle').textContent = 'Démarrer';
+      drawClock();
+    };
+    byId('pc-notes-toggle').onclick = toggleNotes;
+    byId('pc-full-script-body').innerHTML = script.full;
+    byId('pc-full-script-btn').onclick = () => fullScript.showModal();
+    byId('pc-close-full-script').onclick = () => fullScript.close();
+    window.addEventListener('keydown', event => {
+      if (fullScript.open || event.altKey || event.metaKey || event.ctrlKey) return;
+      const key = event.key.toLowerCase();
+      if (['arrowright', 'arrowleft'].includes(key) || (key === ' ' && !event.target.closest?.('button'))) {
+        event.preventDefault();
+        navigate(key === 'arrowleft' ? -1 : 1);
+      } else if (!event.repeat && key === 't') toggleClock();
+      else if (!event.repeat && key === 'n') toggleNotes();
+      else if (key === 'r' && index === demoIndex) renderDemo(0);
+    });
+    setInterval(() => {
+      drawClock();
+      if (connected && peer.closed) setConnected(false);
+    }, 250);
+    renderConsole = drawConsole;
+    renderConsole();
+  }
+
 })();
 </script></body></html>
