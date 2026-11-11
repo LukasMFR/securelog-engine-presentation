@@ -1,6 +1,6 @@
 # SecureLog Engine · Script de soutenance
 
-**15 minutes chronométrées, rejeu compris.** Les 5 minutes restantes sont réservées à la suite de la présentation. Les temps par slide sont des cibles de répétition, gestes et transitions compris. Les lignes « À faire » indiquent des gestes et restent silencieuses.
+**15 minutes chronométrées, rejeu compris.** Les 5 minutes restantes sont réservées à la suite de la présentation. Les temps par slide sont des cibles de répétition, gestes et transitions compris. Les lignes « À faire » indiquent des gestes et restent silencieuses. Les paragraphes précédés de « Si le temps le permet » se disent si vous êtes en avance sur le créneau affiché.
 
 - **Lukas · slides 01 à 07 · 00:00–05:00** — Du problème au dictionnaire Python.
 - **Sacha · slides 08 à 13 · 05:00–10:00** — Transformations, règles et rejeu SSH.
@@ -26,6 +26,8 @@ La commande affichée à gauche, `python main.py`, lit les deux fichiers fournis
 
 Si les lignes arrivent au fur et à mesure, on peut utiliser le mode de droite. Le tiret indique qu’on lit sur l’entrée standard. Ici, `cat` simule le flux avec les mêmes fichiers. Avec `--stream-alerts`, chaque alerte sort dès sa détection, en JSON. Le bilan va sur la sortie d’erreur à la fin du flux, ce qui permet à un autre programme de lire la sortie standard comme du JSON ligne par ligne.
 
+*Si le temps le permet.* Concrètement, les alertes sortent pendant que le flux est encore ouvert. Le bilan et les fichiers définitifs arrivent à la fin. Cette distinction permet de suivre les détections sans attendre que toute la source soit lue.
+
 ## 04 · Le trajet d’une ligne de log — Lukas — 0:40
 
 Quel que soit le mode choisi, une ligne suit le même parcours. Prenons une ligne d’authentification et suivons le schéma de gauche à droite. L’ingestion la lit et conserve sa provenance. Le filtre écarte les lignes vides et les commentaires. Le parseur extrait les champs et la normalisation donne à la suite du code un format commun.
@@ -44,11 +46,17 @@ L’énoncé demandait explicitement `yield` et `yield from`. Dans le générate
 
 `yield from` délègue cette lecture au générateur du fichier courant. Quand le premier fichier est épuisé, on passe au suivant avec la même interface. Le reste du programme reçoit simplement la ligne suivante du même itérateur.
 
+*Si le temps le permet.* Dans notre exemple, le moteur peut déjà traiter les premières lignes du journal d’authentification alors que le fichier réseau n’a même pas encore été ouvert. C’est ce que permet cette lecture à la demande.
+
 ## 07 · Un dictionnaire par événement — Lukas — 0:50
 
 Une fois la ligne lue, il faut donner un sens à son contenu. On accepte deux formats, celui avec des barres verticales à gauche et l’objet JSON à droite. Dans les deux cas, on vérifie les champs et on construit un dictionnaire Python. On convertit l’horodatage en `datetime`, on valide l’IP source et on conserve l’utilisateur et le type d’événement. Pour la sévérité, on retrouve les quatre valeurs de l’énoncé, INFO, WARNING, ERROR et CRITICAL.
 
-Le `payload` peut être du texte, un objet JSON ou une liste décrivant une connexion. On valide cette liste puis on la convertit en tuple immuable, avec une IP, un port entier et un protocole. On garde ces trois champs ensemble dans un ordre fixe. Sacha va maintenant vous montrer comment on exploite ces événements.
+Le `payload` peut être du texte, un objet JSON ou une liste décrivant une connexion. On valide cette liste puis on la convertit en tuple immuable, avec une IP, un port entier et un protocole. On garde ces trois champs ensemble dans un ordre fixe.
+
+*Si le temps le permet.* Sur l’exemple de gauche, le niveau est écrit en minuscules dans le journal. Dans le dictionnaire, il est déjà devenu INFO. La suite du traitement peut ainsi compter le même niveau sous une seule forme.
+
+Sacha va maintenant vous montrer comment on exploite ces événements.
 
 ## 08 · Filtrage et normalisation des événements — Sacha — 0:55
 
@@ -70,17 +78,23 @@ Pour savoir quelles adresses apparaissent dans les journaux, on tient deux ensem
 
 Regardons ce que donne la comparaison avec la liste noire. L’intersection trouve les deux IP qu’on a effectivement observées et qui figurent dans la liste. L’union donne les sept adresses distinctes au total. La différence donne les quatre IP actives hors de la liste. La différence symétrique retient les cinq adresses qui ne figurent que d’un côté.
 
+*Si le temps le permet.* Le diagramme montre aussi une adresse qui figure dans la blacklist mais qui n’apparaît dans aucun événement valide. Elle compte dans l’union et dans la différence symétrique. Elle ne produit aucune alerte sur ce jeu de données.
+
 ## 11 · Trois règles dans un même moteur — Sacha — 0:45
 
 Les statistiques décrivent ce qu’on observe. Pour décider quoi signaler, on confie chaque événement à des règles. Comme demandé dans l’énoncé, on passe chaque fonction comme une valeur. `apply_security_rules` reçoit les fonctions dans `*args` et les appelle une par une. `**kwargs` reçoit le log et les paramètres nommés, dont le seuil, réglable avec `--threshold`.
 
 On peut donc ajouter une règle dans l’appel en gardant la même boucle d’exécution. Aujourd’hui, on cherche les séries d’échecs, les adresses de la blacklist et les événements critiques. Chaque fonction prend sa propre décision. Par exemple, un événement critique provenant d’une IP sur liste noire peut déclencher deux alertes.
 
+*Si le temps le permet.* Dans les logs réseau, on a justement un événement critique qui provient d’une adresse sur la liste noire. Le moteur enregistre les deux raisons de le signaler, ce qui explique qu’on puisse avoir plus d’une alerte pour une ligne.
+
 ## 12 · Le cinquième échec déclenche l’alerte — Sacha — 0:55
 
 Prenons la règle de force brute. Elle a besoin de se souvenir des tentatives précédentes, donc on les suit par couple IP et utilisateur. Un échec sur le compte de Bob ne prolonge donc pas la série d’admin. Par défaut, cinq échecs consécutifs pour un même couple forment un bloc et produisent une alerte. Sur la ligne de Bob, la connexion réussie coupe la série, donc ses deux groupes d’échecs ne s’additionnent pas.
 
 Dans le code, cette logique s’appuie sur les deux boucles demandées dans l’énoncé. Le `while` lance la vérification quand le seuil est atteint ou qu’un succès arrive. Le `for` retire les tentatives une à une. Un échec fait `continue`. Un succès fait `break`. Le `else` du `for` s’exécute seulement si la boucle termine sans `break`. C’est là qu’on émet l’alerte et que le bloc est consommé.
+
+*Si le temps le permet.* Le bloc est retiré de l’historique après l’alerte. Au seuil par défaut, dix échecs consécutifs pour le même couple donnent donc deux alertes, une par bloc de cinq.
 
 ## 13 · Une alerte au cinquième échec SSH — Sacha — 1:05
 
@@ -108,17 +122,23 @@ On peut examiner ce bilan dans trois fichiers. `summary.json` donne la vue d’e
 
 Le troisième fichier, `audit.json`, sert à comprendre l’état du programme lui-même. C’est là qu’on utilise l’introspection demandée. `globals()` donne accès à la portée du module et `locals()` à celle de la fonction. On en extrait les noms, les types et parfois le nombre d’éléments. Pour le débogage, on peut ainsi vérifier que la blacklist chargée est bien un `frozenset` de trois éléments. Le rapport exporte seulement ces métadonnées.
 
+*Si le temps le permet.* Le format JSONL est pratique si un autre outil doit reprendre les alertes. Il peut lire un objet à la fois, et chaque objet lui donne de quoi retrouver l’événement dans le journal.
+
 ## 16 · La suite de tests du moteur — Jeanne — 0:40
 
 Pour vérifier d’autres cas que la démo, on a quarante-cinq tests automatisés, dont plusieurs sur la force brute. Ils vérifient les deux cent cinquante-six suites possibles de huit réussites ou échecs, avec des seuils de un à cinq. Ça couvre des cas comme un succès juste avant le seuil.
 
 On teste aussi les entrées invalides, la ligne de commande et la restauration des résultats après un échec de publication. Les annotations de types décrivent les données attendues et le rapport documente le contrôle du style PEP 8.
 
+*Si le temps le permet.* Parmi ces tests, il y en a un qui laisse l’entrée standard ouverte et attend de recevoir une alerte. Ça vérifie que le mode flux se comporte bien comme on l’a présenté au début.
+
 ## 17 · Le pic mémoire reste proche de 68 Ko — Jeanne — 0:45
 
 Pour vérifier la contrainte mémoire, on a mesuré le pic des allocations suivies par `tracemalloc`. Dans le graphique, on passe de dix mille à un million de lignes avec le même couple IP et utilisateur. Il faut davantage de temps pour parcourir le fichier, mais le pic mesuré reste proche de soixante-huit kilo-octets. Cette mesure porte sur les allocations suivies par Python pendant l’essai.
 
 Avec dix mille couples distincts, le pic monte à environ dix-sept mégaoctets. Les générateurs évitent de conserver toutes les lignes, mais les compteurs, les ensembles et les historiques en cours prennent de la place.
+
+*Si le temps le permet.* À un million de lignes, le fichier fait cinquante-neuf mégaoctets et le moteur produit deux cent mille alertes. Elles sont écrites sur disque au fil du traitement, ce qui évite de les accumuler en mémoire.
 
 ## 18 · Les cas limites traités par le moteur — Jeanne — 0:40
 
@@ -134,8 +154,8 @@ Une évolution serait de compter les échecs dans une fenêtre glissante, avec d
 
 ## 20 · Ce que révèle un fichier de logs — Jeanne — 0:45
 
-On a commencé avec deux journaux fictifs et une question simple. Qu’est-ce qui mérite qu’on s’arrête sur une ligne ou qu’on regarde les événements qui la précèdent ?
+Ce qui nous a le plus intéressés dans ce projet, c’est de voir comment on passe d’un journal difficile à lire à des événements qu’on peut examiner. On a choisi comment lire les fichiers, comment repérer une série d’échecs, puis on a vérifié ces choix avec les tests.
 
-Ce qui nous a plu dans le projet, c’est de voir comment des choix Python très concrets finissent par changer ce qu’on est capable de repérer dans un journal. Comme on s’oriente vers la cybersécurité, on aimerait prolonger l’essai sur des journaux de labo, avec une fenêtre de temps, pour voir si les alertes aident vraiment à décider quoi examiner en premier.
+Comme on s’oriente vers la cybersécurité, on aimerait pousser le projet un peu plus loin. On commencerait par essayer la fenêtre de temps sur des journaux de labo. On pourrait alors comparer les alertes et voir lesquelles aident vraiment à savoir où regarder en premier.
 
 Merci pour votre attention.
