@@ -134,8 +134,6 @@ Une évolution serait de compter les échecs dans une fenêtre glissante, avec d
 
 ## 20 · Ce que révèle un fichier de logs — Jeanne — 0:45
 
-Revenons à l’alerte sur le compte admin. On peut retrouver la ligne qui l’a déclenchée, expliquer pourquoi la règle a réagi et vérifier son comportement sur d’autres séries de connexions.
-
 Ce qui nous a plu dans le projet, c’est de voir comment des choix Python très concrets finissent par changer ce qu’on est capable de repérer dans un journal. Comme on s’oriente vers la cybersécurité, on aimerait prolonger l’essai sur des journaux de labo, avec une fenêtre de temps, pour voir si les alertes aident vraiment à décider quoi examiner en premier.
 
 Merci pour votre attention.
